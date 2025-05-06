@@ -50,7 +50,7 @@
 ///
 //Main
 #define	SAVEPATH						"Save\\Beta2\\"
-#define DATAUPDATE						14					//Update tag variables to auto-update data structure in expandedsave files 
+#define DATAUPDATE						15					//Update tag variables to auto-update data structure in expandedsave files 
 															//See interface\\data\\default.ini
 
 //#define DIRECTIONALINPUT								//Use keys to move character
@@ -84,7 +84,7 @@
 //Counter
 ////
 #define MAXMONSTERS						1000			//Number of monsters to register from the monstats.txt file
-#define MAXCLASSES						20				//Number of extra character classes in the D2Non expansions
+#define MAXCLASSES						23				//Number of extra character classes in the D2Non expansions
 #define MAXIGNORE						17476			//Maximum amount of units to ignore
 
 #define MAXLADDER						1000			//Maximum players on the ladder.  Do not edit

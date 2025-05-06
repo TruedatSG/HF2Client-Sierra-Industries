@@ -271,9 +271,38 @@ VOID SetInfoText(INT iInfoGroup, INT iInfoId, INT iSelectedPage)
 			if (V_Class[19] != 1138) { V_PlayerInfoTextStrR21 = V_ClassStr[0]; }
 			else { V_PlayerInfoTextStrR21 = V_ClassStr[20 + 7]; }
 		}
+		//Classes Cont.
+		if (iInfoId == 4)
+		{
+			if (V_Class[20] != 1863) { V_PlayerInfoTextStrR1 = V_ClassStr[0]; }
+			else { V_PlayerInfoTextStrR1 = V_ClassStr[21 + 7]; }
+			if (V_Class[21] != 4837) { V_PlayerInfoTextStrR2 = V_ClassStr[0]; }
+			else { V_PlayerInfoTextStrR2 = V_ClassStr[22 + 7]; }
+			if (V_Class[22] != 3371) { V_PlayerInfoTextStrR3 = V_ClassStr[0]; }
+			else { V_PlayerInfoTextStrR3 = V_ClassStr[23 + 7]; }
+
+			V_PlayerInfoTextStrR4 = "";
+			V_PlayerInfoTextStrR5 = "";
+			V_PlayerInfoTextStrR6 = "";
+			V_PlayerInfoTextStrR7 = "";
+			V_PlayerInfoTextStrR8 = "";
+			V_PlayerInfoTextStrR9 = "";
+			V_PlayerInfoTextStrR10 = "";
+			V_PlayerInfoTextStrR11 = "";
+			V_PlayerInfoTextStrR12 = "";
+			V_PlayerInfoTextStrR13 = "";
+			V_PlayerInfoTextStrR14 = "";
+			V_PlayerInfoTextStrR15 = "";
+			V_PlayerInfoTextStrR16 = "";
+			V_PlayerInfoTextStrR17 = "";
+			V_PlayerInfoTextStrR18 = "";
+			V_PlayerInfoTextStrR19 = "";
+			V_PlayerInfoTextStrR20 = "";
+			V_PlayerInfoTextStrR21 = "";
+		}
 
 		//Travel
-		if (iInfoId == 4)
+		if (iInfoId == 5)
 		{
 			std::string AreaChangedStr = V_ChangedAreaStr;
 			std::string PortalStr = V_PortalsTakenStr;

@@ -105,7 +105,7 @@ VOID SetInfoMenuVars()
 	V_EquipArmorStr[0] = NULL;
 	V_EquipMiscStr[0] = NULL;
 
-	for (INT i = 0; i < 27; i++)
+	for (INT i = 0; i < 30; i++)
 	{
 		V_ClassStr[i][0] = NULL;
 	}
@@ -314,6 +314,14 @@ VOID SetInfoVars()
 			V_MonsterUnit[0][i] = 0;
 			V_MonsterUnit[1][i] = 0;
 			V_MonsterUnit[2][i] = 0;
+		}
+	}
+	if (V_LoadUpdate < 16)
+	{
+		//Update11
+		for (INT i = 0; i < MAXCLASSES; i++)
+		{
+			V_Class[i] = 0;
 		}
 	}
 }

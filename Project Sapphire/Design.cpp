@@ -2859,6 +2859,8 @@ BOOL Design::GoldMeter()
 		TextHook(ThisMouseOverBoxX + 2, ThisMouseOverTextY, 0, 0, 6, -1, Gold);
 	}
 
+	TextHook(BoxX + 60, BoxY + 28, 1, 0, 0, 1, "[ ÿc4Gold: %sÿc1 ]", AddCommas(InventoryGold, 0));
+
 	return TRUE;
 }
 
@@ -4793,6 +4795,7 @@ VOID Design::AdvanceClasses()
 
 	DWORD FLAG = GetUnitStat(Me, STAT_MAXMAGICRESIST);
 
+	//Wings of the Goddess
 	if (FLAG == 1)
 	{
 		DrawClassBlock(274, 72);
@@ -4912,6 +4915,25 @@ VOID Design::AdvanceClasses()
 		DrawClassBlock(274, 72);
 		V_Design->TextHook(329, 85, 0, 0, 1, 1, V_ClassStr[20 + 7]);
 		V_Class[19] = 1138;
+	}
+	//New Sands of Calypso
+	else if (FLAG == 17)
+	{
+		DrawClassBlock(274, 72);
+		V_Design->TextHook(329, 85, 0, 0, 1, 1, V_ClassStr[21 + 7]);
+		V_Class[20] = 1863;
+	}
+	else if (FLAG == 18)
+	{
+		DrawClassBlock(274, 72);
+		V_Design->TextHook(329, 85, 0, 0, 1, 1, V_ClassStr[22 + 7]);
+		V_Class[21] = 4837;
+	}
+	else if (FLAG == 19)
+	{
+		DrawClassBlock(274, 72);
+		V_Design->TextHook(329, 85, 0, 0, 1, 1, V_ClassStr[23 + 7]);
+		V_Class[22] = 3371;
 	}
 	return;
 }
