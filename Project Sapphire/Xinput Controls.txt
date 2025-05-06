@@ -1,0 +1,31 @@
+[XBOX One Controller Layout]
+
+A - Select Cursor (Left Click)
+X - Use Skill, Use Item (Right Click)
+Y - Run/Walk (R)
+B - Main Menu (Esc)
+Left Shoulder - Slow Cursor
+Right Shoulder - Stand Still (Shift)
+Left Shoulder + Right Shoulder - View Loot/Slow Cursor / Release Alt (Alt)
+Left Shoulder + Right Shoulder + Start - Unused (9)
+Left Shoulder + Right Shoulder + Back - Minimize Window (Alt + Esc)
+Left Shoulder + Start - Show Mercenary [Exp] (O)
+Right Shoulder + Start - Party (P)
+Left Shoulder + Y - Switch Weapons [Exp] (W)
+Start - Show Loot (Hold Alt)
+Back - Automap (Tab)
+Directional Pad - Move Cursor
+Left Joystick - Scroll Automap (Arrow Keys)
+Right Joystick  - Heal (1, 2, 3, 4)
+Left Joystick + Start - Scroll Faster [Character Select] (Arrow Keys)
+Right Joystick + Left Shoulder (Down) - Previous Skill (X*)
+Right Joystick + Left Shoulder (Up) - Next Skill (Space*)
+Right Joystick + Left Shoulder (Left) - Game Menu (G)
+Right Joystick + Left Shoulder (Right) - Unused (U)
+Right Joystick + Left Shoulder + Right Shoulder - Unused (5, 6, 7, 8)
+Left Joystick + Left Shoulder - Skill Tree, Inventory, Stats, Quest (T, I, C, Q)
+Left Joystick + Right Shoulder - Skill Macros (F1 - F8)
+
+Warning: Game experience might change with a controller.  Hardcore characters cannot be played after they die.
+
+* These keys need to be assigned using the keyboard

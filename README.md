@@ -38,11 +38,20 @@ Here are a list of upgrades from D2Non (Sierra Industries):
 -Key Items (These are mostly made of the modules from Project 1.0, others are visual,
 some are collectable)
 -Calculus (Design features from ANDy that perform and display simple math)
+-Xinput
 
 The code is about 95% complete with some pointers and patches missing, not working, untested.
 
 Todo
 
-More quests and key items
-Fix the patches that aren't working
+More quests and key items,
+Fix the patches that aren't working,
 Remove unused features (such as the godmode that may never work in 1.13d)
+
+Xinput
+
+It is now possible to play Legacy Diablo II with an Xbox controller, I spent hours testing
+and improving the controller layout.  It took about 3 years to accomplish this (testing taking
+the majority of time spent working on this plugin).
+
+
