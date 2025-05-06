@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AI Common.cpp" />
+    <ClCompile Include="AI Move.cpp" />
+    <ClCompile Include="Aim.cpp" />
+    <ClCompile Include="Common Math.cpp" />
+    <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="Copy and Paste.cpp" />
+    <ClCompile Include="D2 Stdio.cpp" />
+    <ClCompile Include="D2 Stubs.cpp" />
+    <ClCompile Include="Design.cpp" />
+    <ClCompile Include="Dupe.cpp" />
+    <ClCompile Include="Enchant.cpp" />
+    <ClCompile Include="Escape.cpp" />
+    <ClCompile Include="Game Filter.cpp" />
+    <ClCompile Include="Godmode.cpp" />
+    <ClCompile Include="Hack.cpp" />
+    <ClCompile Include="Handlers.cpp" />
+    <ClCompile Include="Helpers.cpp" />
+    <ClCompile Include="HF2 CDKey.cpp" />
+    <ClCompile Include="HF2 Data.cpp" />
+    <ClCompile Include="HF2 Draw.cpp" />
+    <ClCompile Include="HF2 ExtLevels.cpp" />
+    <ClCompile Include="HF2 Handlers.cpp" />
+    <ClCompile Include="HF2 Helpers.cpp" />
+    <ClCompile Include="HF2 Info.cpp" />
+    <ClCompile Include="HF2 KeyItems.cpp" />
+    <ClCompile Include="HF2 Ladder.cpp" />
+    <ClCompile Include="HF2 Quest.cpp" />
+    <ClCompile Include="HF2 Xinput.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Message.cpp" />
+    <ClCompile Include="Miscellaneous.cpp" />
+    <ClCompile Include="Offset.cpp" />
+    <ClCompile Include="Packet Received.cpp" />
+    <ClCompile Include="Packet Sent.cpp" />
+    <ClCompile Include="Patch Stubs.cpp" />
+    <ClCompile Include="Potion.cpp" />
+    <ClCompile Include="Reveal.cpp" />
+    <ClCompile Include="Rogue.cpp" />
+    <ClCompile Include="Skill.cpp" />
+    <ClCompile Include="Speed.cpp" />
+    <ClCompile Include="String Hash.cpp" />
+    <ClCompile Include="Teleport.cpp" />
+    <ClCompile Include="Threads.cpp" />
+    <ClCompile Include="Travel.cpp" />
+    <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="Vectors.cpp" />
+    <ClCompile Include="Winamp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AI Common.h" />
+    <ClInclude Include="AI Move.h" />
+    <ClInclude Include="Aim.h" />
+    <ClInclude Include="Array Ex.h" />
+    <ClInclude Include="Common Math.h" />
+    <ClInclude Include="Configuration.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Copy and Paste.h" />
+    <ClInclude Include="D2 Pointers.h" />
+    <ClInclude Include="D2 Stdio.h" />
+    <ClInclude Include="D2 Structs.h" />
+    <ClInclude Include="D2 Stubs.h" />
+    <ClInclude Include="Design.h" />
+    <ClInclude Include="Dupe.h" />
+    <ClInclude Include="Enchant.h" />
+    <ClInclude Include="Escape.h" />
+    <ClInclude Include="External Settings.h" />
+    <ClInclude Include="Game Filter.h" />
+    <ClInclude Include="Godmode.h" />
+    <ClInclude Include="Hack.h" />
+    <ClInclude Include="Handlers.h" />
+    <ClInclude Include="Helpers.h" />
+    <ClInclude Include="HF2 CDKey.h" />
+    <ClInclude Include="HF2 Data Tables.h" />
+    <ClInclude Include="HF2 Data.h" />
+    <ClInclude Include="HF2 Draw.h" />
+    <ClInclude Include="HF2 ExtLevels.h" />
+    <ClInclude Include="HF2 Handlers.h" />
+    <ClInclude Include="HF2 Helpers.h" />
+    <ClInclude Include="HF2 Info.h" />
+    <ClInclude Include="HF2 KeyItems.h" />
+    <ClInclude Include="HF2 Ladder.h" />
+    <ClInclude Include="HF2 Quest.h" />
+    <ClInclude Include="HF2 Structs.h" />
+    <ClInclude Include="HF2 Xinput.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Message.h" />
+    <ClInclude Include="Miscellaneous.h" />
+    <ClInclude Include="Offset.h" />
+    <ClInclude Include="Packet Received.h" />
+    <ClInclude Include="Packet Sent.h" />
+    <ClInclude Include="Patch Stubs.h" />
+    <ClInclude Include="Patch.h" />
+    <ClInclude Include="Potion.h" />
+    <ClInclude Include="Reveal.h" />
+    <ClInclude Include="Rogue.h" />
+    <ClInclude Include="Settings.h" />
+    <ClInclude Include="Skill.h" />
+    <ClInclude Include="Speed.h" />
+    <ClInclude Include="String Hash.h" />
+    <ClInclude Include="SyncObj.h" />
+    <ClInclude Include="Teleport.h" />
+    <ClInclude Include="Threads.h" />
+    <ClInclude Include="Travel.h" />
+    <ClInclude Include="Unit.h" />
+    <ClInclude Include="Vars.h" />
+    <ClInclude Include="Vectors.h" />
+    <ClInclude Include="Winamp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rogue.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BF4CDA19-DF6F-457D-9DAA-75D0389C2776}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\boost_1_55_0;$(IncludePath)</IncludePath>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">HF2Client</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;HACK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;HACK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

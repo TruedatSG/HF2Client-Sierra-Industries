@@ -1,0 +1,1 @@
+VOID SetInfoText(INT iInfoGroup, INT iInfoId, INT iSelectedPage);

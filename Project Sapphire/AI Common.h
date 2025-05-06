@@ -1,0 +1,1 @@
+BOOL ClickMap(DWORD dwClickType, INT wX, INT wY, BOOL bShift, LPUNITANY pUnit);

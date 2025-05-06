@@ -1,0 +1,20 @@
+#define DIRECTION_NONE		0
+#define DIRECTION_NORTH		1
+#define DIRECTION_SOUTH		2
+#define DIRECTION_EAST		3
+#define DIRECTION_WEST		4
+#define DIRECTION_NEAST		5
+#define DIRECTION_NWEST		6
+#define DIRECTION_SEAST		7
+#define DIRECTION_SWEST		8
+
+BOOL MoveToQueue(WORD X, WORD Y);
+
+BOOL WalkToQueue(WORD X1, WORD Y1);
+BOOL TeleportToQueue(WORD X1, WORD Y1);
+
+BOOL WalkTo(DWORD X, DWORD Y);
+BOOL TeleportTo(WORD X, WORD Y);
+
+LPUNITANY GetWaypoint();
+BOOL GetPortalspotA1();
