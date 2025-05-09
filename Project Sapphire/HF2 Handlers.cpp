@@ -105,7 +105,7 @@ VOID SetInfoMenuVars()
 	V_EquipArmorStr[0] = NULL;
 	V_EquipMiscStr[0] = NULL;
 
-	for (INT i = 0; i < 30; i++)
+	for (INT i = 0; i < MAXCLASSES + 7; i++)
 	{
 		V_ClassStr[i][0] = NULL;
 	}

@@ -1382,7 +1382,7 @@ BOOL Design::Gold() //Credits to Ruby
 		V_GainedGold = 0;
 
 	INT InventoryGold = GetUnitStat(Me, STAT_GOLD);
-	INT LevelInventoryGold = GetGold(GetUnitStat(Me, STAT_LEVEL));
+	INT LevelInventoryGold = GetGold(GetUnitStat(Me, STAT_LEVEL) + (55535 * GetUnitStat(Me, STAT_LEVEL))); // Updated belt size adds 55535 per level
 	INT GoldPercent = CalcPercent(InventoryGold, LevelInventoryGold);
 	V_GainedGold = TotalGold - V_StartingGold;
 	INT Belt = TotalGold / LevelInventoryGold;
@@ -2397,11 +2397,11 @@ BOOL Design::GoldMeter()
 
 	INT TotalGold = GetUnitStat(Me, STAT_GOLD) + GetUnitStat(Me, STAT_GOLDBANK);
 
-	INT InventoryGold = GetUnitStat(Me, STAT_GOLD);
+	INT InventoryGold = GetUnitStat(Me, STAT_GOLD + (55535 * GetUnitStat(Me, STAT_LEVEL))); // Updated belt size is 65535 per level
 	INT LevelInventoryGold = GetGold(GetUnitStat(Me, STAT_LEVEL));
 	INT GoldPercent = CalcPercent(InventoryGold, LevelInventoryGold);
 
-	INT GoldMax = 16777214;
+	INT GoldMax = 16777214; // Updated stash size is 16777214
 	INT TotalGoldMax = LevelInventoryGold + GoldMax; 
 
 	BoxHook(BoxX, BoxY, BoxWidth, MeterHeight, 256, 5, 0);
@@ -2859,7 +2859,7 @@ BOOL Design::GoldMeter()
 		TextHook(ThisMouseOverBoxX + 2, ThisMouseOverTextY, 0, 0, 6, -1, Gold);
 	}
 
-	TextHook(BoxX + 60, BoxY + 28, 1, 0, 0, 1, "[ ÿc4Gold: %sÿc1 ]", AddCommas(InventoryGold, 0));
+	TextHook(BoxX + 60, BoxY + 28, 1, 0, 0, 1, "[ ÿc2Gold: %d%%ÿc1 ]", GoldPercent);
 
 	return TRUE;
 }
