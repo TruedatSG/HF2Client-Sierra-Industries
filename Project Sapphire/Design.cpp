@@ -2397,7 +2397,7 @@ BOOL Design::GoldMeter()
 
 	INT TotalGold = GetUnitStat(Me, STAT_GOLD) + GetUnitStat(Me, STAT_GOLDBANK);
 
-	INT InventoryGold = GetUnitStat(Me, STAT_GOLD + (55535 * GetUnitStat(Me, STAT_LEVEL))); // Updated belt size is 65535 per level
+	INT InventoryGold = GetUnitStat(Me, STAT_GOLD) + (55535 * GetUnitStat(Me, STAT_LEVEL)); // Updated belt size is 65535 per level
 	INT LevelInventoryGold = GetGold(GetUnitStat(Me, STAT_LEVEL));
 	INT GoldPercent = CalcPercent(InventoryGold, LevelInventoryGold);
 
