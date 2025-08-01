@@ -402,6 +402,14 @@ BOOL LoadKeyItems()
 		sprintf_s(Key, "KeyItemG%d", i);
 		GetPrivateProfileStringA("Keyitem", Key, NULL, Returned, sizeof(Returned), File);
 		V_HaveKeyItemExp7[i] = Integer(Returned);
+
+		sprintf_s(Key, "KeyItemH%d", i);
+		GetPrivateProfileStringA("Keyitem", Key, NULL, Returned, sizeof(Returned), File);
+		V_HaveKeyItemExp8[i] = Integer(Returned);
+
+		sprintf_s(Key, "KeyItemI%d", i);
+		GetPrivateProfileStringA("Keyitem", Key, NULL, Returned, sizeof(Returned), File);
+		V_HaveKeyItemExp9[i] = Integer(Returned);
 	}
 
 	return TRUE;

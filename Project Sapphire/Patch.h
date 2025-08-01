@@ -33,7 +33,7 @@ PATCH Patches[] =
    {PatchBytes,   DLLOFFSET(D2CLIENT,      0x29573),   (DWORD)INST_NOP,                  6,   INGAME}, //updated 1.13d
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x2DEED),   (DWORD)ItemBasicStatSTUB,            5,   INGAME}, //updated 1.13d
    {PatchCall,      DLLOFFSET(D2CLIENT,      0x96736),   (DWORD)ItemNameSTUB,               6,   INGAME}, //updated 1.13d
-//{PatchBytes,   DLLOFFSET(D2CLIENT,      0xA74C4),   (DWORD)LeftClickAllSkills,            1,   INGAME}, //updated 1.13d
+   {PatchBytes,   DLLOFFSET(D2CLIENT,      0xA74C4),   (DWORD)LeftClickAllSkills,            1,   INGAME}, //updated 1.13d
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x61E70),   (DWORD)LoadAutomapLayerFromFileSTUB,   6,   INGAME},
    {PatchCall,      DLLOFFSET(D2CLIENT,      0x45280),   (DWORD)LoopSTUB,                  7,   INGAME}, //updated 1.13d
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x7D8A8),   (DWORD)MessageLogSTUB1,               5,   INGAME},
@@ -45,7 +45,6 @@ PATCH Patches[] =
    {PatchCall,      DLLOFFSET(D2CLIENT,      0x3A965),   (DWORD)OnGameKeyDownSTUB,            7,   INGAME}, //updated 1.13d
    {PatchCall,      DLLOFFSET(D2CLIENT,      0x83301),   (DWORD)OnGamePacketReceivedSTUB,      5,   INGAME}, //updated 1.13d
    {PatchJmp,      DLLOFFSET(D2CLIENT,      0xD13C),   (DWORD)OnGamePacketSentSTUB,         6,   INGAME}, //updated 1.13d
-   //{PatchJmp,      DLLOFFSET(D2CLIENT,      0xD252),   (DWORD)OnGamePacketSentSTUB,         6,   MPGAME}, //test 1.13
    {PatchCall,      DLLOFFSET(D2CLIENT,      0x29560),   (DWORD)OnUseSkillSTUB,               5,   INGAME}, //updated 1.13d
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x2B425),   (DWORD)OutTownSelectSTUB1,            6,   INGAME}, //updated 1.13d
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x631E1),   (DWORD)OutTownSelectSTUB2,            6,   INGAME}, //updated 1.13d
@@ -87,10 +86,10 @@ PATCH Patches[] =
    //{PatchCall,      DLLOFFSET(D2WIN,      0x12C68),   (DWORD)LifeBarSTUB,                  6,   INGAME},
    {PatchCall,      DLLOFFSET(D2WIN,      0x12480),   (DWORD)MonsterLifeBarNameSTUB,         6,   INGAME}, //updated 1.13d
    //{PatchCall,      DLLOFFSET(D2WIN,      0x17740),   (DWORD)WindowProcSTUB,               5,   INGAME},
-   //{PatchCall,      DLLOFFSET(D2WIN,      0xEC61),   (DWORD)WinDrawSTUB,                  5,   OUTGAME}, //updted 1.13d
+   {PatchCall,      DLLOFFSET(D2WIN,      0xEC61),   (DWORD)WinDrawSTUB,                  5,   OUTGAME}, //updted 1.13d
 
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x8450E), (DWORD)GameStart, 5, OUTGAME}, // Overrides  call    D2Common_GetActNoByLevelNo_10864
-   //{PatchJmp,      DLLOFFSET(D2WIN, -10054), (DWORD)GameEnd, 5, INGAME},
+   {PatchJmp,      DLLOFFSET(D2WIN, -10054), (DWORD)GameEnd, 5, INGAME},
 
    //{PatchCall,      DLLOFFSET(D2WIN,      0xEC68), (DWORD)GameDrawOOG_Intercept,			5, OUTGAME},
    //{PatchJmp,      DLLOFFSET(D2CLIENT,      0x1D7B4), (DWORD)GameDraw_InterceptSTUB,			6,	INGAME}

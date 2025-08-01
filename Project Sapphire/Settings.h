@@ -72,7 +72,7 @@
 #define DELAYLOBBY						0				//Amount of time to pause in the lobby
 
 //Ratings
-#define LOSERANK										//Players will lose ranks depending on win/loss rating
+//#define LOSERANK										//Players will lose ranks depending on win/loss rating
 #define GAMEDRAWMIN						30				//Game Draw after how long
 #define GAMEWINMIN						120				//Game Win after how long
 

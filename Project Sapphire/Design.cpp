@@ -428,7 +428,10 @@ BOOL Design::Missiles()
 	if (Hide)
 		return FALSE;
 
-	if (((!V_ToggleKeyItem[1][7] || V_HaveKeyItemExp8[1] != 8763) && !V_Missiles) || !ClientReady(FALSE))
+	if(!V_Missiles)
+		return FALSE;
+
+	if(!ClientReady(FALSE))
 		return FALSE;
 
 	for (LPROOM1 Room = Me->pAct->pRoom1; Room; Room = Room->pRoomNext)

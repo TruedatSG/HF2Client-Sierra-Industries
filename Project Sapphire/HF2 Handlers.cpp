@@ -298,7 +298,7 @@ VOID SetInfoVars()
 	if (V_LoadUpdate < 14)
 	{
 		//Update9b + 13
-		for (INT i = 0; i < 7; i++)
+		for (INT i = 0; i < 9; i++)
 		{
 			for (INT j = 0; j < MAXKEYITEMS; j++)
 			{

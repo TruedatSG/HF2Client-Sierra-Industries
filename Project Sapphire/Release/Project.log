@@ -7,67 +7,67 @@
   D2 Stdio.cpp
   D2 Stubs.cpp
   Design.cpp
-Design.cpp(3952): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(3952): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(3952): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(3952): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4066): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4066): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4066): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4066): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4156): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4156): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4156): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4156): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4246): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4246): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4246): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4246): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4336): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4336): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4336): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4336): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4426): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4426): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4426): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4426): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4523): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4523): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4523): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4523): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4633): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4633): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4633): warning C4018: '>=' : signed/unsigned mismatch
-Design.cpp(4633): warning C4018: '<=' : signed/unsigned mismatch
-Design.cpp(4729): warning C4244: 'argument' : conversion from 'INT64' to 'DWORD', possible loss of data
-Design.cpp(4729): warning C4244: 'argument' : conversion from 'INT64' to 'DWORD', possible loss of data
-Design.cpp(4755): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(4761): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(5891): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(5906): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(5921): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(5936): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(5951): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(5966): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(5981): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(5996): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6011): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6026): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6041): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6056): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6071): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6086): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6101): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6116): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6131): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6146): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6161): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6176): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6191): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6206): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6221): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6236): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
-Design.cpp(6251): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(3955): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(3955): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(3955): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(3955): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4069): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4069): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4069): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4069): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4159): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4159): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4159): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4159): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4249): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4249): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4249): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4249): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4339): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4339): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4339): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4339): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4429): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4429): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4429): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4429): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4526): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4526): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4526): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4526): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4636): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4636): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4636): warning C4018: '>=' : signed/unsigned mismatch
+Design.cpp(4636): warning C4018: '<=' : signed/unsigned mismatch
+Design.cpp(4732): warning C4244: 'argument' : conversion from 'INT64' to 'DWORD', possible loss of data
+Design.cpp(4732): warning C4244: 'argument' : conversion from 'INT64' to 'DWORD', possible loss of data
+Design.cpp(4758): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(4764): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(5894): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(5909): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(5924): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(5939): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(5954): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(5969): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(5984): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(5999): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6014): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6029): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6044): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6059): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6074): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6089): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6104): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6119): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6134): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6149): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6164): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6179): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6194): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6209): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6224): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6239): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
+Design.cpp(6254): warning C4244: 'argument' : conversion from 'INT64' to 'DOUBLE', possible loss of data
   Dupe.cpp
   Enchant.cpp
   Escape.cpp
@@ -108,10 +108,10 @@ HF2 ExtLevels.cpp(10): warning C4244: 'return' : conversion from 'DWORD' to 'BYT
   HF2 Xinput.cpp
   Hack.cpp
   Handlers.cpp
-Handlers.cpp(507): warning C4018: '>=' : signed/unsigned mismatch
-Handlers.cpp(507): warning C4018: '<=' : signed/unsigned mismatch
-Handlers.cpp(507): warning C4018: '>=' : signed/unsigned mismatch
-Handlers.cpp(507): warning C4018: '<=' : signed/unsigned mismatch
+Handlers.cpp(513): warning C4018: '>=' : signed/unsigned mismatch
+Handlers.cpp(513): warning C4018: '<=' : signed/unsigned mismatch
+Handlers.cpp(513): warning C4018: '>=' : signed/unsigned mismatch
+Handlers.cpp(513): warning C4018: '<=' : signed/unsigned mismatch
   Helpers.cpp
 Helpers.cpp(209): warning C4244: 'return' : conversion from 'INT64' to 'DWORD', possible loss of data
 Helpers.cpp(1418): warning C4172: returning address of local variable or temporary

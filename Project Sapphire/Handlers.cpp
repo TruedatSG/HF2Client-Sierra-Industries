@@ -9,7 +9,10 @@ VOID Game(BOOL ExitGame)
 {
 	if (ExitGame)
 	{
-		GameEnd();  //This is already patch called when player ends game
+		if (KILLPROCESS == 0)
+		{
+			GameEnd();  //This is already patch called when player ends game
+		}
 		V_Game = FALSE;
 	}
 
@@ -176,7 +179,10 @@ VOID GameEnd()
 		TerminateProcess(GetCurrentProcess(), NULL);
 	}
 
-	GamePatch(FALSE); //Causes game to crash, need to move to another area
+	if (KILLPROCESS == 0)
+	{
+		GamePatch(FALSE); //Causes game to crash, need to move to another area
+	}
 }
 
 VOID GameStart()
