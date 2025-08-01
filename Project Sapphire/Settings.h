@@ -26,7 +26,7 @@
 
 //#define DEBUGKEYITEMS							//Enable all key items for all expansions
 //#define FFXIVMOD								//Modify input for Final Fantasy XIV
-#define MODWINDOW								//Change the window settings for FFXIV, removes boarder and character creation
+//#define MODWINDOW								//Change the window settings for FFXIV, removes boarder and character creation
 
 
 #define LANMPMODE								//Rigs things to work on LAN when packets won't work
@@ -49,12 +49,12 @@
 //Client
 ///
 //Main
-#define	SAVEPATH						"Save\\Beta2\\"
-#define DATAUPDATE						15					//Update tag variables to auto-update data structure in expandedsave files 
+#define	SAVEPATH						"Save\\USAlexandria2\\"
+#define DATAUPDATE						16					//Update tag variables to auto-update data structure in expandedsave files 
 															//See interface\\data\\default.ini
 
 //#define DIRECTIONALINPUT								//Use keys to move character
-#define XINPUT										//Use XBOX 360 controller to move
+//#define XINPUT										//Use XBOX 360 controller to move
 #define POINTERSPEED						15			//Speed of mouse pointer reiteration. Do not edit
 #define POINTERDIST							3			//Distance moved by mouse pointer
 #define POINTERDISTADD						15			//Increase distance moved of mouse pointer by how much
@@ -63,7 +63,7 @@
 #define EXITWHENIDLE									//Exit game when idle for too long
 #define MAXIDLETIME						60				//Exit game after how long
 
-#define KILLPROCESS						1					//Kill process after each game? (0 - No, 1 - Yes)
+#define KILLPROCESS						0					//Kill process after each game? (0 - No, 1 - Yes)
 
 //Delays
 #define DELAYLOAD						1000				//Load delay in milliseconds to patch when entering a new game
@@ -77,7 +77,7 @@
 #define GAMEWINMIN						120				//Game Win after how long
 
 #define GAMESWONFACTOR					3				//Multiply win rating by. Default 3
-#define GAMESLOSTFACTOR					10				//Multiply loss rating by.  Default 5
+#define GAMESLOSTFACTOR					5				//Multiply loss rating by.  Default 5
 #define GAMESDRAWFACTOR					1				//Multiply draw rating by.  Default 1
 
 /////////

@@ -931,10 +931,38 @@ BOOL LookForKeyItems()
 								{
 									Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp6[0]);
 
-									V_HaveKeyItemExp6[0] = 9973;
+									V_HaveKeyItemExp7[0] = 9973;
 
 									D2CLIENT_PlaySound(STAND_PICKUP);
 									SaveKeyItems();
+
+									if (V_ToggleKeyItem[0][6] && V_HaveKeyItemExp7[1] != 6532 && GetUnitStat(Me, STAT_LEVEL) > 84)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp7[1]);
+
+										V_HaveKeyItemExp7[1] = 6532;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
+									if (V_ToggleKeyItem[0][6] && V_HaveKeyItemExp7[2] != 6564 && GetUnitStat(Me, STAT_LEVEL) > 89)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp7[2]);
+
+										V_HaveKeyItemExp7[2] = 6564;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
+									if (V_ToggleKeyItem[0][6] && V_HaveKeyItemExp7[3] != 6534 && GetUnitStat(Me, STAT_LEVEL) > 89)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp7[2]);
+
+										V_HaveKeyItemExp7[3] = 6534;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
 								}
 							}
 						}
@@ -966,12 +994,49 @@ BOOL LookForKeyItems()
 							{
 								if (CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 								{
-									Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp7[0]);
+									Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp8[0]);
 
-									V_HaveKeyItemExp6[0] = 1979;
+									V_HaveKeyItemExp8[0] = 1979;
 
 									D2CLIENT_PlaySound(STAND_PICKUP);
 									SaveKeyItems();
+
+									if (V_ToggleKeyItem[0][7] && V_HaveKeyItemExp8[1] != 8763 && GetUnitStat(Me, STAT_LEVEL) > 94)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp8[0]);
+
+										V_HaveKeyItemExp8[1] = 8763;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
+									if (V_ToggleKeyItem[0][7] && V_HaveKeyItemExp8[2] != 7351 && GetUnitStat(Me, STAT_LEVEL) > 94)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp8[0]);
+
+										V_HaveKeyItemExp8[2] = 7351;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
+									if (V_ToggleKeyItem[0][7] && V_HaveKeyItemExp8[3] != 7341 && GetUnitStat(Me, STAT_LEVEL) > 94)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp8[0]);
+
+										V_HaveKeyItemExp8[3] = 7341;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
+									if (V_ToggleKeyItem[0][7] && V_HaveKeyItemExp8[4] != 7651 && GetUnitStat(Me, STAT_LEVEL) > 94)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp8[0]);
+
+										V_HaveKeyItemExp8[4] = 7651;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
 								}
 							}
 						}
@@ -1003,12 +1068,49 @@ BOOL LookForKeyItems()
 							{
 								if (CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 								{
-									Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp8[0]);
+									Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp9[0]);
 
-									V_HaveKeyItemExp6[0] = 2977;
+									V_HaveKeyItemExp9[0] = 2977;
 
 									D2CLIENT_PlaySound(STAND_PICKUP);
 									SaveKeyItems();
+
+									if (V_ToggleKeyItem[0][8] && V_HaveKeyItemExp9[1] != 6511 && GetUnitStat(Me, STAT_LEVEL) > 98)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp9[0]);
+
+										V_HaveKeyItemExp9[1] = 6511;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
+									if (V_ToggleKeyItem[0][8] && V_HaveKeyItemExp9[2] != 7512 && GetUnitStat(Me, STAT_LEVEL) > 50)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp9[0]);
+
+										V_HaveKeyItemExp9[2] = 7512;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
+									if (V_ToggleKeyItem[0][8] && V_HaveKeyItemExp9[3] != 7555 && GetUnitStat(Me, STAT_LEVEL) > 50)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp9[0]);
+
+										V_HaveKeyItemExp9[3] = 7555;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
+									if (V_ToggleKeyItem[0][8] && V_HaveKeyItemExp9[4] != 7555 && GetUnitStat(Me, STAT_LEVEL) > 50)
+									{
+										Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp9[0]);
+
+										V_HaveKeyItemExp9[4] = 7776;
+
+										D2CLIENT_PlaySound(STAND_PICKUP);
+										SaveKeyItems();
+									}
 								}
 							}
 						}
@@ -1081,8 +1183,19 @@ BOOL ResetKeyItems()
 	V_HaveKeyItemExp6[3] = 0;
 	V_HaveKeyItemExp6[4] = 0;
 	V_HaveKeyItemExp7[0] = 0;
+	V_HaveKeyItemExp7[1] = 0;
+	V_HaveKeyItemExp7[2] = 0;
+	V_HaveKeyItemExp7[3] = 0;
 	V_HaveKeyItemExp8[0] = 0;
+	V_HaveKeyItemExp8[1] = 0;
+	V_HaveKeyItemExp8[2] = 0;
+	V_HaveKeyItemExp8[3] = 0;
+	V_HaveKeyItemExp8[4] = 0;
 	V_HaveKeyItemExp9[0] = 0;
+	V_HaveKeyItemExp9[1] = 0;
+	V_HaveKeyItemExp9[2] = 0;
+	V_HaveKeyItemExp9[3] = 0;
+	V_HaveKeyItemExp9[4] = 0;
 
 	SaveKeyItems();
 

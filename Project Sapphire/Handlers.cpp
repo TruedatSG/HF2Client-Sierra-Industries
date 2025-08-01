@@ -3,11 +3,13 @@
 static BOOL releasedShift = TRUE;
 static BOOL ignoreButton = FALSE;
 
+static BOOL notifiedMenu = FALSE;
+
 VOID Game(BOOL ExitGame)
 {
 	if (ExitGame)
 	{
-		//GameEnd();  This is already patch called when player ends game
+		GameEnd();  //This is already patch called when player ends game
 		V_Game = FALSE;
 	}
 
@@ -168,13 +170,13 @@ VOID GameEnd()
 	SavePlayerData();
 
 	ResetIgnoreList();
-
+	
 	if(KILLPROCESS == 1)
 	{
 		TerminateProcess(GetCurrentProcess(), NULL);
 	}
 
-	//GamePatch(FALSE); //Causes game to crash, need to move to another area
+	GamePatch(FALSE); //Causes game to crash, need to move to another area
 }
 
 VOID GameStart()
@@ -186,11 +188,14 @@ VOID GameStart()
 		SleepEx(250, TRUE);
 	}
 
+	SleepEx(1000, TRUE);
 
 	while (Me->pPath->pRoom1->pRoom2->pLevel->dwLevelNo == 0)
 	{
 		SleepEx(DELAYLOAD, TRUE);
 	}
+
+	SleepEx(1000, TRUE);
 
 #ifdef LAZARUSMOD
 	Print(1, 8, "Engine warming...");
@@ -324,6 +329,10 @@ VOID GameStart()
 		Print(0, 1, "Type ÿc5?gmhelp ÿc1for a list of ÿc5GM ÿc1commandsÿc1.");
 
 		Load();
+	}
+	else
+	{
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.20 is loaded.");
 	}
 
 	INT TotalGold = GetUnitStat(Me, STAT_GOLD) + GetUnitStat(Me, STAT_GOLDBANK);
@@ -551,6 +560,7 @@ VOID GameLoop()
 		}
 	}
 #endif
+
 }
 
 VOID HostileImage()
@@ -1216,6 +1226,19 @@ VOID FASTCALL OnGameKeyDown(BYTE Key, BYTE Repeat)
 {
 	if (Key == 71) //G
 	{
+#ifdef LANMPMODE	
+		if (!InTown(Me))
+		{
+			if (!notifiedMenu)
+			{
+				Print(0, 9, "Unable to use the action menu outside of town.");
+
+				notifiedMenu = TRUE;
+			}
+
+			return;
+		}
+#endif
 		if(V_MenuObject < 1)
 		{
 			V_ToggleMenu = !V_ToggleMenu;

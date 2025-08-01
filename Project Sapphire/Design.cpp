@@ -6,6 +6,8 @@ static BOOL SelectedMenuObject;
 
 static BOOL MenuNotice = FALSE;
 
+static BOOL notifiedMenu = FALSE;
+
 //Init
 Design::Design()
 {
@@ -420,16 +422,13 @@ BOOL Design::GameFilter()
 
 BOOL Design::Missiles()
 {
-	if (V_LegitMode)
-		return FALSE;
-
 	if (!V_Design)
 		return FALSE;
 
 	if (Hide)
 		return FALSE;
 
-	if (!V_Missiles || !ClientReady(FALSE))
+	if (((!V_ToggleKeyItem[1][7] || V_HaveKeyItemExp8[1] != 8763) && !V_Missiles) || !ClientReady(FALSE))
 		return FALSE;
 
 	for (LPROOM1 Room = Me->pAct->pRoom1; Room; Room = Room->pRoomNext)
@@ -3981,6 +3980,20 @@ BOOL Design::MenuButton()
 		{
 			if((GetKeyState(VK_LBUTTON) & 0x100) != 0)
 			{
+#ifdef LANMPMODE	
+				if (!InTown(Me))
+				{
+					if (!notifiedMenu)
+					{
+						Print(0, 9, "Unable to use the action menu outside of town.");
+
+						notifiedMenu = TRUE;
+					}
+
+					return FALSE;
+				}
+#endif
+
 				V_ClickDelay = TRUE;
 
 				D2CLIENT_PlaySound(STAND_PASS);
@@ -4668,6 +4681,9 @@ BOOL Design::MenuSettingButton()
 BOOL Design::MenuMiniPanel()
 {
 	if(!ClientReady(FALSE))
+		return FALSE;
+
+	if (!V_ToggleKeyItem[1][0])
 		return FALSE;
 
 	if(Hide)

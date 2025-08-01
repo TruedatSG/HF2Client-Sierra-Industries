@@ -29,8 +29,8 @@ PATCH Patches[] =
    {PatchCall,      DLLOFFSET(D2CLIENT,      0xB254C),   (DWORD)InputLineSTUB1,               5,   INGAME}, //updated 1.13d
    {PatchCall,      DLLOFFSET(D2CLIENT,      0xB186B),   (DWORD)InputLineSTUB2,               5,   INGAME}, //updated 1.13d
    {PatchCall,      DLLOFFSET(D2CLIENT,      0xB2342),   (DWORD)InputSTUB,                  5,   INGAME}, //updated 1.13d
-   //{PatchBytes,   DLLOFFSET(D2CLIENT,      0x5BE3F),   (DWORD)INST_NOP,                  2,   INGAME}, //updated 1.13d
-   //{PatchBytes,   DLLOFFSET(D2CLIENT,      0x29573),   (DWORD)INST_NOP,                  6,   INGAME}, //updated 1.13d
+   {PatchBytes,   DLLOFFSET(D2CLIENT,      0x5BE3F),   (DWORD)INST_NOP,                  2,   INGAME}, //updated 1.13d
+   {PatchBytes,   DLLOFFSET(D2CLIENT,      0x29573),   (DWORD)INST_NOP,                  6,   INGAME}, //updated 1.13d
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x2DEED),   (DWORD)ItemBasicStatSTUB,            5,   INGAME}, //updated 1.13d
    {PatchCall,      DLLOFFSET(D2CLIENT,      0x96736),   (DWORD)ItemNameSTUB,               6,   INGAME}, //updated 1.13d
 //{PatchBytes,   DLLOFFSET(D2CLIENT,      0xA74C4),   (DWORD)LeftClickAllSkills,            1,   INGAME}, //updated 1.13d
@@ -45,7 +45,7 @@ PATCH Patches[] =
    {PatchCall,      DLLOFFSET(D2CLIENT,      0x3A965),   (DWORD)OnGameKeyDownSTUB,            7,   INGAME}, //updated 1.13d
    {PatchCall,      DLLOFFSET(D2CLIENT,      0x83301),   (DWORD)OnGamePacketReceivedSTUB,      5,   INGAME}, //updated 1.13d
    {PatchJmp,      DLLOFFSET(D2CLIENT,      0xD13C),   (DWORD)OnGamePacketSentSTUB,         6,   INGAME}, //updated 1.13d
-      //{PatchJmp,      DLLOFFSET(D2CLIENT,      0xD252),   (DWORD)OnGamePacketSentSTUB,         6,   MPGAME}, //test 1.13
+   //{PatchJmp,      DLLOFFSET(D2CLIENT,      0xD252),   (DWORD)OnGamePacketSentSTUB,         6,   MPGAME}, //test 1.13
    {PatchCall,      DLLOFFSET(D2CLIENT,      0x29560),   (DWORD)OnUseSkillSTUB,               5,   INGAME}, //updated 1.13d
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x2B425),   (DWORD)OutTownSelectSTUB1,            6,   INGAME}, //updated 1.13d
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x631E1),   (DWORD)OutTownSelectSTUB2,            6,   INGAME}, //updated 1.13d
@@ -73,15 +73,15 @@ PATCH Patches[] =
    //{PatchJmp,      DLLOFFSET(D2COMMON,      0x325B1),   (DWORD)FrameRemainSTUB,               5,   INGAME},
    {PatchJmp,      DLLOFFSET(D2COMMON,      0x60D1E),   (DWORD)WeatherSTUB,                  5,   INGAME}, //updated 1.13d
 
-   //{PatchCall,      DLLOFFSET(D2MCPCLIENT,   0x6297),   (DWORD)OnMCPPacketReceivedSTUB,         5,   OUTGAME}, //updated 1.13d
+   {PatchCall,      DLLOFFSET(D2MCPCLIENT,   0x6297),   (DWORD)OnMCPPacketReceivedSTUB,         5,   OUTGAME}, //updated 1.13d
 
-   //{PatchCall,      DLLOFFSET(D2MULTI,      0xAD8F),   (DWORD)CreateGameBoxSTUB,            5,   OUTGAME}, //updated 1.13d
-   //{PatchCall,      DLLOFFSET(D2MULTI,      0x8413),   (DWORD)DestroyGameList,               5,   OUTGAME}, //updated 1.13d
-   //{PatchCall,      DLLOFFSET(D2MULTI,      0xADAB),   (DWORD)NextGameName,               5,   OUTGAME}, //updated 1.13d
-   //{PatchCall,      DLLOFFSET(D2MULTI,      0xB5E9),   (DWORD)NextGameName,               5,   OUTGAME}, //updated 1.13d
-   //{PatchCall,      DLLOFFSET(D2MULTI,      0xADE6),   (DWORD)NextGamePassword,            5,   OUTGAME}, //updated 1.13d
-   //{PatchCall,      DLLOFFSET(D2MULTI,      0xB6BC),   (DWORD)NextGamePassword,            5,   OUTGAME}, //updated 1.13d
-   //{PatchCall,      DLLOFFSET(D2MULTI,      0x121EE),   (DWORD)RefreshGameListSTUB,            5,   OUTGAME}, //updated 1.13d
+   {PatchCall,      DLLOFFSET(D2MULTI,      0xAD8F),   (DWORD)CreateGameBoxSTUB,            5,   OUTGAME}, //updated 1.13d
+   {PatchCall,      DLLOFFSET(D2MULTI,      0x8413),   (DWORD)DestroyGameList,               5,   OUTGAME}, //updated 1.13d
+   {PatchCall,      DLLOFFSET(D2MULTI,      0xADAB),   (DWORD)NextGameName,               5,   OUTGAME}, //updated 1.13d
+   {PatchCall,      DLLOFFSET(D2MULTI,      0xB5E9),   (DWORD)NextGameName,               5,   OUTGAME}, //updated 1.13d
+   {PatchCall,      DLLOFFSET(D2MULTI,      0xADE6),   (DWORD)NextGamePassword,            5,   OUTGAME}, //updated 1.13d
+   {PatchCall,      DLLOFFSET(D2MULTI,      0xB6BC),   (DWORD)NextGamePassword,            5,   OUTGAME}, //updated 1.13d
+   {PatchCall,      DLLOFFSET(D2MULTI,      0x121EE),   (DWORD)RefreshGameListSTUB,            5,   OUTGAME}, //updated 1.13d
 
    //{PatchFill,      DLLOFFSET(D2WIN,      0x9E1A),   (DWORD)CopyAndPasteBugFix,            1,   INGAME},
    //{PatchCall,      DLLOFFSET(D2WIN,      0x12C68),   (DWORD)LifeBarSTUB,                  6,   INGAME},
@@ -90,7 +90,7 @@ PATCH Patches[] =
    //{PatchCall,      DLLOFFSET(D2WIN,      0xEC61),   (DWORD)WinDrawSTUB,                  5,   OUTGAME}, //updted 1.13d
 
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x8450E), (DWORD)GameStart, 5, OUTGAME}, // Overrides  call    D2Common_GetActNoByLevelNo_10864
-   {PatchJmp,      DLLOFFSET(D2WIN, -10054), (DWORD)GameEnd, 5, INGAME},
+   //{PatchJmp,      DLLOFFSET(D2WIN, -10054), (DWORD)GameEnd, 5, INGAME},
 
    //{PatchCall,      DLLOFFSET(D2WIN,      0xEC68), (DWORD)GameDrawOOG_Intercept,			5, OUTGAME},
    //{PatchJmp,      DLLOFFSET(D2CLIENT,      0x1D7B4), (DWORD)GameDraw_InterceptSTUB,			6,	INGAME}

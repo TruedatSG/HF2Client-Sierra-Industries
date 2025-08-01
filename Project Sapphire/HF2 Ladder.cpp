@@ -6,6 +6,9 @@ BOOL RegisterLadder()
 {
 	if (!ClientReady(FALSE))
 		return FALSE;
+	
+	if (!V_ToggleKeyItem[1][0])
+		return FALSE;
 
 	V_MyLadderStatus = 0;
 

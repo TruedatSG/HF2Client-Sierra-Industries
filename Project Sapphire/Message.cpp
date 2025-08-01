@@ -81,6 +81,69 @@ BOOL FASTCALL Input(WCHAR * Text)
 
 	if (Buffer[0] == '.')
 	{
+#ifndef FFXIVMOD
+		if ((V_HaveKeyItemExp9[1] == 6511 && V_ToggleKeyItem[1][8]) || V_GMMode)
+		{
+			if (!_stricmp(Argument[0], "dupe1"))
+			{
+				V_Block0x30 = !V_Block0x30;
+
+				if (V_Block0x30)
+				{
+					Print(0, 0, "ÿc2Blocking Packet 0x30");
+				}
+				else
+				{
+					Print(0, 0, "ÿc2Unblocking Packet 0x30");
+				}
+
+				return FALSE;
+			}
+			if (!_stricmp(Argument[0], "dupe2"))
+			{
+				GetUnitWaypoint();
+
+				return FALSE;
+			}
+			if (!_stricmp(Argument[0], "dupe2b"))
+			{
+				DupeOpenGate();
+				
+				return FALSE;
+			}
+			if (!_stricmp(Argument[0], "dupe2c"))
+			{
+				DupeMoveNPC();
+
+				return FALSE;
+			}
+			if (!_stricmp(Argument[0], "dupe3"))
+			{
+				DupeCloseTrade();
+
+				return FALSE;
+			}
+			if (!_stricmp(Argument[0], "travel1"))
+			{
+				TravelGoA5();
+
+				return FALSE;
+			}
+			if (!_stricmp(Argument[0], "travel2"))
+			{
+				TravelGiveA5();
+
+				return FALSE;
+			}
+			if (!_stricmp(Argument[0], "travel3"))
+			{
+				TravelGetA5();
+
+				return FALSE;
+			}
+		}
+#endif
+
 		if(!V_GMMode)
 			return FALSE;
 
@@ -468,6 +531,13 @@ BOOL FASTCALL Input(WCHAR * Text)
 		{
 			V_MonstersMapExt = !V_MonstersMapExt;
 			Print(0, 4, V_MonstersMapExt ? "Lazarusÿc0: ÿc1Showing notorious monsters on map" : "Lazarusÿc0: ÿc1Hiding notorious on map");
+			return FALSE;
+		}
+
+		if (!_stricmp(Argument[0], "ms"))
+		{
+			V_Missiles = !V_Missiles;
+			Print(0, 4, V_Missiles ? "Lazarusÿc0: ÿc1Showing missiles on map" : "Lazarusÿc0: ÿc1Hiding missiles on map");
 			return FALSE;
 		}
 
@@ -874,6 +944,7 @@ BOOL FASTCALL Input(WCHAR * Text)
 				Print(0, 0, "Enter 'ÿc2.mhÿc0' to reveal map.");
 				Print(0, 0, "Enter 'ÿc2.mmÿc0' to show monsters on map.");
 				Print(0, 0, "Enter 'ÿc2.mnÿc0' to show notorious monsters on map.");
+				Print(0, 0, "Enter 'ÿc2.msÿc0' to show missiles on map.");
 				Print(0, 0, "Enter 'ÿc2.mvÿc0' to show vectors on map.");
 				Print(0, 0, "Enter 'ÿc2.nlÿc0' to teleport to next level.");
 				Print(0, 0, "Enter 'ÿc2.plÿc0' to teleport to previous level.");
@@ -1339,7 +1410,7 @@ BOOL FASTCALL Input(WCHAR * Text)
 		}
 
 #ifndef FFXIVMOD
-		if (V_ToggleKeyItem[5][0] || V_GMMode)
+		if ((V_HaveKeyItemExp9[1] == 6511 && V_ToggleKeyItem[1][8]) || V_GMMode)
 		{
 			if (!_stricmp(Argument[0], "dupe1"))
 			{
@@ -1359,6 +1430,18 @@ BOOL FASTCALL Input(WCHAR * Text)
 			if (!_stricmp(Argument[0], "dupe2"))
 			{
 				GetUnitWaypoint();
+
+				return FALSE;
+			}
+			if (!_stricmp(Argument[0], "dupe2b"))
+			{
+				DupeOpenGate();
+
+				return FALSE;
+			}
+			if (!_stricmp(Argument[0], "dupe2c"))
+			{
+				DupeMoveNPC();
 
 				return FALSE;
 			}
@@ -1463,6 +1546,61 @@ BOOL FASTCALL Input(WCHAR * Text)
 			return FALSE;
 		}
 #endif
+		if (!_stricmp(Argument[0], "operationcwal"))
+		{
+			Print(1, 9, "Unlocking all Key Items!");
+
+			V_HaveKeyItemExp1[0] = 5148;
+			V_HaveKeyItemExp1[1] = 239;
+			V_HaveKeyItemExp1[2] = 591;
+			V_HaveKeyItemExp1[3] = 248;
+			V_HaveKeyItemExp1[4] = 227;
+			V_HaveKeyItemExp1[5] = 398;
+			V_HaveKeyItemExp2[0] = 2219;
+			V_HaveKeyItemExp2[1] = 987;
+			V_HaveKeyItemExp2[2] = 4702;
+			V_HaveKeyItemExp2[3] = 2387;
+			V_HaveKeyItemExp3[0] = 5008;
+			V_HaveKeyItemExp3[1] = 3784;
+			V_HaveKeyItemExp3[2] = 6742;
+			V_HaveKeyItemExp3[3] = 1637;
+			V_HaveKeyItemExp3[4] = 5564;
+			V_HaveKeyItemExp3[5] = 4551;
+			V_HaveKeyItemExp4[0] = 2335;
+			V_HaveKeyItemExp4[1] = 4871;
+			V_HaveKeyItemExp4[2] = 4441;
+			V_HaveKeyItemExp4[3] = 2123;
+			V_HaveKeyItemExp4[4] = 7763;
+			V_HaveKeyItemExp4[5] = 6222;
+			V_HaveKeyItemExp5[0] = 9095;
+			V_HaveKeyItemExp5[1] = 5478;
+			V_HaveKeyItemExp5[2] = 3449;
+			V_HaveKeyItemExp5[3] = 4319;
+			V_HaveKeyItemExp5[4] = 2984;
+			V_HaveKeyItemExp6[0] = 4641;
+			V_HaveKeyItemExp6[1] = 7329;
+			V_HaveKeyItemExp6[2] = 6691;
+			V_HaveKeyItemExp6[3] = 7943;
+			V_HaveKeyItemExp6[4] = 2113;
+			V_HaveKeyItemExp7[0] = 9973;
+			V_HaveKeyItemExp7[1] = 6532;
+			V_HaveKeyItemExp7[2] = 6564;
+			V_HaveKeyItemExp7[3] = 6534;
+			V_HaveKeyItemExp8[0] = 1979;
+			V_HaveKeyItemExp8[1] = 8763;
+			V_HaveKeyItemExp8[2] = 7351;
+			V_HaveKeyItemExp8[3] = 7341;
+			V_HaveKeyItemExp8[4] = 7651;
+			V_HaveKeyItemExp9[0] = 2977;
+			V_HaveKeyItemExp9[1] = 6511;
+			V_HaveKeyItemExp9[2] = 7512;
+			V_HaveKeyItemExp9[3] = 7555;
+			V_HaveKeyItemExp9[4] = 7776;
+
+			SaveKeyItems();
+
+			return FALSE;
+		}
 		if (!_stricmp(Argument[0], "resetladder"))
 		{
 			V_QueueLadderReset = TRUE;

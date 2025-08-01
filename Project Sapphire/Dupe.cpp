@@ -105,24 +105,18 @@ LPUNITANY GetUnitWaypoint() {
 		while (TRUE) SleepEx(1, TRUE);
 	}
 
-	Interact(V_ActiveWP->dwUnitId, UNIT_TYPE_OBJECT, TRUE);
+	DupeInteractWP(V_ActiveWP->dwUnitId, UNIT_TYPE_OBJECT, FALSE);
 
 	return FALSE;
 }
 
 BOOL DupeInteractWP(DWORD ID, DWORD Type, BOOL Check)
 {
-	if (!ClientReady(TRUE))
-		return FALSE;
-
-	if (Check && !GetUnit(ID, Type))
-		return FALSE;
-
 	LPBYTE Packet = new BYTE[9];
 	Packet[0] = 0x13;
 	*(LPDWORD)&Packet[1] = Type;
 	*(LPDWORD)&Packet[5] = ID;
-	D2NET_SendPacket(9, 1, Packet);
+	D2NET_SendPacket(9, 2, Packet);
 	delete[] Packet;
 	return TRUE;
 }

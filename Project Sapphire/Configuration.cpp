@@ -1379,6 +1379,20 @@ BOOL PreloadSettings()
 	V_HaveKeyItemExp6[2] = 6691;
 	V_HaveKeyItemExp6[3] = 7943;
 	V_HaveKeyItemExp6[4] = 2113;
+	V_HaveKeyItemExp7[0] = 9973;
+	V_HaveKeyItemExp7[1] = 6532;
+	V_HaveKeyItemExp7[2] = 6564;
+	V_HaveKeyItemExp7[3] = 6534;
+	V_HaveKeyItemExp8[0] = 1979;
+	V_HaveKeyItemExp8[1] = 8763;
+	V_HaveKeyItemExp8[2] = 7351;
+	V_HaveKeyItemExp8[3] = 7341;
+	V_HaveKeyItemExp8[4] = 7651;
+	V_HaveKeyItemExp9[0] = 2977;
+	V_HaveKeyItemExp9[1] = 6511;
+	V_HaveKeyItemExp9[2] = 7512;
+	V_HaveKeyItemExp9[3] = 7555;
+	V_HaveKeyItemExp9[4] = 7776;
 #endif
 
 	//Aim
@@ -1428,9 +1442,16 @@ BOOL PreloadSettings()
 	//Design
 	K_Clean = 0;
 	V_Screenshot = 0;
-	V_Orbs = 0; //New key item?
+	if (V_HaveKeyItemExp9[2] == 7512)
+	{
+		V_Orbs = V_ToggleKeyItem[2][8];
+	}
+	else 
+	{
+		V_Orbs = 0;
+	}
 	V_Mouse = 0;
-	V_PlayerLifePercent = 1; 
+	V_PlayerLifePercent = 1;
 	V_PlayerLifeBar = 1;
 	V_Vectors = 1;
 	V_HostilePlayerColor = 98;
@@ -1473,7 +1494,7 @@ BOOL PreloadSettings()
 	V_LifeOrbFont = 0;
 	V_ManaOrbColor = 3;
 	V_ManaOrbFont = 0;
-	if(V_HaveKeyItemExp1[3] == 248)
+	if (V_HaveKeyItemExp1[3] == 248)
 	{
 		V_UIDash = V_ToggleKeyItem[3][0];
 	}
@@ -1481,7 +1502,7 @@ BOOL PreloadSettings()
 	{
 		V_UIDash = 0;
 	}
-	if(V_HaveKeyItemExp1[5] == 398)
+	if (V_HaveKeyItemExp1[5] == 398)
 	{
 		V_UIClock = V_ToggleKeyItem[5][0];
 	}
@@ -1489,7 +1510,7 @@ BOOL PreloadSettings()
 	{
 		V_UIClock = 0;
 	}
-	if(V_HaveKeyItemExp1[4] == 227)
+	if (V_HaveKeyItemExp1[4] == 227)
 	{
 		V_ExpMeter = V_ToggleKeyItem[4][0];
 	}
@@ -1506,7 +1527,7 @@ BOOL PreloadSettings()
 	{
 		V_GoldMeter = 0;
 	}
-	if(V_HaveKeyItemExp5[4] == 2984)
+	if (V_HaveKeyItemExp5[4] == 2984)
 	{
 		V_LifeDots = V_ToggleKeyItem[4][4];
 	}
@@ -1564,7 +1585,18 @@ BOOL PreloadSettings()
 	V_TownDecrepify = 0;
 	V_TownIronMaiden = 0;
 	V_TownLowerResist = 0;
-	V_LifeExitPercent = 0;
+	if (V_ToggleKeyItem[2][6] && V_HaveKeyItemExp6[2] == 6691)
+	{
+		V_LifeExitPercent = 25;
+	}
+	else
+	{
+		V_LifeExitPercent = 0;
+	}
+	if (V_ToggleKeyItem[3][6] && V_HaveKeyItemExp6[3] == 7943)
+	{
+		V_LifeExitPercent = 50;
+	}
 	V_ManaExitPercent = 0;
 	V_LifeTownPercent = 0;
 	V_ManaTownPercent = 0;
@@ -1576,8 +1608,16 @@ BOOL PreloadSettings()
 	V_FastTP = 0;
 	V_NoTPDelay = 0;
 	K_Exit = 0;
-	K_Town = 0;
-	K_TP = 0;
+	if (V_ToggleKeyItem[3][8] && V_HaveKeyItemExp9[3] == 7555)
+	{
+		K_Town = 53;
+		K_TP = 54;
+	}
+	else
+	{
+		K_Town = 0;
+		K_TP = 0;
+	}
 
 	//Flash
 	V_AntiFlash = 0;
@@ -1607,7 +1647,7 @@ BOOL PreloadSettings()
 	V_RememberGameName = 1;
 	V_RememberGamePassword = 1;
 	V_OutTownSelect = 0;
-	if(V_HaveKeyItemExp1[2] == 591)
+	if (V_HaveKeyItemExp1[2] == 591)
 	{
 		V_AutomapOnJoin = V_ToggleKeyItem[2][0];
 	}
@@ -1635,18 +1675,33 @@ BOOL PreloadSettings()
 	V_OptionCloseFont = 0;
 
 	//Potion
-	V_LifePotPercent = 0; //New key item?
-	V_LifePotDelay = 2000;
-	V_LifeJuvPercent = 0; //New key item?
-	V_LifeJuvDelay = 500;
-	V_ManaPotPercent = 0; //New key item?
-	V_ManaPotDelay = 2000;
-	V_ManaJuvPercent = 0; //New key item?
-	V_ManaJuvDelay = 500;
-	V_TownDrinker = 1;
+	if (V_ToggleKeyItem[1][6] && V_HaveKeyItemExp7[1] == 6532)
+	{
+		V_LifePotPercent = 75;
+		V_LifePotDelay = 2000;
+		V_LifeJuvPercent = 30;
+		V_LifeJuvDelay = 500;
+		V_ManaPotPercent = 20;
+		V_ManaPotDelay = 2000;
+		V_ManaJuvPercent = 0;
+		V_ManaJuvDelay = 500;
+		V_TownDrinker = 0;
+	}
+	else
+	{
+		V_LifePotPercent = 0;
+		V_LifePotDelay = 2000;
+		V_LifeJuvPercent = 0;
+		V_LifeJuvDelay = 500;
+		V_ManaPotPercent = 0;
+		V_ManaPotDelay = 2000;
+		V_ManaJuvPercent = 0;
+		V_ManaJuvDelay = 500;
+		V_TownDrinker = 0;
+	}
 
 	//Reveal
-	if(V_HaveKeyItemExp5[2] == 3449)
+	if (V_HaveKeyItemExp5[2] == 3449)
 	{
 		V_AntiShake = V_ToggleKeyItem[2][4];
 	}
@@ -1655,7 +1710,7 @@ BOOL PreloadSettings()
 		V_AntiShake = 0;
 	}
 	V_AntiWeather = 0;
-	if(V_HaveKeyItemExp5[1] == 5478)
+	if (V_HaveKeyItemExp5[1] == 5478)
 	{
 		V_AutoRevealAutomap = V_ToggleKeyItem[1][4];
 	}
@@ -1664,7 +1719,7 @@ BOOL PreloadSettings()
 		V_AutoRevealAutomap = 0;
 	}
 #ifndef LAZARUSMOD
-	if(V_HaveKeyItemExp6[2] == 6691)
+	if (V_HaveKeyItemExp6[2] == 6691)
 	{
 		V_Ethereal = V_ToggleKeyItem[2][5];
 	}
@@ -1675,7 +1730,7 @@ BOOL PreloadSettings()
 #else
 	V_Ethereal = 1;
 #endif
-	if(V_HaveKeyItemExp6[1] == 7329)
+	if (V_HaveKeyItemExp6[1] == 7329)
 	{
 		V_FullLightRadius = V_ToggleKeyItem[1][5];
 	}
@@ -1684,7 +1739,7 @@ BOOL PreloadSettings()
 		V_FullLightRadius = 0;
 	}
 #ifndef LAZARUSMOD
-	if(V_HaveKeyItemExp6[3] == 7943)
+	if (V_HaveKeyItemExp6[3] == 7943)
 	{
 		V_ItemLevel = V_ToggleKeyItem[3][5];
 	}
@@ -1695,7 +1750,7 @@ BOOL PreloadSettings()
 #else
 	V_ItemLevel = 1;
 #endif
-	if(V_HaveKeyItemExp5[3] == 4319)
+	if (V_HaveKeyItemExp5[3] == 4319)
 	{
 		V_ProtectItemSocket = V_ToggleKeyItem[3][4];
 	}
@@ -1704,7 +1759,7 @@ BOOL PreloadSettings()
 		V_ProtectItemSocket = 0;
 	}
 #ifndef LAZARUSMOD
-	if(V_HaveKeyItemExp6[4] == 2113)
+	if (V_HaveKeyItemExp6[4] == 2113)
 	{
 		V_Sockets = V_ToggleKeyItem[4][5];
 	}
@@ -1722,14 +1777,28 @@ BOOL PreloadSettings()
 	V_LifeBarTransparency = 0;
 	V_LifeBarColor = 1;
 	V_LevelNamesFontColor = 0;
-	V_Missiles = 0; //New key item?
+	if (V_HaveKeyItemExp8[1] == 8763)
+	{
+		V_Missiles = V_ToggleKeyItem[1][7];
+	}
+	else
+	{
+		V_Missiles = 0;
+	}
 	V_MyColor = 151;
 	V_NeutralColor = 32;
 	V_HostileColor = 98;
 	V_PartyColor = 155;
-	V_Monsters = 1; //New key item?
+	V_Monsters = 1;
 	V_MonsterNames = 0;
-	V_MonsterResists = 0; //New key item?
+	if (V_HaveKeyItemExp8[2] == 7351)
+	{
+		V_MonsterResists = V_ToggleKeyItem[2][7];
+	}
+	else
+	{
+		V_MonsterResists = 0;
+	}
 	V_MonsterResistsFire = 1;
 	V_MonsterResistsCold = 1;
 	V_MonsterResistsLightning = 1;
@@ -1741,7 +1810,14 @@ BOOL PreloadSettings()
 	V_BossNameColor = 0;
 	V_ChampionColor = 151;
 	V_MinionColor = 91;
-	V_MonsterEnchantments = 0; //New key item?
+	if (V_HaveKeyItemExp8[3] == 7341)
+	{
+		V_MonsterEnchantments = V_ToggleKeyItem[3][7];
+	}
+	else
+	{
+		V_MonsterEnchantments = 0;
+	}
 	V_MonsterEnchantmentsMight = 1;
 	V_MonsterEnchantmentsFanaticism = 1;
 	V_MonsterEnchantmentsConviction = 1;
@@ -1749,7 +1825,14 @@ BOOL PreloadSettings()
 	V_MonsterEnchantmentsHolyFire = 1;
 	V_MonsterEnchantmentsHolyFreeze = 1;
 	V_MonsterEnchantmentsHolyShock = 1;
-	V_MonsterUnits = 0; //New key item?
+	if (V_HaveKeyItemExp8[4] == 7651)
+	{
+		V_MonsterUnits = V_ToggleKeyItem[4][7];
+	}
+	else
+	{
+		V_MonsterUnits = 0;
+	}
 	V_MonsterUnitsDevilkinShamans = 1;
 	V_MonsterUnitsDamned = 1;
 	V_MonsterUnitsUrdars = 1;
@@ -1862,8 +1945,16 @@ BOOL PreloadSettings()
 	}
 
 	//Teleport
-	V_FastTeleport = 0; //New key item?
-	V_FarcastTeleport = 0; //New key item?
+	if (V_ToggleKeyItem[4][8] && V_HaveKeyItemExp9[4] == 7776)
+	{
+		V_FastTeleport = 1;
+		V_FarcastTeleport = 1;
+	}
+	else
+	{
+		V_FastTeleport = 0;
+		V_FarcastTeleport = 0;
+	}
 	K_TeleHost = 0;
 	K_TeleWalk = 0;
 	K_NextLevelVector = 0; //New key item?

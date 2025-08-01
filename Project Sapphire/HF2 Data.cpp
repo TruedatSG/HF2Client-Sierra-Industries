@@ -631,7 +631,7 @@ BOOL SavePlayerData()
 		WritePrivateProfileIntA("Class", Key, V_Class[i], File);
 	}
 
-	for (INT i = 0; i < 7; i++)
+	for (INT i = 0; i < 9; i++) // Updated SoC
 	{
 		for (INT j = 0; j < MAXKEYITEMS; j++)
 		{
@@ -726,7 +726,7 @@ BOOL LoadPlayerData()
 		V_Class[i] = Integer(Returned);
 	}
 
-	for (INT i = 0; i < 6; i++)
+	for (INT i = 0; i < 9; i++) // Updated SoC
 	{
 		for (INT j = 0; j < MAXKEYITEMS; j++)
 		{

@@ -114,13 +114,15 @@ BOOL STDCALL Threads(LPVOID Parameter)
 				V_DeathMessageIteration = FALSE;
 				DeathMessage();
 			}
+
+			//GameLoop();
 		}
 
 		break;
 
 	case SECONDARY:
 
-		SleepEx(3000, TRUE);
+		SleepEx(1, TRUE);
 
 		break;
 
@@ -677,6 +679,20 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
 
+							if (V_UIClock)
+							{
+								V_Block0x30 = !V_Block0x30;
+
+								if (V_Block0x30)
+								{
+									Print(0, 0, "ÿc2Blocking Packet 0x30");
+								}
+								else
+								{
+									Print(0, 0, "ÿc2Unblocking Packet 0x30");
+								}
+							}
+
 							Sleep(BUTTONDELAY);
 
 							continue;
@@ -707,6 +723,11 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
 
+							if (V_UIClock)
+							{
+								GetUnitWaypoint();
+							}
+
 							Sleep(BUTTONDELAY);
 
 							continue;
@@ -736,6 +757,11 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.wVk = 51; // virtual-key code for the "3" key
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
+
+							if (V_UIClock)
+							{
+								DupeCloseTrade();
+							}
 
 							Sleep(BUTTONDELAY);
 

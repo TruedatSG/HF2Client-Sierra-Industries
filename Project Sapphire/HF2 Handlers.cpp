@@ -324,6 +324,17 @@ VOID SetInfoVars()
 			V_Class[i] = 0;
 		}
 	}
+	if (V_LoadUpdate < 17)
+	{
+		//Update12
+		for (INT i = 0; i < 9; i++)
+		{
+			for (INT j = 0; j < MAXKEYITEMS; j++)
+			{
+				V_ToggleKeyItem[j][i] = NULL;
+			}
+		}
+	}
 }
 
 VOID ResetInfoMenu()

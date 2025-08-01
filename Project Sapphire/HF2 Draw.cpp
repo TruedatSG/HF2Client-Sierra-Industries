@@ -759,98 +759,98 @@ VOID DrawQuestList()
 		{
 			if (V_SideQuestTagPage == "1")
 			{
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr1Y, MouseOverX1L, MouseOverY1L1, MouseOverX2L, MouseOverY2L1, 1, V_SideQuestListStrL1, V_HaveKeyItemExp7[0]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr2Y, MouseOverX1L, MouseOverY1L2, MouseOverX2L, MouseOverY2L2, 2, V_SideQuestListStrL2, V_HaveKeyItemExp7[1]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr3Y, MouseOverX1L, MouseOverY1L3, MouseOverX2L, MouseOverY2L3, 3, V_SideQuestListStrL3, V_HaveKeyItemExp7[2]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr4Y, MouseOverX1L, MouseOverY1L4, MouseOverX2L, MouseOverY2L4, 4, V_SideQuestListStrL4, V_HaveKeyItemExp7[3]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr5Y, MouseOverX1L, MouseOverY1L5, MouseOverX2L, MouseOverY2L5, 5, V_SideQuestListStrL5, V_HaveKeyItemExp7[4]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr6Y, MouseOverX1L, MouseOverY1L6, MouseOverX2L, MouseOverY2L6, 6, V_SideQuestListStrL6, V_HaveKeyItemExp7[5]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr7Y, MouseOverX1L, MouseOverY1L7, MouseOverX2L, MouseOverY2L7, 7, V_SideQuestListStrL7, V_HaveKeyItemExp7[6]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr8Y, MouseOverX1L, MouseOverY1L8, MouseOverX2L, MouseOverY2L8, 8, V_SideQuestListStrL8, V_HaveKeyItemExp7[7]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr9Y, MouseOverX1L, MouseOverY1L9, MouseOverX2L, MouseOverY2L9, 9, V_SideQuestListStrL9, V_HaveKeyItemExp7[8]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr10Y, MouseOverX1L, MouseOverY1L10, MouseOverX2L, MouseOverY2L10, 10, V_SideQuestListStrL10, V_HaveKeyItemExp7[9]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr11Y, MouseOverX1L, MouseOverY1L11, MouseOverX2L, MouseOverY2L11, 11, V_SideQuestListStrL11, V_HaveKeyItemExp7[10]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr12Y, MouseOverX1L, MouseOverY1L12, MouseOverX2L, MouseOverY2L12, 12, V_SideQuestListStrL12, V_HaveKeyItemExp7[11]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr13Y, MouseOverX1L, MouseOverY1L13, MouseOverX2L, MouseOverY2L13, 13, V_SideQuestListStrL13, V_HaveKeyItemExp7[12]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr14Y, MouseOverX1L, MouseOverY1L14, MouseOverX2L, MouseOverY2L14, 14, V_SideQuestListStrL14, V_HaveKeyItemExp7[13]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr15Y, MouseOverX1L, MouseOverY1L15, MouseOverX2L, MouseOverY2L15, 15, V_SideQuestListStrL15, V_HaveKeyItemExp7[14]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr16Y, MouseOverX1L, MouseOverY1L16, MouseOverX2L, MouseOverY2L16, 16, V_SideQuestListStrL16, V_HaveKeyItemExp7[15]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr17Y, MouseOverX1L, MouseOverY1L17, MouseOverX2L, MouseOverY2L17, 17, V_SideQuestListStrL17, V_HaveKeyItemExp7[16]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr18Y, MouseOverX1L, MouseOverY1L18, MouseOverX2L, MouseOverY2L18, 18, V_SideQuestListStrL18, V_HaveKeyItemExp7[17]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr19Y, MouseOverX1L, MouseOverY1L19, MouseOverX2L, MouseOverY2L19, 19, V_SideQuestListStrL19, V_HaveKeyItemExp7[18]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr20Y, MouseOverX1L, MouseOverY1L20, MouseOverX2L, MouseOverY2L20, 20, V_SideQuestListStrL20, V_HaveKeyItemExp7[19]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr1Y, MouseOverX1L, MouseOverY1L1, MouseOverX2L, MouseOverY2L1, 1, V_SideQuestListStrL1, V_HaveKeyItemExp8[0]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr2Y, MouseOverX1L, MouseOverY1L2, MouseOverX2L, MouseOverY2L2, 2, V_SideQuestListStrL2, V_HaveKeyItemExp8[1]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr3Y, MouseOverX1L, MouseOverY1L3, MouseOverX2L, MouseOverY2L3, 3, V_SideQuestListStrL3, V_HaveKeyItemExp8[2]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr4Y, MouseOverX1L, MouseOverY1L4, MouseOverX2L, MouseOverY2L4, 4, V_SideQuestListStrL4, V_HaveKeyItemExp8[3]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr5Y, MouseOverX1L, MouseOverY1L5, MouseOverX2L, MouseOverY2L5, 5, V_SideQuestListStrL5, V_HaveKeyItemExp8[4]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr6Y, MouseOverX1L, MouseOverY1L6, MouseOverX2L, MouseOverY2L6, 6, V_SideQuestListStrL6, V_HaveKeyItemExp8[5]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr7Y, MouseOverX1L, MouseOverY1L7, MouseOverX2L, MouseOverY2L7, 7, V_SideQuestListStrL7, V_HaveKeyItemExp8[6]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr8Y, MouseOverX1L, MouseOverY1L8, MouseOverX2L, MouseOverY2L8, 8, V_SideQuestListStrL8, V_HaveKeyItemExp8[7]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr9Y, MouseOverX1L, MouseOverY1L9, MouseOverX2L, MouseOverY2L9, 9, V_SideQuestListStrL9, V_HaveKeyItemExp8[8]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr10Y, MouseOverX1L, MouseOverY1L10, MouseOverX2L, MouseOverY2L10, 10, V_SideQuestListStrL10, V_HaveKeyItemExp8[9]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr11Y, MouseOverX1L, MouseOverY1L11, MouseOverX2L, MouseOverY2L11, 11, V_SideQuestListStrL11, V_HaveKeyItemExp8[10]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr12Y, MouseOverX1L, MouseOverY1L12, MouseOverX2L, MouseOverY2L12, 12, V_SideQuestListStrL12, V_HaveKeyItemExp8[11]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr13Y, MouseOverX1L, MouseOverY1L13, MouseOverX2L, MouseOverY2L13, 13, V_SideQuestListStrL13, V_HaveKeyItemExp8[12]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr14Y, MouseOverX1L, MouseOverY1L14, MouseOverX2L, MouseOverY2L14, 14, V_SideQuestListStrL14, V_HaveKeyItemExp8[13]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr15Y, MouseOverX1L, MouseOverY1L15, MouseOverX2L, MouseOverY2L15, 15, V_SideQuestListStrL15, V_HaveKeyItemExp8[14]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr16Y, MouseOverX1L, MouseOverY1L16, MouseOverX2L, MouseOverY2L16, 16, V_SideQuestListStrL16, V_HaveKeyItemExp8[15]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr17Y, MouseOverX1L, MouseOverY1L17, MouseOverX2L, MouseOverY2L17, 17, V_SideQuestListStrL17, V_HaveKeyItemExp8[16]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr18Y, MouseOverX1L, MouseOverY1L18, MouseOverX2L, MouseOverY2L18, 18, V_SideQuestListStrL18, V_HaveKeyItemExp8[17]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr19Y, MouseOverX1L, MouseOverY1L19, MouseOverX2L, MouseOverY2L19, 19, V_SideQuestListStrL19, V_HaveKeyItemExp8[18]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr20Y, MouseOverX1L, MouseOverY1L20, MouseOverX2L, MouseOverY2L20, 20, V_SideQuestListStrL20, V_HaveKeyItemExp8[19]);
 			}
 			if (V_SideQuestTagPage == "2")
 			{
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr1Y, MouseOverX1L, MouseOverY1L1, MouseOverX2L, MouseOverY2L1, 1, V_SideQuestListStrL1, V_HaveKeyItemExp7[20]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr2Y, MouseOverX1L, MouseOverY1L2, MouseOverX2L, MouseOverY2L2, 2, V_SideQuestListStrL2, V_HaveKeyItemExp7[21]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr3Y, MouseOverX1L, MouseOverY1L3, MouseOverX2L, MouseOverY2L3, 3, V_SideQuestListStrL3, V_HaveKeyItemExp7[22]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr4Y, MouseOverX1L, MouseOverY1L4, MouseOverX2L, MouseOverY2L4, 4, V_SideQuestListStrL4, V_HaveKeyItemExp7[23]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr5Y, MouseOverX1L, MouseOverY1L5, MouseOverX2L, MouseOverY2L5, 5, V_SideQuestListStrL5, V_HaveKeyItemExp7[24]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr6Y, MouseOverX1L, MouseOverY1L6, MouseOverX2L, MouseOverY2L6, 6, V_SideQuestListStrL6, V_HaveKeyItemExp7[25]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr7Y, MouseOverX1L, MouseOverY1L7, MouseOverX2L, MouseOverY2L7, 7, V_SideQuestListStrL7, V_HaveKeyItemExp7[26]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr8Y, MouseOverX1L, MouseOverY1L8, MouseOverX2L, MouseOverY2L8, 8, V_SideQuestListStrL8, V_HaveKeyItemExp7[27]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr9Y, MouseOverX1L, MouseOverY1L9, MouseOverX2L, MouseOverY2L9, 9, V_SideQuestListStrL9, V_HaveKeyItemExp7[28]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr10Y, MouseOverX1L, MouseOverY1L10, MouseOverX2L, MouseOverY2L10, 10, V_SideQuestListStrL10, V_HaveKeyItemExp7[29]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr11Y, MouseOverX1L, MouseOverY1L11, MouseOverX2L, MouseOverY2L11, 11, V_SideQuestListStrL11, V_HaveKeyItemExp7[30]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr12Y, MouseOverX1L, MouseOverY1L12, MouseOverX2L, MouseOverY2L12, 12, V_SideQuestListStrL12, V_HaveKeyItemExp7[31]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr13Y, MouseOverX1L, MouseOverY1L13, MouseOverX2L, MouseOverY2L13, 13, V_SideQuestListStrL13, V_HaveKeyItemExp7[32]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr14Y, MouseOverX1L, MouseOverY1L14, MouseOverX2L, MouseOverY2L14, 14, V_SideQuestListStrL14, V_HaveKeyItemExp7[33]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr15Y, MouseOverX1L, MouseOverY1L15, MouseOverX2L, MouseOverY2L15, 15, V_SideQuestListStrL15, V_HaveKeyItemExp7[34]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr16Y, MouseOverX1L, MouseOverY1L16, MouseOverX2L, MouseOverY2L16, 16, V_SideQuestListStrL16, V_HaveKeyItemExp7[35]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr17Y, MouseOverX1L, MouseOverY1L17, MouseOverX2L, MouseOverY2L17, 17, V_SideQuestListStrL17, V_HaveKeyItemExp7[36]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr18Y, MouseOverX1L, MouseOverY1L18, MouseOverX2L, MouseOverY2L18, 18, V_SideQuestListStrL18, V_HaveKeyItemExp7[37]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr19Y, MouseOverX1L, MouseOverY1L19, MouseOverX2L, MouseOverY2L19, 19, V_SideQuestListStrL19, V_HaveKeyItemExp7[38]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr20Y, MouseOverX1L, MouseOverY1L20, MouseOverX2L, MouseOverY2L20, 20, V_SideQuestListStrL20, V_HaveKeyItemExp7[39]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr1Y, MouseOverX1L, MouseOverY1L1, MouseOverX2L, MouseOverY2L1, 1, V_SideQuestListStrL1, V_HaveKeyItemExp8[20]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr2Y, MouseOverX1L, MouseOverY1L2, MouseOverX2L, MouseOverY2L2, 2, V_SideQuestListStrL2, V_HaveKeyItemExp8[21]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr3Y, MouseOverX1L, MouseOverY1L3, MouseOverX2L, MouseOverY2L3, 3, V_SideQuestListStrL3, V_HaveKeyItemExp8[22]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr4Y, MouseOverX1L, MouseOverY1L4, MouseOverX2L, MouseOverY2L4, 4, V_SideQuestListStrL4, V_HaveKeyItemExp8[23]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr5Y, MouseOverX1L, MouseOverY1L5, MouseOverX2L, MouseOverY2L5, 5, V_SideQuestListStrL5, V_HaveKeyItemExp8[24]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr6Y, MouseOverX1L, MouseOverY1L6, MouseOverX2L, MouseOverY2L6, 6, V_SideQuestListStrL6, V_HaveKeyItemExp8[25]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr7Y, MouseOverX1L, MouseOverY1L7, MouseOverX2L, MouseOverY2L7, 7, V_SideQuestListStrL7, V_HaveKeyItemExp8[26]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr8Y, MouseOverX1L, MouseOverY1L8, MouseOverX2L, MouseOverY2L8, 8, V_SideQuestListStrL8, V_HaveKeyItemExp8[27]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr9Y, MouseOverX1L, MouseOverY1L9, MouseOverX2L, MouseOverY2L9, 9, V_SideQuestListStrL9, V_HaveKeyItemExp8[28]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr10Y, MouseOverX1L, MouseOverY1L10, MouseOverX2L, MouseOverY2L10, 10, V_SideQuestListStrL10, V_HaveKeyItemExp8[29]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr11Y, MouseOverX1L, MouseOverY1L11, MouseOverX2L, MouseOverY2L11, 11, V_SideQuestListStrL11, V_HaveKeyItemExp8[30]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr12Y, MouseOverX1L, MouseOverY1L12, MouseOverX2L, MouseOverY2L12, 12, V_SideQuestListStrL12, V_HaveKeyItemExp8[31]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr13Y, MouseOverX1L, MouseOverY1L13, MouseOverX2L, MouseOverY2L13, 13, V_SideQuestListStrL13, V_HaveKeyItemExp8[32]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr14Y, MouseOverX1L, MouseOverY1L14, MouseOverX2L, MouseOverY2L14, 14, V_SideQuestListStrL14, V_HaveKeyItemExp8[33]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr15Y, MouseOverX1L, MouseOverY1L15, MouseOverX2L, MouseOverY2L15, 15, V_SideQuestListStrL15, V_HaveKeyItemExp8[34]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr16Y, MouseOverX1L, MouseOverY1L16, MouseOverX2L, MouseOverY2L16, 16, V_SideQuestListStrL16, V_HaveKeyItemExp8[35]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr17Y, MouseOverX1L, MouseOverY1L17, MouseOverX2L, MouseOverY2L17, 17, V_SideQuestListStrL17, V_HaveKeyItemExp8[36]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr18Y, MouseOverX1L, MouseOverY1L18, MouseOverX2L, MouseOverY2L18, 18, V_SideQuestListStrL18, V_HaveKeyItemExp8[37]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr19Y, MouseOverX1L, MouseOverY1L19, MouseOverX2L, MouseOverY2L19, 19, V_SideQuestListStrL19, V_HaveKeyItemExp8[38]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr20Y, MouseOverX1L, MouseOverY1L20, MouseOverX2L, MouseOverY2L20, 20, V_SideQuestListStrL20, V_HaveKeyItemExp8[39]);
 			}
 		}
 		if (V_SideQuestTagExpansion == "Soc")
 		{
 			if (V_SideQuestTagPage == "1")
 			{
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr1Y, MouseOverX1L, MouseOverY1L1, MouseOverX2L, MouseOverY2L1, 1, V_SideQuestListStrL1, V_HaveKeyItemExp7[0]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr2Y, MouseOverX1L, MouseOverY1L2, MouseOverX2L, MouseOverY2L2, 2, V_SideQuestListStrL2, V_HaveKeyItemExp7[1]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr3Y, MouseOverX1L, MouseOverY1L3, MouseOverX2L, MouseOverY2L3, 3, V_SideQuestListStrL3, V_HaveKeyItemExp7[2]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr4Y, MouseOverX1L, MouseOverY1L4, MouseOverX2L, MouseOverY2L4, 4, V_SideQuestListStrL4, V_HaveKeyItemExp7[3]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr5Y, MouseOverX1L, MouseOverY1L5, MouseOverX2L, MouseOverY2L5, 5, V_SideQuestListStrL5, V_HaveKeyItemExp7[4]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr6Y, MouseOverX1L, MouseOverY1L6, MouseOverX2L, MouseOverY2L6, 6, V_SideQuestListStrL6, V_HaveKeyItemExp7[5]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr7Y, MouseOverX1L, MouseOverY1L7, MouseOverX2L, MouseOverY2L7, 7, V_SideQuestListStrL7, V_HaveKeyItemExp7[6]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr8Y, MouseOverX1L, MouseOverY1L8, MouseOverX2L, MouseOverY2L8, 8, V_SideQuestListStrL8, V_HaveKeyItemExp7[7]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr9Y, MouseOverX1L, MouseOverY1L9, MouseOverX2L, MouseOverY2L9, 9, V_SideQuestListStrL9, V_HaveKeyItemExp7[8]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr10Y, MouseOverX1L, MouseOverY1L10, MouseOverX2L, MouseOverY2L10, 10, V_SideQuestListStrL10, V_HaveKeyItemExp7[9]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr11Y, MouseOverX1L, MouseOverY1L11, MouseOverX2L, MouseOverY2L11, 11, V_SideQuestListStrL11, V_HaveKeyItemExp7[10]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr12Y, MouseOverX1L, MouseOverY1L12, MouseOverX2L, MouseOverY2L12, 12, V_SideQuestListStrL12, V_HaveKeyItemExp7[11]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr13Y, MouseOverX1L, MouseOverY1L13, MouseOverX2L, MouseOverY2L13, 13, V_SideQuestListStrL13, V_HaveKeyItemExp7[12]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr14Y, MouseOverX1L, MouseOverY1L14, MouseOverX2L, MouseOverY2L14, 14, V_SideQuestListStrL14, V_HaveKeyItemExp7[13]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr15Y, MouseOverX1L, MouseOverY1L15, MouseOverX2L, MouseOverY2L15, 15, V_SideQuestListStrL15, V_HaveKeyItemExp7[14]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr16Y, MouseOverX1L, MouseOverY1L16, MouseOverX2L, MouseOverY2L16, 16, V_SideQuestListStrL16, V_HaveKeyItemExp7[15]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr17Y, MouseOverX1L, MouseOverY1L17, MouseOverX2L, MouseOverY2L17, 17, V_SideQuestListStrL17, V_HaveKeyItemExp7[16]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr18Y, MouseOverX1L, MouseOverY1L18, MouseOverX2L, MouseOverY2L18, 18, V_SideQuestListStrL18, V_HaveKeyItemExp7[17]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr19Y, MouseOverX1L, MouseOverY1L19, MouseOverX2L, MouseOverY2L19, 19, V_SideQuestListStrL19, V_HaveKeyItemExp7[18]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr20Y, MouseOverX1L, MouseOverY1L20, MouseOverX2L, MouseOverY2L20, 20, V_SideQuestListStrL20, V_HaveKeyItemExp7[19]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr1Y, MouseOverX1L, MouseOverY1L1, MouseOverX2L, MouseOverY2L1, 1, V_SideQuestListStrL1, V_HaveKeyItemExp9[0]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr2Y, MouseOverX1L, MouseOverY1L2, MouseOverX2L, MouseOverY2L2, 2, V_SideQuestListStrL2, V_HaveKeyItemExp9[1]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr3Y, MouseOverX1L, MouseOverY1L3, MouseOverX2L, MouseOverY2L3, 3, V_SideQuestListStrL3, V_HaveKeyItemExp9[2]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr4Y, MouseOverX1L, MouseOverY1L4, MouseOverX2L, MouseOverY2L4, 4, V_SideQuestListStrL4, V_HaveKeyItemExp9[3]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr5Y, MouseOverX1L, MouseOverY1L5, MouseOverX2L, MouseOverY2L5, 5, V_SideQuestListStrL5, V_HaveKeyItemExp9[4]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr6Y, MouseOverX1L, MouseOverY1L6, MouseOverX2L, MouseOverY2L6, 6, V_SideQuestListStrL6, V_HaveKeyItemExp9[5]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr7Y, MouseOverX1L, MouseOverY1L7, MouseOverX2L, MouseOverY2L7, 7, V_SideQuestListStrL7, V_HaveKeyItemExp9[6]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr8Y, MouseOverX1L, MouseOverY1L8, MouseOverX2L, MouseOverY2L8, 8, V_SideQuestListStrL8, V_HaveKeyItemExp9[7]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr9Y, MouseOverX1L, MouseOverY1L9, MouseOverX2L, MouseOverY2L9, 9, V_SideQuestListStrL9, V_HaveKeyItemExp9[8]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr10Y, MouseOverX1L, MouseOverY1L10, MouseOverX2L, MouseOverY2L10, 10, V_SideQuestListStrL10, V_HaveKeyItemExp9[9]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr11Y, MouseOverX1L, MouseOverY1L11, MouseOverX2L, MouseOverY2L11, 11, V_SideQuestListStrL11, V_HaveKeyItemExp9[10]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr12Y, MouseOverX1L, MouseOverY1L12, MouseOverX2L, MouseOverY2L12, 12, V_SideQuestListStrL12, V_HaveKeyItemExp9[11]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr13Y, MouseOverX1L, MouseOverY1L13, MouseOverX2L, MouseOverY2L13, 13, V_SideQuestListStrL13, V_HaveKeyItemExp9[12]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr14Y, MouseOverX1L, MouseOverY1L14, MouseOverX2L, MouseOverY2L14, 14, V_SideQuestListStrL14, V_HaveKeyItemExp9[13]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr15Y, MouseOverX1L, MouseOverY1L15, MouseOverX2L, MouseOverY2L15, 15, V_SideQuestListStrL15, V_HaveKeyItemExp9[14]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr16Y, MouseOverX1L, MouseOverY1L16, MouseOverX2L, MouseOverY2L16, 16, V_SideQuestListStrL16, V_HaveKeyItemExp9[15]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr17Y, MouseOverX1L, MouseOverY1L17, MouseOverX2L, MouseOverY2L17, 17, V_SideQuestListStrL17, V_HaveKeyItemExp9[16]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr18Y, MouseOverX1L, MouseOverY1L18, MouseOverX2L, MouseOverY2L18, 18, V_SideQuestListStrL18, V_HaveKeyItemExp9[17]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr19Y, MouseOverX1L, MouseOverY1L19, MouseOverX2L, MouseOverY2L19, 19, V_SideQuestListStrL19, V_HaveKeyItemExp9[18]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr20Y, MouseOverX1L, MouseOverY1L20, MouseOverX2L, MouseOverY2L20, 20, V_SideQuestListStrL20, V_HaveKeyItemExp9[19]);
 			}
 			if (V_SideQuestTagPage == "2")
 			{
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr1Y, MouseOverX1L, MouseOverY1L1, MouseOverX2L, MouseOverY2L1, 1, V_SideQuestListStrL1, V_HaveKeyItemExp7[20]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr2Y, MouseOverX1L, MouseOverY1L2, MouseOverX2L, MouseOverY2L2, 2, V_SideQuestListStrL2, V_HaveKeyItemExp7[21]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr3Y, MouseOverX1L, MouseOverY1L3, MouseOverX2L, MouseOverY2L3, 3, V_SideQuestListStrL3, V_HaveKeyItemExp7[22]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr4Y, MouseOverX1L, MouseOverY1L4, MouseOverX2L, MouseOverY2L4, 4, V_SideQuestListStrL4, V_HaveKeyItemExp7[23]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr5Y, MouseOverX1L, MouseOverY1L5, MouseOverX2L, MouseOverY2L5, 5, V_SideQuestListStrL5, V_HaveKeyItemExp7[24]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr6Y, MouseOverX1L, MouseOverY1L6, MouseOverX2L, MouseOverY2L6, 6, V_SideQuestListStrL6, V_HaveKeyItemExp7[25]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr7Y, MouseOverX1L, MouseOverY1L7, MouseOverX2L, MouseOverY2L7, 7, V_SideQuestListStrL7, V_HaveKeyItemExp7[26]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr8Y, MouseOverX1L, MouseOverY1L8, MouseOverX2L, MouseOverY2L8, 8, V_SideQuestListStrL8, V_HaveKeyItemExp7[27]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr9Y, MouseOverX1L, MouseOverY1L9, MouseOverX2L, MouseOverY2L9, 9, V_SideQuestListStrL9, V_HaveKeyItemExp7[28]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr10Y, MouseOverX1L, MouseOverY1L10, MouseOverX2L, MouseOverY2L10, 10, V_SideQuestListStrL10, V_HaveKeyItemExp7[29]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr11Y, MouseOverX1L, MouseOverY1L11, MouseOverX2L, MouseOverY2L11, 11, V_SideQuestListStrL11, V_HaveKeyItemExp7[30]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr12Y, MouseOverX1L, MouseOverY1L12, MouseOverX2L, MouseOverY2L12, 12, V_SideQuestListStrL12, V_HaveKeyItemExp7[31]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr13Y, MouseOverX1L, MouseOverY1L13, MouseOverX2L, MouseOverY2L13, 13, V_SideQuestListStrL13, V_HaveKeyItemExp7[32]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr14Y, MouseOverX1L, MouseOverY1L14, MouseOverX2L, MouseOverY2L14, 14, V_SideQuestListStrL14, V_HaveKeyItemExp7[33]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr15Y, MouseOverX1L, MouseOverY1L15, MouseOverX2L, MouseOverY2L15, 15, V_SideQuestListStrL15, V_HaveKeyItemExp7[34]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr16Y, MouseOverX1L, MouseOverY1L16, MouseOverX2L, MouseOverY2L16, 16, V_SideQuestListStrL16, V_HaveKeyItemExp7[35]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr17Y, MouseOverX1L, MouseOverY1L17, MouseOverX2L, MouseOverY2L17, 17, V_SideQuestListStrL17, V_HaveKeyItemExp7[36]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr18Y, MouseOverX1L, MouseOverY1L18, MouseOverX2L, MouseOverY2L18, 18, V_SideQuestListStrL18, V_HaveKeyItemExp7[37]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr19Y, MouseOverX1L, MouseOverY1L19, MouseOverX2L, MouseOverY2L19, 19, V_SideQuestListStrL19, V_HaveKeyItemExp7[38]);
-				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr20Y, MouseOverX1L, MouseOverY1L20, MouseOverX2L, MouseOverY2L20, 20, V_SideQuestListStrL20, V_HaveKeyItemExp7[39]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr1Y, MouseOverX1L, MouseOverY1L1, MouseOverX2L, MouseOverY2L1, 1, V_SideQuestListStrL1, V_HaveKeyItemExp9[20]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr2Y, MouseOverX1L, MouseOverY1L2, MouseOverX2L, MouseOverY2L2, 2, V_SideQuestListStrL2, V_HaveKeyItemExp9[21]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr3Y, MouseOverX1L, MouseOverY1L3, MouseOverX2L, MouseOverY2L3, 3, V_SideQuestListStrL3, V_HaveKeyItemExp9[22]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr4Y, MouseOverX1L, MouseOverY1L4, MouseOverX2L, MouseOverY2L4, 4, V_SideQuestListStrL4, V_HaveKeyItemExp9[23]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr5Y, MouseOverX1L, MouseOverY1L5, MouseOverX2L, MouseOverY2L5, 5, V_SideQuestListStrL5, V_HaveKeyItemExp9[24]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr6Y, MouseOverX1L, MouseOverY1L6, MouseOverX2L, MouseOverY2L6, 6, V_SideQuestListStrL6, V_HaveKeyItemExp9[25]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr7Y, MouseOverX1L, MouseOverY1L7, MouseOverX2L, MouseOverY2L7, 7, V_SideQuestListStrL7, V_HaveKeyItemExp9[26]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr8Y, MouseOverX1L, MouseOverY1L8, MouseOverX2L, MouseOverY2L8, 8, V_SideQuestListStrL8, V_HaveKeyItemExp9[27]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr9Y, MouseOverX1L, MouseOverY1L9, MouseOverX2L, MouseOverY2L9, 9, V_SideQuestListStrL9, V_HaveKeyItemExp9[28]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr10Y, MouseOverX1L, MouseOverY1L10, MouseOverX2L, MouseOverY2L10, 10, V_SideQuestListStrL10, V_HaveKeyItemExp9[29]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr11Y, MouseOverX1L, MouseOverY1L11, MouseOverX2L, MouseOverY2L11, 11, V_SideQuestListStrL11, V_HaveKeyItemExp9[30]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr12Y, MouseOverX1L, MouseOverY1L12, MouseOverX2L, MouseOverY2L12, 12, V_SideQuestListStrL12, V_HaveKeyItemExp9[31]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr13Y, MouseOverX1L, MouseOverY1L13, MouseOverX2L, MouseOverY2L13, 13, V_SideQuestListStrL13, V_HaveKeyItemExp9[32]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr14Y, MouseOverX1L, MouseOverY1L14, MouseOverX2L, MouseOverY2L14, 14, V_SideQuestListStrL14, V_HaveKeyItemExp9[33]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr15Y, MouseOverX1L, MouseOverY1L15, MouseOverX2L, MouseOverY2L15, 15, V_SideQuestListStrL15, V_HaveKeyItemExp9[34]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr16Y, MouseOverX1L, MouseOverY1L16, MouseOverX2L, MouseOverY2L16, 16, V_SideQuestListStrL16, V_HaveKeyItemExp9[35]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr17Y, MouseOverX1L, MouseOverY1L17, MouseOverX2L, MouseOverY2L17, 17, V_SideQuestListStrL17, V_HaveKeyItemExp9[36]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr18Y, MouseOverX1L, MouseOverY1L18, MouseOverX2L, MouseOverY2L18, 18, V_SideQuestListStrL18, V_HaveKeyItemExp9[37]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr19Y, MouseOverX1L, MouseOverY1L19, MouseOverX2L, MouseOverY2L19, 19, V_SideQuestListStrL19, V_HaveKeyItemExp9[38]);
+				DrawQuestListItem(PlayerInfoTextStrLX, PlayerInfoTextStr20Y, MouseOverX1L, MouseOverY1L20, MouseOverX2L, MouseOverY2L20, 20, V_SideQuestListStrL20, V_HaveKeyItemExp9[39]);
 			}
 		}
 
