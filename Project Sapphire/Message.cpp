@@ -1042,9 +1042,13 @@ BOOL FASTCALL Input(WCHAR * Text)
 			return FALSE;
 		}
 	}
-
+#ifndef DEBUGINPUT
 	if(Buffer[0] == '/')
 	{
+#else
+	if (Buffer[0] == '?')
+	{
+#endif
 		if (!_stricmp(Argument[0], "timeinfo"))
 		{
 			ResetInfoText();

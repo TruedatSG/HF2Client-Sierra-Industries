@@ -26,16 +26,17 @@
 
 //#define DEBUGKEYITEMS							//Enable all key items for all expansions
 //#define FFXIVMOD								//Modify input for Final Fantasy XIV
-#define MODWINDOW								//Change the window settings for FFXIV, removes boarder and character creation
+//#define MODWINDOW								//Change the window settings for FFXIV, removes boarder and character creation
 
 
-//#define LANMPMODE								//Rigs things to work on LAN when packets won't work
+#define LANMPMODE								//Rigs things to work on LAN when packets won't work
+#define	DEBUGINPUT								//Use buffer '?' instead of '/' on some commands		
 
 #define MODMAXLEVEL						99		//Maximum level that can be attained
 
 //#define EXTLEVELS								//NOT TESTED Extend maximum number of areas to 255
 //#define NOWILDERNESSMENU						//Can't use menu outside of town
-//#define NOWILDERNESSACTIONMENU						//Can't use the action menu outside of town
+#define NOWILDERNESSACTIONMENU						//Can't use the action menu outside of town
 
 //#define COLOREXPNAMETAG							//Color the nametag of expansion characters
 
@@ -50,7 +51,7 @@
 //Client
 ///
 //Main
-#define	SAVEPATH						"Save\\Beta2\\"
+#define	SAVEPATH						"Save\\USAlexandria2\\"
 #define DATAUPDATE						16					//Update tag variables to auto-update data structure in expandedsave files 
 															//See interface\\data\\default.ini
 
@@ -64,7 +65,7 @@
 #define EXITWHENIDLE									//Exit game when idle for too long
 #define MAXIDLETIME						60				//Exit game after how long
 
-#define KILLPROCESS						1					//Kill process after each game? (0 - No, 1 - Yes)
+#define KILLPROCESS						0					//Kill process after each game? (0 - No, 1 - Yes)
 
 //Delays
 #define DELAYLOAD						1000				//Load delay in milliseconds to patch when entering a new game
