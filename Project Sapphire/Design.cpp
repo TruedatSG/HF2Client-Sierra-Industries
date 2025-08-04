@@ -3983,7 +3983,7 @@ BOOL Design::MenuButton()
 		{
 			if((GetKeyState(VK_LBUTTON) & 0x100) != 0)
 			{
-#ifdef LANMPMODE	
+#ifdef NOWILDERNESSACTIONMENU	
 				if (!InTown(Me))
 				{
 					if (!notifiedMenu)

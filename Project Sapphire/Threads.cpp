@@ -725,7 +725,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 							if (V_UIClock)
 							{
-								GetUnitWaypoint();
+								DupeOpenGate();
 							}
 
 							Sleep(BUTTONDELAY);

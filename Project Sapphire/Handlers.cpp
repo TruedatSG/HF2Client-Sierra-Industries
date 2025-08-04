@@ -1232,7 +1232,7 @@ VOID FASTCALL OnGameKeyDown(BYTE Key, BYTE Repeat)
 {
 	if (Key == 71) //G
 	{
-#ifdef LANMPMODE	
+#ifdef NOWILDERNESSACTIONMENU		
 		if (!InTown(Me))
 		{
 			if (!notifiedMenu)
