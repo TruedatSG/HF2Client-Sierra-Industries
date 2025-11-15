@@ -1345,6 +1345,12 @@ VAR(INT, Direction)
 
 VAR(BOOL, EnableTeleport)
 
+//Monsterlifebar
+VAR(INT, MLBPosX)
+VAR(INT, MLBPosY)
+VAR(INT, MLBDifficulty)
+VAR(INT, MLBMonsterID)
+
 //Godmode
 VAR(BYTE, Heal[13])
 VAR(BYTE, BuyHeal[5])
@@ -1394,5 +1400,7 @@ VAR(CHAR, GMName[16])
 VAR(BOOL, MonstersMap)
 VAR(BOOL, VectorsMap)
 VAR(BOOL, MonstersMapExt)
+
+VAR(BOOL, InTownTemp)
 
 #undef VARS

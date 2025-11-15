@@ -26,17 +26,17 @@
 
 //#define DEBUGKEYITEMS							//Enable all key items for all expansions
 //#define FFXIVMOD								//Modify input for Final Fantasy XIV
-//#define MODWINDOW								//Change the window settings for FFXIV, removes boarder and character creation
+#define MODWINDOW								//Change the window settings for FFXIV, removes boarder and character creation
 
 
-#define LANMPMODE								//Rigs things to work on LAN when packets won't work
-#define	DEBUGINPUT								//Use buffer '?' instead of '/' on some commands		
+//#define LANMPMODE								//Rigs things to work on LAN when packets won't work
+//#define	DEBUGINPUT								//Use buffer '?' instead of '/' on some commands		
 
 #define MODMAXLEVEL						99		//Maximum level that can be attained
 
 //#define EXTLEVELS								//NOT TESTED Extend maximum number of areas to 255
-//#define NOWILDERNESSMENU						//Can't use menu outside of town
-#define NOWILDERNESSACTIONMENU						//Can't use the action menu outside of town
+#define NOWILDERNESSMENU						//Can't use menu outside of town
+//#define NOWILDERNESSACTIONMENU						//Can't use the action menu outside of town
 
 //#define COLOREXPNAMETAG							//Color the nametag of expansion characters
 
@@ -51,12 +51,12 @@
 //Client
 ///
 //Main
-#define	SAVEPATH						"Save\\USAlexandria2\\"
+#define	SAVEPATH						"Save\\Beta2\\"
 #define DATAUPDATE						16					//Update tag variables to auto-update data structure in expandedsave files 
 															//See interface\\data\\default.ini
 
 //#define DIRECTIONALINPUT								//Use keys to move character
-//#define XINPUT										//Use XBOX 360 controller to move
+#define XINPUT										//Use XBOX 360 controller to move
 #define POINTERSPEED						15			//Speed of mouse pointer reiteration. Do not edit
 #define POINTERDIST							3			//Distance moved by mouse pointer
 #define POINTERDISTADD						15			//Increase distance moved of mouse pointer by how much
@@ -65,20 +65,20 @@
 #define EXITWHENIDLE									//Exit game when idle for too long
 #define MAXIDLETIME						60				//Exit game after how long
 
-#define KILLPROCESS						0					//Kill process after each game? (0 - No, 1 - Yes)
+#define KILLPROCESS						1					//Kill process after each game? (0 - No, 1 - Yes)
 
 //Delays
 #define DELAYLOAD						1000				//Load delay in milliseconds to patch when entering a new game
 #define DELAYAD							5000				//Delay in milliseconds to switch the unregistered customer service advertisement
 
-#define DELAYLOBBY						0				//Amount of time to pause in the lobby
+#define DELAYLOBBY						12000				//Amount of time to pause in the lobby
 
 //Ratings
 #define LOSERANK										//Players will lose ranks depending on win/loss rating
-#define GAMEDRAWMIN						30				//Game Draw after how long
-#define GAMEWINMIN						120				//Game Win after how long
+#define GAMEDRAWMIN						20				//Game Draw after how long
+#define GAMEWINMIN						90				//Game Win after how long
 
-#define GAMESWONFACTOR					3				//Multiply win rating by. Default 3
+#define GAMESWONFACTOR					15				//Multiply win rating by. Default 3
 #define GAMESLOSTFACTOR					5				//Multiply loss rating by.  Default 5
 #define GAMESDRAWFACTOR					1				//Multiply draw rating by.  Default 1
 
@@ -96,15 +96,15 @@
 /////
 #define MAXKEYITEMS						40			//Number of Key Items per list
 
-#define KEYITEMSKASHYAMIN				5			//Time in minutes to interact with NPC
-#define KEYITEMSWARRIVMIN				15			//You will receive a key item if you are still within range of NPC
-#define KEYITEMSGEGLASHMIN				120
-#define KEYITEMSHALBUMIN				30
-#define KEYITEMSAKARAMIN				60
-#define KEYITEMSJAMELLAMIN				45
-#define KEYITEMSJAMELLAMINTWO			75
-#define KEYITEMSJAMELLAMINTHREE			180
-#define KEYITEMSJAMELLAMINFOUR			300
+#define KEYITEMSKASHYAMIN				3			//Time in minutes to interact with NPC
+#define KEYITEMSWARRIVMIN				5			//You will receive a key item if you are still within range of NPC
+#define KEYITEMSGEGLASHMIN				15
+#define KEYITEMSHALBUMIN				10
+#define KEYITEMSAKARAMIN				18
+#define KEYITEMSJAMELLAMIN				12
+#define KEYITEMSJAMELLAMINTWO			20
+#define KEYITEMSJAMELLAMINTHREE			30
+#define KEYITEMSJAMELLAMINFOUR			45
 
 /////////
 //Threads

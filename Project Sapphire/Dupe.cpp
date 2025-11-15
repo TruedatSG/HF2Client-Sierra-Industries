@@ -112,11 +112,14 @@ LPUNITANY GetUnitWaypoint() {
 
 BOOL DupeInteractWP(DWORD ID, DWORD Type, BOOL Check)
 {
-	LPBYTE Packet = new BYTE[9];
+	INT Length = 9;
+	LPBYTE Packet = new BYTE[Length];
 	Packet[0] = 0x13;
 	*(LPDWORD)&Packet[1] = Type;
 	*(LPDWORD)&Packet[5] = ID;
-	D2NET_SendPacket(9, 2, Packet);
+
+	D2NET_SendPacket(Length, 1, Packet);
+
 	delete[] Packet;
 	return TRUE;
 }

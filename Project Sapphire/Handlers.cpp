@@ -26,7 +26,7 @@ VOID Game(BOOL ExitGame)
 VOID GameEnd()
 {
 #ifdef NOWILDERNESSMENU
-	if (!InTown(Me))
+	if (!V_InTownTemp)
 		V_GameLost = TRUE;
 #endif
 
@@ -181,7 +181,7 @@ VOID GameEnd()
 
 	if (KILLPROCESS == 0)
 	{
-		GamePatch(FALSE); //Causes game to crash, need to move to another area
+		//GamePatch(FALSE); //Causes game to crash, need to move to another area.  TEST after DestroyVectors
 	}
 }
 
@@ -331,14 +331,14 @@ VOID GameStart()
 
 	if(V_GMMode == TRUE)
 	{
-		Print(0, 1, "Project Ruby Dreams ÿc4version 5.20 is loadedÿc4 with ÿc5GM ÿc1mode active.");
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.32 is loadedÿc4 with ÿc5GM ÿc1mode active.");
 		Print(0, 1, "Type ÿc5?gmhelp ÿc1for a list of ÿc5GM ÿc1commandsÿc1.");
 
 		Load();
 	}
 	else
 	{
-		Print(0, 1, "Project Ruby Dreams ÿc4version 5.20 is loaded.");
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.32 is loaded.");
 	}
 
 	INT TotalGold = GetUnitStat(Me, STAT_GOLD) + GetUnitStat(Me, STAT_GOLDBANK);
@@ -482,6 +482,11 @@ VOID GameLoop()
 
 	if (InTown(Me))
 		SetInTownVars();
+
+	if (InTown(Me))
+		V_InTownTemp = TRUE;
+	else
+		V_InTownTemp = FALSE;
 
 	if (!GetUIVar(UI_INVENTORY) || GetUIVar(UI_TRADE))
 		V_ViewingUnit = NULL;
@@ -783,6 +788,11 @@ VOID SetVars()
 	V_QueueLadderDeleteNote = FALSE;
 
 	V_COUNTED = FALSE;
+
+	V_MLBPosX = 0;
+	V_MLBPosY = 0;
+	V_MLBDifficulty = 0;
+	V_MLBMonsterID = 0;
 }
 
 VOID SetInTownVars()
@@ -938,6 +948,11 @@ WCHAR* FASTCALL MonsterLifeBarName(WCHAR* Old, LPDWORD TextSize, LPDWORD Size, D
 	{
 		V_MonsterLifeBarNameOn = FALSE;
 		V_MonsterLifeBarName[0] = NULL;
+
+		V_MLBPosX = 0;
+		V_MLBPosY = 0;
+		V_MLBDifficulty = 0;
+		V_MLBMonsterID = 0;
 		return NULL;
 	}
 
@@ -1040,25 +1055,32 @@ WCHAR* FASTCALL MonsterLifeBarName(WCHAR* Old, LPDWORD TextSize, LPDWORD Size, D
 						PosY = 72;
 					}
 
+					V_MLBMonsterID = i;
 					if (D2CLIENT_GetDifficulty() == 0)
 					{
 						if ((GetKeyState(VK_LMENU) & 0x100) == 0 && (GetKeyState(VK_RMENU) & 0x100) == 0)
 						{
-							V_Design->DrawOutCenter(PosX, PosY, 0, 6, 1, "%s %s", V_CounterBarKilledStr, AddCommas(V_MonsterUnit[0][i], 0));
+							V_MLBPosX = PosX;
+							V_MLBPosY = PosY;
+							V_MLBDifficulty = 0;
 						}
 					}
 					else if (D2CLIENT_GetDifficulty() == 1)
 					{
 						if ((GetKeyState(VK_LMENU) & 0x100) == 0 && (GetKeyState(VK_RMENU) & 0x100) == 0)
 						{
-							V_Design->DrawOutCenter(PosX, PosY, 0, 6, 1, "%s %s", V_CounterBarKilledStr, AddCommas(V_MonsterUnit[1][i], 0));
+							V_MLBPosX = PosX;
+							V_MLBPosY = PosY;
+							V_MLBDifficulty = 1;
 						}
 					}
 					else if (D2CLIENT_GetDifficulty() == 2)
 					{
 						if ((GetKeyState(VK_LMENU) & 0x100) == 0 && (GetKeyState(VK_RMENU) & 0x100) == 0)
 						{
-							V_Design->DrawOutCenter(PosX, PosY, 0, 6, 1, "%s %s", V_CounterBarKilledStr, AddCommas(V_MonsterUnit[2][i], 0));
+							V_MLBPosX = PosX;
+							V_MLBPosY = PosY;
+							V_MLBDifficulty = 2;
 						}
 					}
 				}

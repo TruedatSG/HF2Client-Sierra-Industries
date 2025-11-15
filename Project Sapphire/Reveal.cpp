@@ -1007,7 +1007,7 @@ VOID FASTCALL ItemName(WCHAR * Name, LPUNITANY Item)
 
 		if (Item->pItemData->dwFlags & 0x400000 && V_Ethereal)
 		{
-			CHAR Ethereal[5] = "[E]";
+			CHAR Ethereal[10] = " ÿc5[E]";
 			strcat_s(NaMe, sizeof(NaMe), Ethereal);
 		}
 
@@ -1017,8 +1017,8 @@ VOID FASTCALL ItemName(WCHAR * Name, LPUNITANY Item)
 
 			if (Sockets > 0)
 			{
-				CHAR Socket[5];
-				sprintf_s(Socket, sizeof(Socket), "[%d]", Sockets);
+				CHAR Socket[10];
+				sprintf_s(Socket, sizeof(Socket), " ÿc5[%d]", Sockets);
 				strcat_s(NaMe, sizeof(NaMe), Socket);
 			}
 		}

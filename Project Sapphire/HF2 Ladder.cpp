@@ -6,9 +6,6 @@ BOOL RegisterLadder()
 {
 	if (!ClientReady(FALSE))
 		return FALSE;
-	
-	if (!V_ToggleKeyItem[1][0])
-		return FALSE;
 
 	V_MyLadderStatus = 0;
 
@@ -41,9 +38,6 @@ BOOL RegisterLadder()
 	if (V_FLAG == 29) { V_ClassFlag = 25; }
 	if (V_FLAG == 30) { V_ClassFlag = 26; }
 	if (V_FLAG == 31) { V_ClassFlag = 27; }
-	if (V_FLAG == 17) { V_ClassFlag = 28; }
-	if (V_FLAG == 18) { V_ClassFlag = 29; }
-	if (V_FLAG == 19) { V_ClassFlag = 30; }
 
 	if (V_LadderDeath == TRUE)
 	{
@@ -74,14 +68,12 @@ BOOL RegisterLadder()
 		if (V_FLAG == 29) { V_ClassFlag = 425; }
 		if (V_FLAG == 30) { V_ClassFlag = 426; }
 		if (V_FLAG == 31) { V_ClassFlag = 427; }
-		if (V_FLAG == 17) { V_ClassFlag = 428; }
-		if (V_FLAG == 18) { V_ClassFlag = 429; }
-		if (V_FLAG == 19) { V_ClassFlag = 430; }
 	}
 
 	strncpy_s(V_MyLadderName, sizeof(V_MyLadderName), Me->pPlayerData->szName, sizeof(V_MyLadderName));
 	V_MyLadderClass = V_ClassFlag;
 	V_MyLadderLevel = GetUnitStat(Me, STAT_LEVEL);
+	/*
 	if (V_MyLadderLevel == 99)
 	{
 #ifndef FFXIVMOD
@@ -94,6 +86,8 @@ BOOL RegisterLadder()
 	{
 		V_MyLadderExp = GetUnitStat(Me, STAT_EXP);
 	}
+	*/
+	V_MyLadderExp = GetUnitStat(Me, STAT_EXP);
 	V_MyLadderRank = V_Rank;
 
 	return TRUE;

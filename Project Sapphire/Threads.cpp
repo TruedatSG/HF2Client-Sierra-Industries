@@ -325,7 +325,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 		while (true)
 		{
-			//V_MultiPlayerMode = 0; // Override config
+			V_MultiPlayerMode = 0; // Override config
 			if(V_MultiPlayerMode == 0)
 			{
 				if (!XinputLoaded)
@@ -679,6 +679,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
 
+							/*
 							if (V_UIClock)
 							{
 								V_Block0x30 = !V_Block0x30;
@@ -692,6 +693,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 									Print(0, 0, "ÿc2Unblocking Packet 0x30");
 								}
 							}
+							*/
 
 							Sleep(BUTTONDELAY);
 
@@ -723,10 +725,12 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
 
+							/*
 							if (V_UIClock)
 							{
 								DupeOpenGate();
 							}
+							*/
 
 							Sleep(BUTTONDELAY);
 
@@ -758,10 +762,12 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
 
+							/*
 							if (V_UIClock)
 							{
 								DupeCloseTrade();
 							}
+							*/
 
 							Sleep(BUTTONDELAY);
 
@@ -3606,6 +3612,7 @@ VOID CreateInGameThreads()
 	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)KEYITEMS));
 	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)AUTOLOGOUT));
 	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEKEYS));
+	//V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)LOBBYDELAY));
 #ifdef XINPUT
 	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)VIBRATEPAD));
 	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)VIBRATEPAD2));

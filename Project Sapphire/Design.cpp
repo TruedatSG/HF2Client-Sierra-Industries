@@ -1890,6 +1890,12 @@ VOID Design::GameDraw()
 	//V_Design->Settings();
 
 	if (V_GMMode) { V_Design->DrawGMTag2(); }
+
+	//Monsterlifebar	
+	if (V_MLBPosX > 0 && V_MLBPosY > 0)
+	{
+		V_Design->DrawOutCenter(V_MLBPosX, V_MLBPosY, 0, 6, 1, "%s %s", V_CounterBarKilledStr, AddCommas(V_MonsterUnit[V_MLBDifficulty][V_MLBMonsterID], 0));
+	}
 }
 
 VOID Design::GameDraw2()
