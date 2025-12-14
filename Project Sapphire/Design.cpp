@@ -2377,6 +2377,9 @@ BOOL Design::GoldMeter()
 	if (!ClearScreen(3))
 		return FALSE;
 
+	if ((*p_D2CLIENT_MouseX >= 118 && *p_D2CLIENT_MouseX <= 164) && (*p_D2CLIENT_MouseY >= 554 && *p_D2CLIENT_MouseY <= 599))
+		return FALSE;
+
 	INT MeterColor;
 	INT MeterHeight;
 
