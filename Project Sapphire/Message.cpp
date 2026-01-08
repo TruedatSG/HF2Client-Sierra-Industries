@@ -964,6 +964,9 @@ BOOL FASTCALL Input(WCHAR * Text)
 				Print(0, 0, "Enter 'ÿc2.dupeÿc0' for instructions on how to dupe.");
 				Print(0, 0, "Enter 'ÿc2.travelÿc0' for travel information.");
 				Print(0, 0, "Enter 'ÿc2.godÿc0' for godmode information.");
+#ifdef DEBUGINPUT
+				Print(0, 0, "ÿc8DEBUGINPUTÿc0 enabled. Commands use 'ÿc2?ÿc0' buffer.");
+#endif
 				
 
 				return FALSE;
@@ -987,6 +990,9 @@ BOOL FASTCALL Input(WCHAR * Text)
 #endif
 #ifndef LAZARUSMOD
 			Print(0, 0, "Enter 'ÿc2/resetkeyitemsÿc0' to reset key items.");
+#endif
+#ifdef DEBUGINPUT
+			Print(0, 0, "ÿc8DEBUGINPUTÿc0 enabled. Commands use 'ÿc2?ÿc0' buffer.");
 #endif
 
 			return FALSE;

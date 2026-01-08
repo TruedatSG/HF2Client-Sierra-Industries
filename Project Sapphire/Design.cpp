@@ -1384,7 +1384,8 @@ BOOL Design::Gold() //Credits to Ruby
 		V_GainedGold = 0;
 
 	INT InventoryGold = GetUnitStat(Me, STAT_GOLD);
-	INT LevelInventoryGold = GetGold(GetUnitStat(Me, STAT_LEVEL)) + (55535 * GetUnitStat(Me, STAT_LEVEL)); // Updated belt size adds 55535 per level
+	//INT LevelInventoryGold = GetGold(GetUnitStat(Me, STAT_LEVEL)) + (55535 * GetUnitStat(Me, STAT_LEVEL)); // Updated belt size adds 55535 per level
+	INT LevelInventoryGold = GetGold(GetUnitStat(Me, STAT_LEVEL)); // Above will always be zero at mid-high levels
 	INT GoldPercent = CalcPercent(InventoryGold, LevelInventoryGold);
 	V_GainedGold = TotalGold - V_StartingGold;
 	INT Belt = TotalGold / LevelInventoryGold;

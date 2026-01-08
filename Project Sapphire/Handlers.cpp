@@ -338,7 +338,7 @@ VOID GameStart()
 	}
 	else
 	{
-		Print(0, 1, "Project Ruby Dreams ÿc4version 5.32 is loaded.");
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.32 is loaded. Type ÿc2?help ÿc4for more information.");
 	}
 
 	INT TotalGold = GetUnitStat(Me, STAT_GOLD) + GetUnitStat(Me, STAT_GOLDBANK);
