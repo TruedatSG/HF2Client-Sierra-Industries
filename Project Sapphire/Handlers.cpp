@@ -18,6 +18,10 @@ VOID Game(BOOL ExitGame)
 
 	else
 	{
+		DestroyInGameThreads();
+
+		SleepEx(250, TRUE);
+
 		GameStart();
 		V_Game = TRUE;
 	}
@@ -183,6 +187,8 @@ VOID GameEnd()
 	{
 		//GamePatch(FALSE); //Causes game to crash, need to move to another area.  TEST after DestroyVectors
 	}
+
+	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEPAD));
 }
 
 VOID GameStart()
@@ -331,14 +337,14 @@ VOID GameStart()
 
 	if(V_GMMode == TRUE)
 	{
-		Print(0, 1, "Project Ruby Dreams ÿc4version 5.32 is loadedÿc4 with ÿc5GM ÿc1mode active.");
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.33 is loadedÿc4 with ÿc5GM ÿc1mode active.");
 		Print(0, 1, "Type ÿc5?gmhelp ÿc1for a list of ÿc5GM ÿc1commandsÿc1.");
 
 		Load();
 	}
 	else
 	{
-		Print(0, 1, "Project Ruby Dreams ÿc4version 5.32 is loaded. Type ÿc2?help ÿc4for more information.");
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.33 is loaded. Type ÿc2?help ÿc4for more information.");
 	}
 
 	INT TotalGold = GetUnitStat(Me, STAT_GOLD) + GetUnitStat(Me, STAT_GOLDBANK);
@@ -793,6 +799,8 @@ VOID SetVars()
 	V_MLBPosY = 0;
 	V_MLBDifficulty = 0;
 	V_MLBMonsterID = 0;
+
+	V_MenuNotice == FALSE;
 }
 
 VOID SetInTownVars()

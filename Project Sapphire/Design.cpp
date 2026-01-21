@@ -4,8 +4,6 @@ using namespace std;
 
 static BOOL SelectedMenuObject;
 
-static BOOL MenuNotice = FALSE;
-
 static BOOL notifiedMenu = FALSE;
 
 //Init
@@ -1864,11 +1862,11 @@ VOID Design::GameDraw()
 		Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 		SendInput(2, Inputs, sizeof(INPUT));
 
-		if (MenuNotice == FALSE)
+		if (V_MenuNotice == FALSE)
 		{
 			Print(0, 9, "Unable to use the main menu outside of town.");
 
-			MenuNotice = TRUE;
+			V_MenuNotice = TRUE;
 		}
 
 	}
