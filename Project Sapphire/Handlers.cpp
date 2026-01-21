@@ -800,7 +800,7 @@ VOID SetVars()
 	V_MLBDifficulty = 0;
 	V_MLBMonsterID = 0;
 
-	V_MenuNotice == FALSE;
+	V_MenuNotice = FALSE;
 }
 
 VOID SetInTownVars()
