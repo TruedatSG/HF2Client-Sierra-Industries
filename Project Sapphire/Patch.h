@@ -90,7 +90,7 @@ PATCH Patches[] =
 
    //{PatchCall,      DLLOFFSET(D2CLIENT,      0x8450E), (DWORD)GameStart, 5, OUTGAME}, // Overrides  call    D2Common_GetActNoByLevelNo_10864
    
-	//{PatchJmp,      DLLOFFSET(D2WIN, -10054), (DWORD)GameEnd, 5, INGAME},  // Note: comment this if KILLPROCESS is 0 !
+	{PatchJmp,      DLLOFFSET(D2WIN, -10054), (DWORD)GameEnd, 5, INGAME},  // Note: comment this if KILLPROCESS is 0 !
 
    //{PatchCall,      DLLOFFSET(D2WIN,      0xEC68), (DWORD)GameDrawOOG_Intercept,			5, OUTGAME},
    //{PatchJmp,      DLLOFFSET(D2CLIENT,      0x1D7B4), (DWORD)GameDraw_InterceptSTUB,			6,	INGAME}

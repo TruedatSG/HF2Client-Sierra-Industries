@@ -22,7 +22,7 @@ BOOL Attach(HINSTANCE DLL)
 {
 	V_Name = "Project Ruby Dreams";
 	V_DLL = DLL;
-	V_Version = 5.33f;
+	V_Version = 5.34f;
 
 	V_CDKey[0] = NULL;
 	V_Registered = FALSE;
@@ -84,7 +84,7 @@ BOOL Attach(HINSTANCE DLL)
 	V_PrimaryThread.Handle = MakeThread((LPVOID)Threads, (LPVOID)PRIMARY);
 	V_PrimaryThread.Handle = MakeThread((LPVOID)Threads, (LPVOID)REGISTRY);
 
-	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEPAD));
+	V_ThreadsAux.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEPAD));
 
 #ifdef MODWINDOW
 	V_ThreadsMain.Add(MakeThread((LPVOID)Threads, (LPVOID)IGNORECLICK));

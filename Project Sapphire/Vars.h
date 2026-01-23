@@ -552,6 +552,7 @@ VAR(BOOL, FarcastTeleport)
 //Threads
 VAR(THREAD, PrimaryThread)
 ARRAY(HANDLE, Threads)
+ARRAY(HANDLE, ThreadsAux)
 
 //Vectors
 ARRAY(LPVECTOR, CurrentVectors)
@@ -1402,5 +1403,7 @@ VAR(BOOL, VectorsMap)
 VAR(BOOL, MonstersMapExt)
 
 VAR(BOOL, InTownTemp)
+
+VAR(BOOL, MenuNotice)
 
 #undef VARS

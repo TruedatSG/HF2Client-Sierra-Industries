@@ -2863,7 +2863,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 			if (V_BusyUpdData == FALSE)
 			{
-				//Print(1, 9, "Updating player ladder.");
+				Print(1, 9, "Updating player ladder.");
 
 				V_BusyUpdData = TRUE;
 
@@ -2880,7 +2880,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 				V_BusyUpdData = FALSE;
 
-				//Print(1, 9, "Player ladder updated!");
+				Print(1, 9, "Player ladder updated!");
 			}
 		}
 
