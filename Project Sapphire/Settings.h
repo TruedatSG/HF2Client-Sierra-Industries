@@ -25,14 +25,14 @@
 //#define LAZARUSMOD								//Modify input for Lazarus
 
 //#define DEBUGKEYITEMS							//Enable all key items for all expansions
-//#define FFXIVMOD								//Modify input for Final Fantasy XIV
+#define FFXIVMOD								//Modify input for Final Fantasy XIV
 #define MODWINDOW								//Change the window settings for FFXIV, removes boarder and character creation
 
 
 #define LANMPMODE								//Rigs things to work on LAN when packets won't work
 #define	DEBUGINPUT								//Use buffer '?' instead of '/' on some commands		
 
-#define MODMAXLEVEL						85		//Maximum level that can be attained
+#define MODMAXLEVEL						99		//Maximum level that can be attained
 
 //#define EXTLEVELS								//NOT TESTED Extend maximum number of areas to 255
 #define NOWILDERNESSMENU						//Can't use menu outside of town

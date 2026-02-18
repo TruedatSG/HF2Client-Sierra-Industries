@@ -430,27 +430,31 @@ BOOL LookForKeyItems()
 		{
 			if(CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 			{
-				SleepEx(60000 * KEYITEMSKASHYAMIN, TRUE);
-
-				if (pUnit && pUnit->dwType == UNIT_TYPE_NPC)
+				if (V_HaveKeyItemExp1[1] != 239 && V_Registered)
 				{
-					if (pUnit->dwTxtFileNo == 150)
+					Print(0, 0, "Kashya is looking through her records...");
+					SleepEx(60000 * KEYITEMSKASHYAMIN, TRUE);
+
+					if (pUnit && pUnit->dwType == UNIT_TYPE_NPC)
 					{
-						if (CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
+						if (pUnit->dwTxtFileNo == 150)
 						{
-
-							if (V_HaveKeyItemExp1[1] != 239 && V_Registered)
+							if (CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 							{
-								Print(0, 0, "Kashya hands you a scroll and a card...");
 
-								Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp1[0]);
-								Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp1[1]);
+								if (V_HaveKeyItemExp1[1] != 239 && V_Registered)
+								{
+									Print(0, 0, "Kashya hands you a scroll and a card...");
 
-								V_HaveKeyItemExp1[0] = 5148;
-								V_HaveKeyItemExp1[1] = 239;
+									Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp1[0]);
+									Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp1[1]);
 
-								D2CLIENT_PlaySound(STAND_PICKUP);
-								SaveKeyItems();
+									V_HaveKeyItemExp1[0] = 5148;
+									V_HaveKeyItemExp1[1] = 239;
+
+									D2CLIENT_PlaySound(STAND_PICKUP);
+									SaveKeyItems();
+								}
 							}
 						}
 					}
@@ -505,7 +509,7 @@ BOOL LookForKeyItems()
 		{
 			if (CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 			{
-				if (GetUnitStat(Me, STAT_LEVEL) >= 10)
+				if (GetUnitStat(Me, STAT_LEVEL) >= 10 && V_Rank == 2)
 				{
 					if (V_HaveKeyItemExp2[0] != 2219 && V_Registered)
 					{
@@ -572,7 +576,7 @@ BOOL LookForKeyItems()
 		{
 			if(CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 			{
-				if (GetUnitStat(Me, STAT_LEVEL) >= 35)
+				if (GetUnitStat(Me, STAT_LEVEL) >= 35 && V_Rank == 9)
 				{
 					if(V_HaveKeyItemExp3[0] != 5008 && V_Registered)
 					{
@@ -657,7 +661,7 @@ BOOL LookForKeyItems()
 		{
 			if(CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 			{
-				if (GetUnitStat(Me, STAT_LEVEL) >= 45)
+				if (GetUnitStat(Me, STAT_LEVEL) >= 45 && V_Rank == 4)
 				{
 					if(V_HaveKeyItemExp4[0] != 2335 && V_Registered)
 					{
@@ -765,7 +769,7 @@ BOOL LookForKeyItems()
 		{
 			if(CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 			{
-				if (GetUnitStat(Me, STAT_LEVEL) >= 50)
+				if (GetUnitStat(Me, STAT_LEVEL) >= 50 && V_Rank == 8)
 				{
 					if(V_HaveKeyItemExp5[0] != 9095 && V_Registered)
 					{
@@ -847,7 +851,7 @@ BOOL LookForKeyItems()
 		{
 			if(CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 			{
-				if (GetUnitStat(Me, STAT_LEVEL) >= 50)
+				if (GetUnitStat(Me, STAT_LEVEL) >= 50 && V_Rank == 3)
 				{
 					if(V_HaveKeyItemExp6[0] != 4641 && V_Registered)
 					{
@@ -935,7 +939,7 @@ BOOL LookForKeyItems()
 		{
 			if (CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 			{
-				if (GetUnitStat(Me, STAT_LEVEL) >= 50)
+				if (GetUnitStat(Me, STAT_LEVEL) >= 50 && V_Rank == 7)
 				{
 					if (V_HaveKeyItemExp7[0] != 9973 && V_Registered)
 					{
@@ -1009,7 +1013,7 @@ BOOL LookForKeyItems()
 		{
 			if (CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 			{
-				if (GetUnitStat(Me, STAT_LEVEL) >= 50)
+				if (GetUnitStat(Me, STAT_LEVEL) >= 50 && V_Rank == 8)
 				{
 					if (V_HaveKeyItemExp8[0] != 1979 && V_Registered)
 					{
@@ -1092,7 +1096,7 @@ BOOL LookForKeyItems()
 		{
 			if (CalculateDistance((LONG)Me->pPath->xPos, (LONG)Me->pPath->yPos, (LONG)pUnit->pPath->xPos, (LONG)pUnit->pPath->yPos) < 10)
 			{
-				if (GetUnitStat(Me, STAT_LEVEL) >= 50)
+				if (GetUnitStat(Me, STAT_LEVEL) >= 50 && V_Rank == 9)
 				{
 					if (V_HaveKeyItemExp9[0] != 2977 && V_Registered)
 					{

@@ -331,14 +331,14 @@ VOID GameStart()
 
 	if(V_GMMode == TRUE)
 	{
-		Print(0, 1, "Project Ruby Dreams ÿc4version 5.34 is loadedÿc4 with ÿc5GM ÿc1mode active.");
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.35 is loadedÿc4 with ÿc5GM ÿc1mode active.");
 		Print(0, 1, "Type ÿc5?gmhelp ÿc1for a list of ÿc5GM ÿc1commandsÿc1.");
 
 		Load();
 	}
 	else
 	{
-		Print(0, 1, "Project Ruby Dreams ÿc4version 5.34 is loaded. Type ÿc2?help ÿc4for more information.");
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.35 is loaded. Type ÿc2?help ÿc4for more information.");
 	}
 
 	INT TotalGold = GetUnitStat(Me, STAT_GOLD) + GetUnitStat(Me, STAT_GOLDBANK);

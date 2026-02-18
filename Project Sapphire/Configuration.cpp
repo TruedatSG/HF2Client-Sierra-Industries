@@ -1519,6 +1519,7 @@ BOOL PreloadSettings()
 		V_ExpMeter = 0;
 	}
 	V_ExpAddComma = 1;
+#ifndef FFXIVMOD
 	if (V_HaveKeyItemExp1[4] == 227)
 	{
 		V_GoldMeter = V_ToggleKeyItem[4][0]; //New key item?
@@ -1527,6 +1528,9 @@ BOOL PreloadSettings()
 	{
 		V_GoldMeter = 0;
 	}
+#else
+	V_GoldMeter = TRUE;
+#endif
 	if (V_HaveKeyItemExp5[4] == 2984)
 	{
 		V_LifeDots = V_ToggleKeyItem[4][4];

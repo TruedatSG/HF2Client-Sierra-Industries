@@ -22,7 +22,7 @@ BOOL Attach(HINSTANCE DLL)
 {
 	V_Name = "Project Ruby Dreams";
 	V_DLL = DLL;
-	V_Version = 5.34f;
+	V_Version = 5.35f;
 
 	V_CDKey[0] = NULL;
 	V_Registered = FALSE;
