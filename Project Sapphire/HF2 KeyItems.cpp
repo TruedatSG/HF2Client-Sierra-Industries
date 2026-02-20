@@ -1154,7 +1154,7 @@ BOOL LookForKeyItems()
 									D2CLIENT_PlaySound(STAND_PICKUP);
 									SaveKeyItems();
 								}
-								if (V_ToggleKeyItem[0][8] && V_HaveKeyItemExp9[4] != 7555 && GetUnitStat(Me, STAT_LEVEL) >= 50)
+								if (V_ToggleKeyItem[0][8] && V_HaveKeyItemExp9[4] != 7776 && GetUnitStat(Me, STAT_LEVEL) >= 50)
 								{
 									Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp9[0]);
 

@@ -1589,7 +1589,7 @@ BOOL PreloadSettings()
 	V_TownDecrepify = 0;
 	V_TownIronMaiden = 0;
 	V_TownLowerResist = 0;
-	if (V_ToggleKeyItem[2][6] && V_HaveKeyItemExp6[2] == 6691)
+	if (V_ToggleKeyItem[2][6] && V_HaveKeyItemExp7[2] == 6564)
 	{
 		V_LifeExitPercent = 25;
 	}
@@ -1597,7 +1597,7 @@ BOOL PreloadSettings()
 	{
 		V_LifeExitPercent = 0;
 	}
-	if (V_ToggleKeyItem[3][6] && V_HaveKeyItemExp6[3] == 7943)
+	if (V_ToggleKeyItem[3][6] && V_HaveKeyItemExp7[3] == 6534)
 	{
 		V_LifeExitPercent = 50;
 	}
