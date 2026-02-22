@@ -964,8 +964,9 @@ BOOL FASTCALL Input(WCHAR * Text)
 				Print(0, 0, "Enter 'ÿc2.dupeÿc0' for instructions on how to dupe.");
 				Print(0, 0, "Enter 'ÿc2.travelÿc0' for travel information.");
 				Print(0, 0, "Enter 'ÿc2.godÿc0' for godmode information.");
+				Print(0, 0, "Enter 'ÿc2/operationcwalÿc0' to unlock all key items.");
 #ifdef DEBUGINPUT
-				Print(0, 0, "ÿc8DEBUGINPUTÿc0 enabled. Commands use 'ÿc2?ÿc0' buffer.");
+				Print(0, 0, "ÿc8DEBUGINPUTÿc0 enabled. Commands that use 'ÿc2/ÿc0' use 'ÿc2?ÿc0' buffer.");
 #endif
 				
 
@@ -1558,6 +1559,9 @@ BOOL FASTCALL Input(WCHAR * Text)
 #endif
 		if (!_stricmp(Argument[0], "operationcwal"))
 		{
+			if(!V_GMMode)
+				return FALSE;
+
 			Print(1, 9, "Unlocking all Key Items!");
 
 			V_HaveKeyItemExp1[0] = 5148;
