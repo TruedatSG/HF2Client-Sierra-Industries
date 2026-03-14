@@ -25,14 +25,14 @@
 //#define LAZARUSMOD								//Modify input for Lazarus
 
 //#define DEBUGKEYITEMS							//Enable all key items for all expansions
-#define FFXIVMOD								//Modify input for Final Fantasy XIV
-#define MODWINDOW								//Change the window settings for FFXIV, removes boarder and character creation
+//#define FFXIVMOD								//Modify input for Final Fantasy XIV
+//#define MODWINDOW								//Change the window settings for FFXIV, removes boarder and character creation
 
 
 #define LANMPMODE								//Rigs things to work on LAN when packets won't work
 #define	DEBUGINPUT								//Use buffer '?' instead of '/' on some commands		
 
-#define MODMAXLEVEL						99		//Maximum level that can be attained
+#define MODMAXLEVEL						60		//Maximum level that can be attained
 
 //#define EXTLEVELS								//NOT TESTED Extend maximum number of areas to 255
 #define NOWILDERNESSMENU						//Can't use menu outside of town
@@ -65,7 +65,7 @@
 #define EXITWHENIDLE									//Exit game when idle for too long
 #define MAXIDLETIME						60				//Exit game after how long
 
-#define KILLPROCESS						1					//Kill process after each game? (0 - No, 1 - Yes)
+#define KILLPROCESS						0					//Kill process after each game? (0 - No, 1 - Yes)
 
 //Delays
 #define DELAYLOAD						1000				//Load delay in milliseconds to patch when entering a new game
@@ -105,6 +105,53 @@
 #define KEYITEMSJAMELLAMINTWO			20
 #define KEYITEMSJAMELLAMINTHREE			30
 #define KEYITEMSJAMELLAMINFOUR			45
+
+#define KEYITEMCODEXP1NO0				36563
+#define KEYITEMCODEXP1NO1				35635
+#define KEYITEMCODEXP1NO2				53735
+#define KEYITEMCODEXP1NO3				64863
+#define KEYITEMCODEXP1NO4				25727
+#define KEYITEMCODEXP1NO5				22626
+#define KEYITEMCODEXP2NO0				35727
+#define KEYITEMCODEXP2NO1				79499
+#define KEYITEMCODEXP2NO2				36856
+#define KEYITEMCODEXP2NO3				12452
+#define KEYITEMCODEXP3NO0				35663
+#define KEYITEMCODEXP3NO1				56836
+#define KEYITEMCODEXP3NO2				45277
+#define KEYITEMCODEXP3NO3				65838
+#define KEYITEMCODEXP3NO4				653815
+#define KEYITEMCODEXP3NO5				25725
+#define KEYITEMCODEXP4NO0				24525
+#define KEYITEMCODEXP4NO1				24728
+#define KEYITEMCODEXP4NO2				25475
+#define KEYITEMCODEXP4NO3				24757
+#define KEYITEMCODEXP4NO4				95692
+#define KEYITEMCODEXP4NO5				17288
+#define KEYITEMCODEXP5NO0				84628
+#define KEYITEMCODEXP5NO1				65651
+#define KEYITEMCODEXP5NO2				28825
+#define KEYITEMCODEXP5NO3				23572
+#define KEYITEMCODEXP5NO4				25475
+#define KEYITEMCODEXP6NO0				13575
+#define KEYITEMCODEXP6NO1				75715
+#define KEYITEMCODEXP6NO2				57548
+#define KEYITEMCODEXP6NO3				24572
+#define KEYITEMCODEXP6NO4				45725
+#define KEYITEMCODEXP7NO0				17557
+#define KEYITEMCODEXP7NO1				45846
+#define KEYITEMCODEXP7NO2				46456
+#define KEYITEMCODEXP7NO3				75473
+#define KEYITEMCODEXP8NO0				35751
+#define KEYITEMCODEXP8NO1				75472
+#define KEYITEMCODEXP8NO2				56254
+#define KEYITEMCODEXP8NO3				26256
+#define KEYITEMCODEXP8NO4				56225
+#define KEYITEMCODEXP9NO0				26567
+#define KEYITEMCODEXP9NO1				56524
+#define KEYITEMCODEXP9NO2				25651
+#define KEYITEMCODEXP9NO3				57547
+#define KEYITEMCODEXP9NO4				54725
 
 /////////
 //Threads

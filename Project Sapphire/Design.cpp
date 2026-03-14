@@ -498,7 +498,7 @@ BOOL Design::Monsters()
 		return FALSE;
 
 #ifndef LAZARUSMOD
-	if ((!V_ToggleKeyItem[4][3] || V_HaveKeyItemExp4[4] != 7763) && !V_MonstersMap)
+	if ((!V_ToggleKeyItem[4][3] || V_HaveKeyItemExp4[4] != KEYITEMCODEXP4NO4) && !V_MonstersMap)
 		return FALSE;
 #endif
 
@@ -1107,7 +1107,7 @@ BOOL Design::Vectors()
 	if (!ClientReady(FALSE))
 		return FALSE;
 
-	if((!V_ToggleKeyItem[3][3] || V_HaveKeyItemExp4[3] != 2123) && !V_VectorsMap)
+	if((!V_ToggleKeyItem[3][3] || V_HaveKeyItemExp4[3] != KEYITEMCODEXP4NO3) && !V_VectorsMap)
 		return FALSE;
 
 	POINT Player, Position, Last = {0, 0};
@@ -1215,7 +1215,7 @@ BOOL Design::ExperienceInfo()
 	if (CharacterStats || !V_ExpInfo || V_Options || !ClearScreen(3))
 		return FALSE;
 
-	if(!V_ToggleKeyItem[1][1] || V_HaveKeyItemExp2[1] != 987)
+	if(!V_ToggleKeyItem[1][1] || V_HaveKeyItemExp2[1] != KEYITEMCODEXP2NO1)
 		return FALSE;
 
 	if (V_MenuObject > 0)
@@ -1258,7 +1258,7 @@ BOOL Design::States()
 	if (CharacterStats || !V_StateList || V_Options || !ClearScreen(3))
 		return FALSE;
 
-	if(!V_ToggleKeyItem[2][1] || V_HaveKeyItemExp2[2] != 4702)
+	if(!V_ToggleKeyItem[2][1] || V_HaveKeyItemExp2[2] != KEYITEMCODEXP2NO2)
 		return FALSE;
 
 	if (V_MenuObject > 0)
@@ -1342,7 +1342,7 @@ BOOL Design::Supplies()
 	if (CharacterStats || !V_Supplies || V_Options || !ClearScreen(3) || Hide)
 		return FALSE;
 
-	if(!V_ToggleKeyItem[1][1] || V_HaveKeyItemExp2[1] != 987)
+	if(!V_ToggleKeyItem[1][1] || V_HaveKeyItemExp2[1] != KEYITEMCODEXP2NO1)
 		return FALSE;
 
 	if (V_MenuObject > 0)
@@ -1382,7 +1382,7 @@ BOOL Design::Gold() //Credits to Ruby
 		V_GainedGold = 0;
 
 	INT InventoryGold = GetUnitStat(Me, STAT_GOLD);
-	//INT LevelInventoryGold = GetGold(GetUnitStat(Me, STAT_LEVEL)) + (55535 * GetUnitStat(Me, STAT_LEVEL)); // Updated belt size adds 55535 per level
+	INT LevelInventoryGoldA = GetGold(GetUnitStat(Me, STAT_LEVEL)) + (55535 * GetUnitStat(Me, STAT_LEVEL)); // Updated belt size adds 55535 per level
 	INT LevelInventoryGold = GetGold(GetUnitStat(Me, STAT_LEVEL)); // Above will always be zero at mid-high levels
 	INT GoldPercent = CalcPercent(InventoryGold, LevelInventoryGold);
 	V_GainedGold = TotalGold - V_StartingGold;
@@ -1399,7 +1399,7 @@ BOOL Design::Gold() //Credits to Ruby
 	if (CharacterStats || !V_Gold || V_Options || !ClearScreen(3))
 		return FALSE;
 
-	if(!V_ToggleKeyItem[3][1] || V_HaveKeyItemExp2[3] != 2387)
+	if(!V_ToggleKeyItem[3][1] || V_HaveKeyItemExp2[3] != KEYITEMCODEXP2NO3)
 		return FALSE;
 
 	if (V_MenuObject > 0)
@@ -1410,16 +1410,12 @@ BOOL Design::Gold() //Credits to Ruby
 
 	Rectangle(V_GoldX, V_GoldY, 122, 72, 0, 1);
 
-#ifndef FFXIVMOD
 	DrawOutCenter(V_GoldX + 61, V_GoldY + 12, V_GoldTitleColor, 6, 1, "Gold");
-#else
-	DrawOutCenter(V_GoldX + 61, V_GoldY + 12, V_GoldTitleColor, 6, 1, "Dyne");
-#endif
 
 	DrawOutCenter(V_GoldX + 61, V_GoldY + 27, 3, 6, 1, "Beltsÿc0: %d ÿc3Cap.ÿc0: %d%%", Belt, GoldPercent);
 	DrawOutCenter(V_GoldX + 61, V_GoldY + 37, 3, 6, 1, "Totalÿc0: %s", AddCommas(TotalGold, 0));
 	DrawOutCenter(V_GoldX + 61, V_GoldY + 47, 3, 6, 1, "Personÿc0: %s", AddCommas(GetUnitStat(Me, STAT_GOLD), 0));
-	DrawOutCenter(V_GoldX + 61, V_GoldY + 57, 3, 6, 1, "Neededÿc0: %s", AddCommas(LevelInventoryGold - GetUnitStat(Me, STAT_GOLD), 0));
+	DrawOutCenter(V_GoldX + 61, V_GoldY + 57, 3, 6, 1, "Neededÿc0: %s", AddCommas(LevelInventoryGoldA - GetUnitStat(Me, STAT_GOLD), 0));
 	DrawOutCenter(V_GoldX + 61, V_GoldY + 67, 3, 6, 1, "Gainedÿc0: %s", AddCommas(V_GainedGold, 0));
 
 	return TRUE;

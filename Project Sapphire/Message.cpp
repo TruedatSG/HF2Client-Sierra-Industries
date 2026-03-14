@@ -82,7 +82,7 @@ BOOL FASTCALL Input(WCHAR * Text)
 	if (Buffer[0] == '.')
 	{
 #ifndef FFXIVMOD
-		if ((V_HaveKeyItemExp9[1] == 6511 && V_ToggleKeyItem[1][8]) || V_GMMode)
+		if ((V_HaveKeyItemExp9[1] == KEYITEMCODEXP9NO1 && V_ToggleKeyItem[1][8]) || V_GMMode)
 		{
 			if (!_stricmp(Argument[0], "dupe1"))
 			{
@@ -966,7 +966,7 @@ BOOL FASTCALL Input(WCHAR * Text)
 				Print(0, 0, "Enter 'ÿc2.godÿc0' for godmode information.");
 				Print(0, 0, "Enter 'ÿc2/operationcwalÿc0' to unlock all key items.");
 #ifdef DEBUGINPUT
-				Print(0, 0, "ÿc8DEBUGINPUTÿc0 enabled. Commands that use 'ÿc2/ÿc0' use 'ÿc2?ÿc0' buffer.");
+				Print(0, 0, "ÿc8DEBUGINPUTÿc0 enabled. Commands with 'ÿc2/ÿc0' use 'ÿc2?ÿc0' buffer.");
 #endif
 				
 
@@ -1421,7 +1421,7 @@ BOOL FASTCALL Input(WCHAR * Text)
 		}
 
 #ifndef FFXIVMOD
-		if ((V_HaveKeyItemExp9[1] == 6511 && V_ToggleKeyItem[1][8]) || V_GMMode)
+		if ((V_HaveKeyItemExp9[1] == KEYITEMCODEXP9NO1 && V_ToggleKeyItem[1][8]) || V_GMMode)
 		{
 			if (!_stricmp(Argument[0], "dupe1"))
 			{
@@ -1559,57 +1559,57 @@ BOOL FASTCALL Input(WCHAR * Text)
 #endif
 		if (!_stricmp(Argument[0], "operationcwal"))
 		{
-			if(!V_GMMode)
+			if (!V_GMMode)
 				return FALSE;
 
 			Print(1, 9, "Unlocking all Key Items!");
 
-			V_HaveKeyItemExp1[0] = 5148;
-			V_HaveKeyItemExp1[1] = 239;
-			V_HaveKeyItemExp1[2] = 591;
-			V_HaveKeyItemExp1[3] = 248;
-			V_HaveKeyItemExp1[4] = 227;
-			V_HaveKeyItemExp1[5] = 398;
-			V_HaveKeyItemExp2[0] = 2219;
-			V_HaveKeyItemExp2[1] = 987;
-			V_HaveKeyItemExp2[2] = 4702;
-			V_HaveKeyItemExp2[3] = 2387;
-			V_HaveKeyItemExp3[0] = 5008;
-			V_HaveKeyItemExp3[1] = 3784;
-			V_HaveKeyItemExp3[2] = 6742;
-			V_HaveKeyItemExp3[3] = 1637;
-			V_HaveKeyItemExp3[4] = 5564;
-			V_HaveKeyItemExp3[5] = 4551;
-			V_HaveKeyItemExp4[0] = 2335;
-			V_HaveKeyItemExp4[1] = 4871;
-			V_HaveKeyItemExp4[2] = 4441;
-			V_HaveKeyItemExp4[3] = 2123;
-			V_HaveKeyItemExp4[4] = 7763;
-			V_HaveKeyItemExp4[5] = 6222;
-			V_HaveKeyItemExp5[0] = 9095;
-			V_HaveKeyItemExp5[1] = 5478;
-			V_HaveKeyItemExp5[2] = 3449;
-			V_HaveKeyItemExp5[3] = 4319;
-			V_HaveKeyItemExp5[4] = 2984;
-			V_HaveKeyItemExp6[0] = 4641;
-			V_HaveKeyItemExp6[1] = 7329;
-			V_HaveKeyItemExp6[2] = 6691;
-			V_HaveKeyItemExp6[3] = 7943;
-			V_HaveKeyItemExp6[4] = 2113;
-			V_HaveKeyItemExp7[0] = 9973;
-			V_HaveKeyItemExp7[1] = 6532;
-			V_HaveKeyItemExp7[2] = 6564;
-			V_HaveKeyItemExp7[3] = 6534;
-			V_HaveKeyItemExp8[0] = 1979;
-			V_HaveKeyItemExp8[1] = 8763;
-			V_HaveKeyItemExp8[2] = 7351;
-			V_HaveKeyItemExp8[3] = 7341;
-			V_HaveKeyItemExp8[4] = 7651;
-			V_HaveKeyItemExp9[0] = 2977;
-			V_HaveKeyItemExp9[1] = 6511;
-			V_HaveKeyItemExp9[2] = 7512;
-			V_HaveKeyItemExp9[3] = 7555;
-			V_HaveKeyItemExp9[4] = 7776;
+			V_HaveKeyItemExp1[0] = KEYITEMCODEXP1NO1;
+			V_HaveKeyItemExp1[1] = KEYITEMCODEXP1NO0;
+			V_HaveKeyItemExp1[2] = KEYITEMCODEXP1NO2;
+			V_HaveKeyItemExp1[3] = KEYITEMCODEXP1NO3;
+			V_HaveKeyItemExp1[4] = KEYITEMCODEXP1NO4;
+			V_HaveKeyItemExp1[5] = KEYITEMCODEXP1NO5;
+			V_HaveKeyItemExp2[0] = KEYITEMCODEXP2NO0;
+			V_HaveKeyItemExp2[1] = KEYITEMCODEXP2NO1;
+			V_HaveKeyItemExp2[2] = KEYITEMCODEXP2NO2;
+			V_HaveKeyItemExp2[3] = KEYITEMCODEXP2NO3;
+			V_HaveKeyItemExp3[0] = KEYITEMCODEXP3NO0;
+			V_HaveKeyItemExp3[1] = KEYITEMCODEXP3NO1;
+			V_HaveKeyItemExp3[2] = KEYITEMCODEXP3NO2;
+			V_HaveKeyItemExp3[3] = KEYITEMCODEXP3NO3;
+			V_HaveKeyItemExp3[4] = KEYITEMCODEXP3NO4;
+			V_HaveKeyItemExp3[5] = KEYITEMCODEXP3NO5;
+			V_HaveKeyItemExp4[0] = KEYITEMCODEXP4NO0;
+			V_HaveKeyItemExp4[1] = KEYITEMCODEXP4NO1;
+			V_HaveKeyItemExp4[2] = KEYITEMCODEXP4NO2;
+			V_HaveKeyItemExp4[3] = KEYITEMCODEXP4NO3;
+			V_HaveKeyItemExp4[4] = KEYITEMCODEXP4NO4;
+			V_HaveKeyItemExp4[5] = KEYITEMCODEXP4NO5;
+			V_HaveKeyItemExp5[0] = KEYITEMCODEXP5NO0;
+			V_HaveKeyItemExp5[1] = KEYITEMCODEXP5NO1;
+			V_HaveKeyItemExp5[2] = KEYITEMCODEXP5NO2;
+			V_HaveKeyItemExp5[3] = KEYITEMCODEXP5NO3;
+			V_HaveKeyItemExp5[4] = KEYITEMCODEXP5NO4;
+			V_HaveKeyItemExp6[0] = KEYITEMCODEXP6NO0;
+			V_HaveKeyItemExp6[1] = KEYITEMCODEXP6NO1;
+			V_HaveKeyItemExp6[2] = KEYITEMCODEXP6NO2;
+			V_HaveKeyItemExp6[3] = KEYITEMCODEXP6NO3;
+			V_HaveKeyItemExp6[4] = KEYITEMCODEXP6NO4;
+			V_HaveKeyItemExp7[0] = KEYITEMCODEXP7NO0;
+			V_HaveKeyItemExp7[1] = KEYITEMCODEXP7NO1;
+			V_HaveKeyItemExp7[2] = KEYITEMCODEXP7NO2;
+			V_HaveKeyItemExp7[3] = KEYITEMCODEXP7NO3;
+			V_HaveKeyItemExp8[0] = KEYITEMCODEXP8NO0;
+			V_HaveKeyItemExp8[1] = KEYITEMCODEXP8NO1;
+			V_HaveKeyItemExp8[2] = KEYITEMCODEXP8NO2;
+			V_HaveKeyItemExp8[3] = KEYITEMCODEXP8NO3;
+			V_HaveKeyItemExp8[4] = KEYITEMCODEXP8NO4;
+			V_HaveKeyItemExp9[0] = KEYITEMCODEXP9NO0;
+			V_HaveKeyItemExp9[1] = KEYITEMCODEXP9NO1;
+			V_HaveKeyItemExp9[2] = KEYITEMCODEXP9NO2;
+			V_HaveKeyItemExp9[3] = KEYITEMCODEXP9NO3;
+			V_HaveKeyItemExp9[4] = KEYITEMCODEXP9NO4;
 
 			SaveKeyItems();
 

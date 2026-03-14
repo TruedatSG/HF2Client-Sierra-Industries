@@ -644,9 +644,9 @@ struct ItemData
 	DWORD dwQuality;				//0x00
 	DWORD _1[2];					//0x04
 	DWORD dwItemFlags;				//0x0C 1 = Owned by player, 0xFFFFFFFF = Not owned
-	DWORD _2[2];					//0x10
+	DWORD _2;					//0x10
 	DWORD dwFlags;					//0x18
-	DWORD _3[3];					//0x1C
+	DWORD _3;					//0x1C
 	DWORD dwQuality2;				//0x28
 	DWORD dwItemLevel;				//0x2C
 	WORD _4;						//0x30

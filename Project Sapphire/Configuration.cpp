@@ -1347,52 +1347,52 @@ VOID WritePrivateProfileInt64A(LPCSTR Section, LPCSTR Entry, INT64 Value, LPCSTR
 BOOL PreloadSettings()
 {
 #ifdef DEBUGKEYITEMS
-	V_HaveKeyItemExp1[0] = 5148;
-	V_HaveKeyItemExp1[1] = 239;
-	V_HaveKeyItemExp1[2] = 591;
-	V_HaveKeyItemExp1[3] = 248;
-	V_HaveKeyItemExp1[4] = 227;
-	V_HaveKeyItemExp1[5] = 398;
-	V_HaveKeyItemExp2[0] = 2219;
-	V_HaveKeyItemExp2[1] = 987;
-	V_HaveKeyItemExp2[2] = 4702;
-	V_HaveKeyItemExp2[3] = 2387;
-	V_HaveKeyItemExp3[0] = 5008;
-	V_HaveKeyItemExp3[1] = 3784;
-	V_HaveKeyItemExp3[2] = 6742;
-	V_HaveKeyItemExp3[3] = 1637;
-	V_HaveKeyItemExp3[4] = 5564;
-	V_HaveKeyItemExp3[5] = 4551;
-	V_HaveKeyItemExp4[0] = 2335;
-	V_HaveKeyItemExp4[1] = 4871;
-	V_HaveKeyItemExp4[2] = 4441;
-	V_HaveKeyItemExp4[3] = 2123;
-	V_HaveKeyItemExp4[4] = 7763;
-	V_HaveKeyItemExp4[5] = 6222;
-	V_HaveKeyItemExp5[0] = 9095;
-	V_HaveKeyItemExp5[1] = 5478;
-	V_HaveKeyItemExp5[2] = 3449;
-	V_HaveKeyItemExp5[3] = 4319;
-	V_HaveKeyItemExp5[4] = 2984;
-	V_HaveKeyItemExp6[0] = 4641;
-	V_HaveKeyItemExp6[1] = 7329;
-	V_HaveKeyItemExp6[2] = 6691;
-	V_HaveKeyItemExp6[3] = 7943;
-	V_HaveKeyItemExp6[4] = 2113;
-	V_HaveKeyItemExp7[0] = 9973;
-	V_HaveKeyItemExp7[1] = 6532;
-	V_HaveKeyItemExp7[2] = 6564;
-	V_HaveKeyItemExp7[3] = 6534;
-	V_HaveKeyItemExp8[0] = 1979;
-	V_HaveKeyItemExp8[1] = 8763;
-	V_HaveKeyItemExp8[2] = 7351;
-	V_HaveKeyItemExp8[3] = 7341;
-	V_HaveKeyItemExp8[4] = 7651;
-	V_HaveKeyItemExp9[0] = 2977;
-	V_HaveKeyItemExp9[1] = 6511;
-	V_HaveKeyItemExp9[2] = 7512;
-	V_HaveKeyItemExp9[3] = 7555;
-	V_HaveKeyItemExp9[4] = 7776;
+	V_HaveKeyItemExp1[0] = KEYITEMCODEXP1NO1;
+	V_HaveKeyItemExp1[1] = KEYITEMCODEXP1NO0;
+	V_HaveKeyItemExp1[2] = KEYITEMCODEXP1NO2;
+	V_HaveKeyItemExp1[3] = KEYITEMCODEXP1NO3;
+	V_HaveKeyItemExp1[4] = KEYITEMCODEXP1NO4;
+	V_HaveKeyItemExp1[5] = KEYITEMCODEXP1NO5;
+	V_HaveKeyItemExp2[0] = KEYITEMCODEXP2NO0;
+	V_HaveKeyItemExp2[1] = KEYITEMCODEXP2NO1;
+	V_HaveKeyItemExp2[2] = KEYITEMCODEXP2NO2;
+	V_HaveKeyItemExp2[3] = KEYITEMCODEXP2NO3;
+	V_HaveKeyItemExp3[0] = KEYITEMCODEXP3NO0;
+	V_HaveKeyItemExp3[1] = KEYITEMCODEXP3NO1;
+	V_HaveKeyItemExp3[2] = KEYITEMCODEXP3NO2;
+	V_HaveKeyItemExp3[3] = KEYITEMCODEXP3NO3;
+	V_HaveKeyItemExp3[4] = KEYITEMCODEXP3NO4;
+	V_HaveKeyItemExp3[5] = KEYITEMCODEXP3NO5;
+	V_HaveKeyItemExp4[0] = KEYITEMCODEXP4NO0;
+	V_HaveKeyItemExp4[1] = KEYITEMCODEXP4NO1;
+	V_HaveKeyItemExp4[2] = KEYITEMCODEXP4NO2;
+	V_HaveKeyItemExp4[3] = KEYITEMCODEXP4NO3;
+	V_HaveKeyItemExp4[4] = KEYITEMCODEXP4NO4;
+	V_HaveKeyItemExp4[5] = KEYITEMCODEXP4NO5;
+	V_HaveKeyItemExp5[0] = KEYITEMCODEXP5NO0;
+	V_HaveKeyItemExp5[1] = KEYITEMCODEXP5NO1;
+	V_HaveKeyItemExp5[2] = KEYITEMCODEXP5NO2;
+	V_HaveKeyItemExp5[3] = KEYITEMCODEXP5NO3;
+	V_HaveKeyItemExp5[4] = KEYITEMCODEXP5NO4;
+	V_HaveKeyItemExp6[0] = KEYITEMCODEXP6NO0;
+	V_HaveKeyItemExp6[1] = KEYITEMCODEXP6NO1;
+	V_HaveKeyItemExp6[2] = KEYITEMCODEXP6NO2;
+	V_HaveKeyItemExp6[3] = KEYITEMCODEXP6NO3;
+	V_HaveKeyItemExp6[4] = KEYITEMCODEXP6NO4;
+	V_HaveKeyItemExp7[0] = KEYITEMCODEXP7NO0;
+	V_HaveKeyItemExp7[1] = KEYITEMCODEXP7NO1;
+	V_HaveKeyItemExp7[2] = KEYITEMCODEXP7NO2;
+	V_HaveKeyItemExp7[3] = KEYITEMCODEXP7NO3;
+	V_HaveKeyItemExp8[0] = KEYITEMCODEXP8NO0;
+	V_HaveKeyItemExp8[1] = KEYITEMCODEXP8NO1;
+	V_HaveKeyItemExp8[2] = KEYITEMCODEXP8NO2;
+	V_HaveKeyItemExp8[3] = KEYITEMCODEXP8NO3;
+	V_HaveKeyItemExp8[4] = KEYITEMCODEXP8NO4;
+	V_HaveKeyItemExp9[0] = KEYITEMCODEXP9NO0;
+	V_HaveKeyItemExp9[1] = KEYITEMCODEXP9NO1;
+	V_HaveKeyItemExp9[2] = KEYITEMCODEXP9NO2;
+	V_HaveKeyItemExp9[3] = KEYITEMCODEXP9NO3;
+	V_HaveKeyItemExp9[4] = KEYITEMCODEXP9NO4;
 #endif
 
 	//Aim
@@ -1442,7 +1442,7 @@ BOOL PreloadSettings()
 	//Design
 	K_Clean = 0;
 	V_Screenshot = 0;
-	if (V_HaveKeyItemExp9[2] == 7512)
+	if (V_HaveKeyItemExp9[2] == KEYITEMCODEXP9NO2)
 	{
 		V_Orbs = V_ToggleKeyItem[2][8];
 	}
@@ -1494,7 +1494,7 @@ BOOL PreloadSettings()
 	V_LifeOrbFont = 0;
 	V_ManaOrbColor = 3;
 	V_ManaOrbFont = 0;
-	if (V_HaveKeyItemExp1[3] == 248)
+	if (V_HaveKeyItemExp1[3] == KEYITEMCODEXP1NO3)
 	{
 		V_UIDash = V_ToggleKeyItem[3][0];
 	}
@@ -1502,7 +1502,7 @@ BOOL PreloadSettings()
 	{
 		V_UIDash = 0;
 	}
-	if (V_HaveKeyItemExp1[5] == 398)
+	if (V_HaveKeyItemExp1[5] == KEYITEMCODEXP1NO5)
 	{
 		V_UIClock = V_ToggleKeyItem[5][0];
 	}
@@ -1510,7 +1510,7 @@ BOOL PreloadSettings()
 	{
 		V_UIClock = 0;
 	}
-	if (V_HaveKeyItemExp1[4] == 227)
+	if (V_HaveKeyItemExp1[4] == KEYITEMCODEXP1NO4)
 	{
 		V_ExpMeter = V_ToggleKeyItem[4][0];
 	}
@@ -1520,7 +1520,7 @@ BOOL PreloadSettings()
 	}
 	V_ExpAddComma = 1;
 #ifndef FFXIVMOD
-	if (V_HaveKeyItemExp1[4] == 227)
+	if (V_HaveKeyItemExp1[4] == KEYITEMCODEXP1NO4)
 	{
 		V_GoldMeter = V_ToggleKeyItem[4][0]; //New key item?
 	}
@@ -1531,7 +1531,7 @@ BOOL PreloadSettings()
 #else
 	V_GoldMeter = TRUE;
 #endif
-	if (V_HaveKeyItemExp5[4] == 2984)
+	if (V_HaveKeyItemExp5[4] == KEYITEMCODEXP5NO4)
 	{
 		V_LifeDots = V_ToggleKeyItem[4][4];
 	}
@@ -1589,7 +1589,7 @@ BOOL PreloadSettings()
 	V_TownDecrepify = 0;
 	V_TownIronMaiden = 0;
 	V_TownLowerResist = 0;
-	if (V_ToggleKeyItem[2][6] && V_HaveKeyItemExp7[2] == 6564)
+	if (V_ToggleKeyItem[2][6] && V_HaveKeyItemExp7[2] == KEYITEMCODEXP7NO2)
 	{
 		V_LifeExitPercent = 25;
 	}
@@ -1597,7 +1597,7 @@ BOOL PreloadSettings()
 	{
 		V_LifeExitPercent = 0;
 	}
-	if (V_ToggleKeyItem[3][6] && V_HaveKeyItemExp7[3] == 6534)
+	if (V_ToggleKeyItem[3][6] && V_HaveKeyItemExp7[3] == KEYITEMCODEXP7NO3)
 	{
 		V_LifeExitPercent = 50;
 	}
@@ -1612,7 +1612,7 @@ BOOL PreloadSettings()
 	V_FastTP = 0;
 	V_NoTPDelay = 0;
 	K_Exit = 0;
-	if (V_ToggleKeyItem[3][8] && V_HaveKeyItemExp9[3] == 7555)
+	if (V_ToggleKeyItem[3][8] && V_HaveKeyItemExp9[3] == KEYITEMCODEXP9NO3)
 	{
 		K_Town = 53;
 		K_TP = 54;
@@ -1651,7 +1651,7 @@ BOOL PreloadSettings()
 	V_RememberGameName = 1;
 	V_RememberGamePassword = 1;
 	V_OutTownSelect = 0;
-	if (V_HaveKeyItemExp1[2] == 591)
+	if (V_HaveKeyItemExp1[2] == KEYITEMCODEXP1NO2)
 	{
 		V_AutomapOnJoin = V_ToggleKeyItem[2][0];
 	}
@@ -1667,7 +1667,7 @@ BOOL PreloadSettings()
 	V_ManaPot = 0;
 	V_ManaJuv = 0;
 	V_Potion = 0;
-	V_Quests = 0;
+	V_Quests = 1;
 
 	//Options Menu
 	K_Options = 0;
@@ -1679,7 +1679,7 @@ BOOL PreloadSettings()
 	V_OptionCloseFont = 0;
 
 	//Potion
-	if (V_ToggleKeyItem[1][6] && V_HaveKeyItemExp7[1] == 6532)
+	if (V_ToggleKeyItem[1][6] && V_HaveKeyItemExp7[1] == KEYITEMCODEXP7NO1)
 	{
 		V_LifePotPercent = 75;
 		V_LifePotDelay = 2000;
@@ -1705,7 +1705,7 @@ BOOL PreloadSettings()
 	}
 
 	//Reveal
-	if (V_HaveKeyItemExp5[2] == 3449)
+	if (V_HaveKeyItemExp5[2] == KEYITEMCODEXP5NO2)
 	{
 		V_AntiShake = V_ToggleKeyItem[2][4];
 	}
@@ -1714,7 +1714,7 @@ BOOL PreloadSettings()
 		V_AntiShake = 0;
 	}
 	V_AntiWeather = 0;
-	if (V_HaveKeyItemExp5[1] == 5478)
+	if (V_HaveKeyItemExp5[1] == KEYITEMCODEXP5NO1)
 	{
 		V_AutoRevealAutomap = V_ToggleKeyItem[1][4];
 	}
@@ -1723,7 +1723,7 @@ BOOL PreloadSettings()
 		V_AutoRevealAutomap = 0;
 	}
 #ifndef LAZARUSMOD
-	if (V_HaveKeyItemExp6[2] == 6691)
+	if (V_HaveKeyItemExp6[2] == KEYITEMCODEXP6NO2)
 	{
 		V_Ethereal = V_ToggleKeyItem[2][5];
 	}
@@ -1734,7 +1734,7 @@ BOOL PreloadSettings()
 #else
 	V_Ethereal = 1;
 #endif
-	if (V_HaveKeyItemExp6[1] == 7329)
+	if (V_HaveKeyItemExp6[1] == KEYITEMCODEXP6NO1)
 	{
 		V_FullLightRadius = V_ToggleKeyItem[1][5];
 	}
@@ -1743,7 +1743,7 @@ BOOL PreloadSettings()
 		V_FullLightRadius = 0;
 	}
 #ifndef LAZARUSMOD
-	if (V_HaveKeyItemExp6[3] == 7943)
+	if (V_HaveKeyItemExp6[3] == KEYITEMCODEXP6NO3)
 	{
 		V_ItemLevel = V_ToggleKeyItem[3][5];
 	}
@@ -1754,7 +1754,7 @@ BOOL PreloadSettings()
 #else
 	V_ItemLevel = 1;
 #endif
-	if (V_HaveKeyItemExp5[3] == 4319)
+	if (V_HaveKeyItemExp5[3] == KEYITEMCODEXP5NO3)
 	{
 		V_ProtectItemSocket = V_ToggleKeyItem[3][4];
 	}
@@ -1763,7 +1763,7 @@ BOOL PreloadSettings()
 		V_ProtectItemSocket = 0;
 	}
 #ifndef LAZARUSMOD
-	if (V_HaveKeyItemExp6[4] == 2113)
+	if (V_HaveKeyItemExp6[4] == KEYITEMCODEXP6NO4)
 	{
 		V_Sockets = V_ToggleKeyItem[4][5];
 	}
@@ -1781,7 +1781,7 @@ BOOL PreloadSettings()
 	V_LifeBarTransparency = 0;
 	V_LifeBarColor = 1;
 	V_LevelNamesFontColor = 0;
-	if (V_HaveKeyItemExp8[1] == 8763)
+	if (V_HaveKeyItemExp8[1] == KEYITEMCODEXP8NO1)
 	{
 		V_Missiles = V_ToggleKeyItem[1][7];
 	}
@@ -1795,7 +1795,7 @@ BOOL PreloadSettings()
 	V_PartyColor = 155;
 	V_Monsters = 1;
 	V_MonsterNames = 0;
-	if (V_HaveKeyItemExp8[2] == 7351)
+	if (V_HaveKeyItemExp8[2] == KEYITEMCODEXP8NO2)
 	{
 		V_MonsterResists = V_ToggleKeyItem[2][7];
 	}
@@ -1814,7 +1814,7 @@ BOOL PreloadSettings()
 	V_BossNameColor = 0;
 	V_ChampionColor = 151;
 	V_MinionColor = 91;
-	if (V_HaveKeyItemExp8[3] == 7341)
+	if (V_HaveKeyItemExp8[3] == KEYITEMCODEXP8NO3)
 	{
 		V_MonsterEnchantments = V_ToggleKeyItem[3][7];
 	}
@@ -1829,7 +1829,7 @@ BOOL PreloadSettings()
 	V_MonsterEnchantmentsHolyFire = 1;
 	V_MonsterEnchantmentsHolyFreeze = 1;
 	V_MonsterEnchantmentsHolyShock = 1;
-	if (V_HaveKeyItemExp8[4] == 7651)
+	if (V_HaveKeyItemExp8[4] == KEYITEMCODEXP8NO4)
 	{
 		V_MonsterUnits = V_ToggleKeyItem[4][7];
 	}
@@ -1868,7 +1868,7 @@ BOOL PreloadSettings()
 	V_SpeedCast = 0;
 	V_CastFrames = 0;
 
-	if(V_HaveKeyItemExp3[5] == 4551)
+	if(V_HaveKeyItemExp3[5] == KEYITEMCODEXP3NO5)
 	{
 		if(V_ToggleKeyItem[5][2])
 		{
@@ -1883,7 +1883,7 @@ BOOL PreloadSettings()
 	{
 		V_AttackSpeed = 0;
 	}
-	if(V_HaveKeyItemExp3[3] == 1637)
+	if(V_HaveKeyItemExp3[3] == KEYITEMCODEXP3NO3)
 	{
 		if(V_ToggleKeyItem[3][2])
 		{
@@ -1899,7 +1899,7 @@ BOOL PreloadSettings()
 		V_BlockRate = 0;
 	}
 
-	if(V_HaveKeyItemExp3[1] == 3784)
+	if(V_HaveKeyItemExp3[1] == KEYITEMCODEXP3NO1)
 	{
 		if(V_ToggleKeyItem[1][2])
 		{
@@ -1915,7 +1915,7 @@ BOOL PreloadSettings()
 		V_CastRate = 0;
 	}
 
-	if(V_HaveKeyItemExp3[2] == 6742)
+	if(V_HaveKeyItemExp3[2] == KEYITEMCODEXP3NO2)
 	{
 		if(V_ToggleKeyItem[2][2])
 		{
@@ -1932,7 +1932,7 @@ BOOL PreloadSettings()
 	}
 
 	V_RunWalkSpeed = 0;
-	if(V_HaveKeyItemExp3[4] == 5564)
+	if(V_HaveKeyItemExp3[4] == KEYITEMCODEXP3NO4)
 	{
 		if(V_ToggleKeyItem[4][2])
 		{
@@ -1949,7 +1949,7 @@ BOOL PreloadSettings()
 	}
 
 	//Teleport
-	if (V_ToggleKeyItem[4][8] && V_HaveKeyItemExp9[4] == 7776)
+	if (V_ToggleKeyItem[4][8] && V_HaveKeyItemExp9[4] == KEYITEMCODEXP9NO4)
 	{
 		V_FastTeleport = 1;
 		V_FarcastTeleport = 1;

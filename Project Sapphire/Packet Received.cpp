@@ -331,7 +331,26 @@ BOOL FASTCALL OnGamePacketReceived(LPBYTE Packet, DWORD Length)
 	{
 		if (V_Quests)
 		{
-			if (Packet[1] == 0) Print(0, 4, "Questÿc0: ÿc4Den of Evil");
+			if (Packet[1] == 0)
+			{
+				Print(0, 4, "Questÿc0: ÿc4Den of Evil");
+#ifdef FFXIVMOD
+				Print(0, 1, "Final Fantasy 14 Shadowbringers (for Hellfire II)");
+				Print(0, 1, "Made by Alexander");
+				Print(0, 1, "Music by A Skylit Drive");
+				Print(0, 1, "Hexen");
+				Print(0, 1, "Love Spirals Downwards");
+				Print(0, 1, "Featuring Robert Miles");
+				Print(0, 1, "...");
+				Print(0, 1, "Project Sapphire 5.41 by Alexander@USWest");
+				Print(0, 1, "Sierra Industries");
+				Print(0, 1, "Blizzhackers");
+				Print(0, 1, "ANdy");
+				Print(0, 1, "PlugY");
+				Print(0, 1, "D2Ex2");
+				Print(0, 1, "BaseMod");
+#endif
+			}
 			if (Packet[1] == 1) Print(0, 4, "Questÿc0: ÿc4Tristram");
 			if (Packet[1] == 3) Print(0, 4, "Questÿc0: ÿc4Tal-Rasha's Tomb");
 			if (Packet[1] == 6) Print(0, 4, "Questÿc0: ÿc4Claw-Viper Temple");

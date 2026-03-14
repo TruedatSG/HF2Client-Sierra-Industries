@@ -331,14 +331,14 @@ VOID GameStart()
 
 	if(V_GMMode == TRUE)
 	{
-		Print(0, 1, "Project Ruby Dreams ÿc4version 5.35 is loadedÿc4 with ÿc5GM ÿc1mode active.");
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.41 is loadedÿc4 with ÿc5GM ÿc1mode active.");
 		Print(0, 1, "Type ÿc5?gmhelp ÿc1for a list of ÿc5GM ÿc1commandsÿc1.");
 
 		Load();
 	}
 	else
 	{
-		Print(0, 1, "Project Ruby Dreams ÿc4version 5.35 is loaded. Type ÿc2?help ÿc4for more information.");
+		Print(0, 1, "Project Ruby Dreams ÿc4version 5.41 is loaded. Type ÿc2?help ÿc4for more information.");
 	}
 
 	INT TotalGold = GetUnitStat(Me, STAT_GOLD) + GetUnitStat(Me, STAT_GOLDBANK);
@@ -903,7 +903,7 @@ VOID STDCALL GameShake(LPDWORD lpX, LPDWORD lpY)
 
 BOOL FASTCALL InfraVision(LPUNITANY Unit)
 {
-	if(!V_ToggleKeyItem[5][3] || V_HaveKeyItemExp4[5] != 6222)
+	if(!V_ToggleKeyItem[5][3] || V_HaveKeyItemExp4[5] != KEYITEMCODEXP4NO5)
 		return FALSE;
 
 	switch(Unit->dwType)

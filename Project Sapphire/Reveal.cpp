@@ -949,7 +949,7 @@ VOID GetMonsterLevelTC(WCHAR * String, LPUNITANY Unit, DWORD Number)
 		wsprintfW2(String + wcslen(String), " [L%d]", Lvl);
 	}
 
-	if (V_MonsterLifeBarTC && V_ToggleKeyItem[2][3] && V_HaveKeyItemExp4[2] == 4441)
+	if (V_MonsterLifeBarTC && V_ToggleKeyItem[2][3] && V_HaveKeyItemExp4[2] == KEYITEMCODEXP4NO2)
 	{
 		BYTE TC;
 
@@ -998,39 +998,112 @@ LPUNITANY GetViewingUnit()
 	return V_ViewingUnit;
 }
 
-VOID FASTCALL ItemName(WCHAR * Name, LPUNITANY Item)
+VOID FASTCALL ItemName(WCHAR* Name, LPUNITANY Item)
 {
 	if (!V_Design->Hide)
 	{
 		CHAR NaMe[1000];
+		INT Quantity = 0;
+		Quantity = GetUnitStat(Item, STAT_AMMOQUANTITY);
+		CHAR QUTY[10];
+		if (Quantity > 0)
+			sprintf_s(QUTY, sizeof(QUTY), "%d ", Quantity);
+
 		WideCharToMultiByte(CP_ACP, 0, Name, -1, NaMe, (INT)sizeof(NaMe), 0, 0);
 
-		if (Item->pItemData->dwFlags & 0x400000 && V_Ethereal)
+		INT Damage = GetUnitStat(Item, 21);
+		if (Quantity && Item->pItemData->dwQuality == 2 && Damage < 1)
 		{
-			CHAR Ethereal[10] = " [E]";
-			strcat_s(NaMe, sizeof(NaMe), Ethereal);
-		}
-
-		if (V_Sockets)
-		{
-			INT Sockets = GetUnitStat(Item, STAT_SOCKETS);
-
-			if (Sockets > 0)
+			std::string qstr = " ";
+			switch (Item->pItemData->dwQuality) //Buggy
 			{
-				CHAR Socket[10];
-				sprintf_s(Socket, sizeof(Socket), " [%d]", Sockets);
-				strcat_s(NaMe, sizeof(NaMe), Socket);
+			case 0x01:
+				qstr = "ÿc5";
+				break;
+			case 0x04:
+				qstr = "ÿc3";
+				break;
+			case 0x05:
+				qstr = "ÿc2";
+				break;
+			case 0x06:
+				qstr = "ÿc9";
+				break;
+			case 0x07:
+				qstr = "ÿc4";
+				break;
+			case 0x08:
+				qstr = "ÿc8";
+				break;
 			}
-		}
 
-		if (V_ItemLevel)
+			std::string str(NaMe);
+			std::string str2(QUTY);
+			std::string str3 = qstr + str2 + str;
+
+			CHAR Result[1000];
+
+			if (Quantity && Quantity > 1)
+				sprintf_s(Result, sizeof(Result), "%s%s(s)", QUTY, NaMe);
+			else
+				sprintf_s(Result, sizeof(Result), "%s%s", QUTY, NaMe);
+
+			if (Item->pItemData->dwFlags & 0x400000 && V_Ethereal)
+			{
+				CHAR Ethereal[20] = " ÿc4[ÿc3Eÿc4]";
+				strcat_s(Result, sizeof(Result), Ethereal);
+			}
+
+			if (V_Sockets)
+			{
+				INT Sockets = GetUnitStat(Item, STAT_SOCKETS);
+
+				if (Sockets > 0)
+				{
+					CHAR Socket[20];
+					sprintf_s(Socket, sizeof(Socket), " ÿc4[ÿc5%dÿc4]", Sockets);
+					strcat_s(Result, sizeof(Result), Socket);
+				}
+			}
+
+			if (V_ItemLevel)
+			{
+				CHAR LvL[20];
+				sprintf_s(LvL, sizeof(LvL), "ÿc4[ÿc1L%iÿc4]", Item->pItemData->dwItemLevel);
+				strcat_s(Result, sizeof(Result), LvL);
+			}
+
+			MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, Result, (INT)strlen(Result), Name, (INT)strlen(Result) + 1);
+		}
+		else
 		{
-			CHAR LvL[10];
-			sprintf_s(LvL, sizeof(LvL), "[L%i]", Item->pItemData->dwItemLevel);
-			strcat_s(NaMe, sizeof(NaMe), LvL);
-		}
+			if (Item->pItemData->dwFlags & 0x400000 && V_Ethereal)
+			{
+				CHAR Ethereal[20] = " ÿc4[ÿc3Eÿc4]";
+				strcat_s(NaMe, sizeof(NaMe), Ethereal);
+			}
 
-		MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, NaMe, (INT)strlen(NaMe), Name, (INT)strlen(NaMe) + 1);
+			if (V_Sockets)
+			{
+				INT Sockets = GetUnitStat(Item, STAT_SOCKETS);
+
+				if (Sockets > 0)
+				{
+					CHAR Socket[20];
+					sprintf_s(Socket, sizeof(Socket), " ÿc4[ÿc5%dÿc4]", Sockets);
+					strcat_s(NaMe, sizeof(NaMe), Socket);
+				}
+			}
+
+			if (V_ItemLevel)
+			{
+				CHAR LvL[20];
+				sprintf_s(LvL, sizeof(LvL), "ÿc4[ÿc1L%iÿc4]", Item->pItemData->dwItemLevel);
+				strcat_s(NaMe, sizeof(NaMe), LvL);
+			}
+
+			MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, NaMe, (INT)strlen(NaMe), Name, (INT)strlen(NaMe) + 1);
+		}
 	}
 }
 
