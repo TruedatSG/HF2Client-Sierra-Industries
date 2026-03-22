@@ -390,7 +390,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 				if (Player1->IsConnected())
 				{
-					if (IsIconic(D2GFX_GetHwnd()))
+					if (!IsIconic(D2GFX_GetHwnd()))
 					{
 						POINT p = { 0 };
 						GetCursorPos(&p);
