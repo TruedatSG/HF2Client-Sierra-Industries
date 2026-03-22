@@ -1094,7 +1094,6 @@ VOID FASTCALL ItemName(WCHAR* Name, LPUNITANY Item)
 					strcat_s(NaMe, sizeof(NaMe), Socket);
 				}
 			}
-
 			if (V_ItemLevel)
 			{
 				CHAR LvL[20];

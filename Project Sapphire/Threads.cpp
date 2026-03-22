@@ -49,6 +49,9 @@ static BOOL CloseMenu = FALSE;
 static BOOL XinputLoaded = FALSE;
 static BOOL XinputNotice = TRUE;
 
+static BOOL LoadedXinput = FALSE;
+static int LoopCount = 0;
+
 BOOL STDCALL Threads(LPVOID Parameter)
 {
 	INT Thread = (INT)Parameter;
@@ -82,6 +85,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 	case PRIMARY:
 
+		/*		
 		while (TRUE)
 		{
 			SleepEx(50, TRUE);
@@ -116,6 +120,51 @@ BOOL STDCALL Threads(LPVOID Parameter)
 			}
 
 			//GameLoop();
+		}
+		*/
+		while (TRUE)
+		{
+			SleepEx(50, TRUE);
+
+			LoopCount++;
+
+			if (Me && !V_Game)
+				Game(FALSE);
+			else if (!Me && V_Game)
+				Game(TRUE);
+
+			if (LoopCount > 60 && LoadedXinput == false)
+			{
+				if (!IsIconic(D2GFX_GetHwnd()))
+				{
+					V_ThreadsAux.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEPAD));
+				}
+				LoadedXinput = true;
+			}
+
+			if (LoopCount > 3600 && LoopCount < 7200)
+			{
+				if (OOG_GetLocation() == OOG_MAIN_MENU && IsIconic(D2GFX_GetHwnd()))
+				{
+					TerminateProcess(GetCurrentProcess(), NULL);
+				}
+			}
+
+
+			if (!ClientReady(FALSE))
+				continue;
+
+			if (V_DelayedChicken)
+			{
+				SleepEx(500, TRUE);
+				V_DelayedChicken = FALSE;
+			}
+
+			if (V_DeathMessageIteration)
+			{
+				V_DeathMessageIteration = FALSE;
+				DeathMessage();
+			}
 		}
 
 		break;
@@ -341,7 +390,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 				if (Player1->IsConnected())
 				{
-					if (IsWindowVisible(D2GFX_GetHwnd()))
+					if (IsIconic(D2GFX_GetHwnd()))
 					{
 						POINT p = { 0 };
 						GetCursorPos(&p);
@@ -413,6 +462,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 						// Number keys / Belt
 						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX < -16384)
 						{
+							/*
 							//5
 							INPUT Inputs[2] = { 0 };
 
@@ -436,6 +486,9 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.wVk = 53; // virtual-key code for the "5" key
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
+							*/
+							Print(0, 2, "Sending command to use portal to wilderness.");
+							Say("1");
 
 							Sleep(BUTTONDELAY);
 
@@ -443,6 +496,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 						}
 						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX > 16383)
 						{
+							/*
 							//6
 							INPUT Inputs[2] = { 0 };
 
@@ -466,6 +520,9 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.wVk = 54; // virtual-key code for the "6" key
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
+							*/
+							Print(0, 2, "Sending command to use portal to town.");
+							Say("2");
 
 							Sleep(BUTTONDELAY);
 
@@ -473,6 +530,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 						}
 						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY < -16384)
 						{
+							/*
 							//7
 							INPUT Inputs[2] = { 0 };
 
@@ -496,6 +554,9 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.wVk = 55; // virtual-key code for the "7" key
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
+							*/
+							Print(0, 2, "Sending command to heal at NPC.");
+							Say("3");
 
 							Sleep(BUTTONDELAY);
 
@@ -503,6 +564,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 						}
 						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY > 16383)
 						{
+							/*
 							//8
 							INPUT Inputs[2] = { 0 };
 
@@ -526,6 +588,9 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.wVk = 56; // virtual-key code for the "8" key
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
+							*/
+							Print(0, 2, "Sending command to stop/start.");
+							Say("s");
 
 							Sleep(BUTTONDELAY);
 
@@ -805,6 +870,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 						}
 						if ((Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER) && (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER))
 						{
+							/*
 							INPUT Inputs[2] = { 0 };
 
 							// Set up a generic keyboard event.
@@ -827,6 +893,9 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.wVk = 57; // virtual-key code for the "9" key
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
+							*/
+							Print(0, 2, "Sending command to reload script!");
+							Say("reload");
 
 							Sleep(BUTTONDELAY);
 
@@ -2064,6 +2133,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							continue;
 						}
 					}
+					/*
 					else
 					{
 						XinputLoaded = FALSE;
@@ -2186,6 +2256,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							SendInput(2, Inputs, sizeof(INPUT));
 						}
 					}
+					*/
 				}
 			}
 		}

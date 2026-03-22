@@ -644,9 +644,9 @@ struct ItemData
 	DWORD dwQuality;				//0x00
 	DWORD _1[2];					//0x04
 	DWORD dwItemFlags;				//0x0C 1 = Owned by player, 0xFFFFFFFF = Not owned
-	DWORD _2;					//0x10
+	DWORD _2[2];					//0x10
 	DWORD dwFlags;					//0x18
-	DWORD _3;					//0x1C
+	DWORD _3[3];					//0x1C
 	DWORD dwQuality2;				//0x28
 	DWORD dwItemLevel;				//0x2C
 	WORD _4;						//0x30
@@ -662,14 +662,14 @@ struct ItemData
 	BYTE _7;						//0x46
 	WORD _8;						//0x47
 	DWORD _9[4];					//0x48
-	Inventory *pOwnerInventory;		//0x5C
+	Inventory* pOwnerInventory;		//0x5C
 	DWORD _10;						//0x60
-	UnitAny *pNextInvItem;			//0x64
+	UnitAny* pNextInvItem;			//0x64
 	BYTE _11;						//0x68
 	BYTE NodePage;					//0x69 Actual location, this is the most reliable by far
 	WORD _12;						//0x6A
 	DWORD _13[6];					//0x6C
-	UnitAny *pOwner;				//0x84
+	UnitAny* pOwner;				//0x84
 };
 
 struct ItemTxt
