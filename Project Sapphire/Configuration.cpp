@@ -7,6 +7,8 @@ CONFIGURATION C[] =
 	{"Registration",	"Key",												NULL,	INTEGER,	&V_Key},
 	{"Registration",	"Time of Release",									NULL,	INTEGER,	&V_ToR},
 
+	{"Registration",	"Enable Xinput",									NULL,	INTEGER,	&V_EnableXinput},
+
 	/*
 	{"Aim",				"On",												NULL,	BOOLEAN,	&V_Aim},
 	{"Aim",				"Block Fake Attacks/Casts",							NULL,	BOOLEAN,	&V_BlockFakes},
@@ -1703,6 +1705,17 @@ BOOL PreloadSettings()
 		V_ManaJuvDelay = 500;
 		V_TownDrinker = 0;
 	}
+#ifdef LAZARUSMOD
+	V_LifePotPercent = 75;
+	V_LifePotDelay = 2000;
+	V_LifeJuvPercent = 30;
+	V_LifeJuvDelay = 500;
+	V_ManaPotPercent = 20;
+	V_ManaPotDelay = 2000;
+	V_ManaJuvPercent = 0;
+	V_ManaJuvDelay = 500;
+	V_TownDrinker = 0;
+#endif
 
 	//Reveal
 	if (V_HaveKeyItemExp5[2] == KEYITEMCODEXP5NO2)

@@ -1394,6 +1394,8 @@ VAR(INT, RegistryNotice)
 
 VAR(CHAR, ClientVersion[16])
 
+VAR(BOOL, EnableXinput)
+
 //Administrator
 VAR(BOOL, LegitMode)
 VAR(BOOL, GMMode)

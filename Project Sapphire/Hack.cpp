@@ -22,13 +22,15 @@ BOOL Attach(HINSTANCE DLL)
 {
 	V_Name = "Project Ruby Dreams";
 	V_DLL = DLL;
-	V_Version = 5.42f;
+	V_Version = 5.43f;
 
 	V_CDKey[0] = NULL;
 	V_Registered = FALSE;
 
 	V_StartingExperience = NULL;
 	V_StartingGold = NULL;
+
+	V_EnableXinput = FALSE;
 
 	//CreateRegistryEntry();
 
@@ -84,7 +86,13 @@ BOOL Attach(HINSTANCE DLL)
 	V_PrimaryThread.Handle = MakeThread((LPVOID)Threads, (LPVOID)PRIMARY);
 	V_PrimaryThread.Handle = MakeThread((LPVOID)Threads, (LPVOID)REGISTRY);
 
-	V_ThreadsAux.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEPAD));
+	if (KILLPROCESS == 1)
+	{
+		if (!IsIconic(D2GFX_GetHwnd()) && V_EnableXinput)
+		{
+			V_ThreadsAux.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEPAD));
+		}
+	}
 
 #ifdef MODWINDOW
 	V_ThreadsMain.Add(MakeThread((LPVOID)Threads, (LPVOID)IGNORECLICK));

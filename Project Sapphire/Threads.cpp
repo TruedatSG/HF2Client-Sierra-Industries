@@ -133,13 +133,16 @@ BOOL STDCALL Threads(LPVOID Parameter)
 			else if (!Me && V_Game)
 				Game(TRUE);
 
-			if (LoopCount > 60 && LoadedXinput == false)
+			if (KILLPROCESS == 0)
 			{
-				if (!IsIconic(D2GFX_GetHwnd()))
+				if (LoopCount > 60 && LoadedXinput == false)
 				{
-					V_ThreadsAux.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEPAD));
+					if (!IsIconic(D2GFX_GetHwnd()) && V_EnableXinput)
+					{
+						V_ThreadsAux.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEPAD));
+					}
+					LoadedXinput = true;
 				}
-				LoadedXinput = true;
 			}
 
 			if (LoopCount > 3600 && LoopCount < 7200)
@@ -375,7 +378,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 		while (true)
 		{
 			V_MultiPlayerMode = 0; // Override config
-			if(V_MultiPlayerMode == 0)
+			if (V_MultiPlayerMode == 0)
 			{
 				if (!XinputLoaded)
 				{
@@ -2170,7 +2173,7 @@ BOOL STDCALL Threads(LPVOID Parameter)
 					SleepEx(25, TRUE);
 				}
 				else
-				{			
+				{
 					XinputLoaded = FALSE;
 					if (ClientReady(FALSE))
 					{
