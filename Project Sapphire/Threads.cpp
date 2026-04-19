@@ -393,23 +393,840 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 				if (Player1->IsConnected())
 				{
-					if (!IsIconic(D2GFX_GetHwnd()))
+					XinputLoaded = TRUE;
+					XinputNotice = FALSE;
+				}
+			}
+
+			if (Player1->IsConnected())
+			{
+				if (!IsIconic(D2GFX_GetHwnd()))
+				{
+					POINT p = { 0 };
+					GetCursorPos(&p);
+
+					SHORT PointerTravel = POINTERDIST;
+
+					//Joy 1
+					float rightThumbX = Player1->GetState().Gamepad.sThumbRX;
+					float rightThumbY = Player1->GetState().Gamepad.sThumbRY;
+
+					//Joy 2
+					float leftThumbX = Player1->GetState().Gamepad.sThumbLX;
+					float leftThumbY = Player1->GetState().Gamepad.sThumbLY;
+
+					//Loop Checks
+					if (unholdAlt == TRUE)
 					{
-						POINT p = { 0 };
-						GetCursorPos(&p);
+						INPUT Inputs[1] = { 0 };
 
-						SHORT PointerTravel = POINTERDIST;
+						// Complete a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
 
-						//Joy 1
-						float rightThumbX = Player1->GetState().Gamepad.sThumbRX;
-						float rightThumbY = Player1->GetState().Gamepad.sThumbRY;
+						// Release the "Alt" key
+						Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
+						Inputs[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 
-						//Joy 2
-						float leftThumbX = Player1->GetState().Gamepad.sThumbLX;
-						float leftThumbY = Player1->GetState().Gamepad.sThumbLY;
+						SendInput(1, Inputs, sizeof(INPUT));
 
-						//Loop Checks
-						if (unholdAlt == TRUE)
+						releasedAlt = TRUE;
+						holdAlt = FALSE;
+						unholdAlt = FALSE;
+
+						Sleep(BUTTONDELAY);
+					}
+
+					//Combo Buttons
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_A)
+					{
+					}
+					else
+					{
+					}
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_X)
+					{
+					}
+					else
+					{
+					}
+
+					/* Old skill buttons
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_B)
+					{
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_Y)
+					{
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					*/
+
+					// Number keys / Belt
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX < -16384)
+					{
+						//5
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "5" key
+						Inputs[0].ki.wVk = 53; // virtual-key code for the "5" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "5" key
+						Inputs[1].ki.wVk = 53; // virtual-key code for the "5" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX > 16383)
+					{
+						//6
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "6" key
+						Inputs[0].ki.wVk = 54; // virtual-key code for the "6" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "6" key
+						Inputs[1].ki.wVk = 54; // virtual-key code for the "6" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY < -16384)
+					{
+						//7
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "7" key
+						Inputs[0].ki.wVk = 55; // virtual-key code for the "7" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "7" key
+						Inputs[1].ki.wVk = 55; // virtual-key code for the "7" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY > 16383)
+					{
+						//8
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "8" key
+						Inputs[0].ki.wVk = 56; // virtual-key code for the "8" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "8" key
+						Inputs[1].ki.wVk = 56; // virtual-key code for the "8" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX < -16384)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "G" key
+						Inputs[0].ki.wVk = 71; // virtual-key code for the "G" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "G" key
+						Inputs[1].ki.wVk = 71; // virtual-key code for the "G" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX > 16383)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "U" key
+						Inputs[0].ki.wVk = 85; // virtual-key code for the "U" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "U" key
+						Inputs[1].ki.wVk = 85; // virtual-key code for the "U" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY < -16384)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "X" key
+						Inputs[0].ki.wVk = 88; // virtual-key code for the "X" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "X" key
+						Inputs[1].ki.wVk = 88; // virtual-key code for the "X" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY > 16383)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Space" key
+						Inputs[0].ki.wVk = 32; // virtual-key code for the "Space" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Space" key
+						Inputs[1].ki.wVk = 32; // virtual-key code for the "Space" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+
+					// Number keys / Belt
+					if (rightThumbX < -16384)
+					{
+						//1
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "1" key
+						Inputs[0].ki.wVk = 49; // virtual-key code for the "1" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "1" key
+						Inputs[1].ki.wVk = 49; // virtual-key code for the "1" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						/*
+						if (V_UIClock)
+						{
+							V_Block0x30 = !V_Block0x30;
+
+							if (V_Block0x30)
+							{
+								Print(0, 0, "ÿc2Blocking Packet 0x30");
+							}
+							else
+							{
+								Print(0, 0, "ÿc2Unblocking Packet 0x30");
+							}
+						}
+						*/
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (rightThumbX > 16383)
+					{
+						//2
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "2" key
+						Inputs[0].ki.wVk = 50; // virtual-key code for the "2" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "2" key
+						Inputs[1].ki.wVk = 50; // virtual-key code for the "2" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						/*
+						if (V_UIClock)
+						{
+							DupeOpenGate();
+						}
+						*/
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (rightThumbY < -16384)
+					{
+						//3
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "3" key
+						Inputs[0].ki.wVk = 51; // virtual-key code for the "3" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "3" key
+						Inputs[1].ki.wVk = 51; // virtual-key code for the "3" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						/*
+						if (V_UIClock)
+						{
+							DupeCloseTrade();
+						}
+						*/
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (rightThumbY > 16383)
+					{
+						//4
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "4" key
+						Inputs[0].ki.wVk = 52; // virtual-key code for the "4" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "4" key
+						Inputs[1].ki.wVk = 52; // virtual-key code for the "4" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if ((Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER) && (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER))
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "9" key
+						Inputs[0].ki.wVk = 57; // virtual-key code for the "9" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "9" key
+						Inputs[1].ki.wVk = 57; // virtual-key code for the "9" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					/* Don't really need this in expansion
+					if ((Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_X && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER) && !(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER))
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "`" key
+						Inputs[0].ki.wVk = 192; // virtual-key code for the "`" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "`" key
+						Inputs[1].ki.wVk = 192; // virtual-key code for the "`" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					*/
+					/*
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Alt" key
+						Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Alt" key
+						Inputs[1].ki.wVk = 18; // virtual-key code for the "Alt" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					*/
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER)
+					{
+						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_BACK)
+						{
+							INPUT Inputs[2] = { 0 };
+
+							// Set up a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
+
+							// Press the "Alt" key
+							Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
+							Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+							Sleep(25);
+
+							// Complete a generic keyboard event.
+							Inputs[1].type = INPUT_KEYBOARD;
+							Inputs[1].ki.wScan = 0; // hardware scan code for key
+							Inputs[1].ki.time = 0;
+							Inputs[1].ki.dwExtraInfo = 0;
+
+							// Press the "Esc" key
+							Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
+							Inputs[1].ki.dwFlags = 0; // 0 for key press
+
+							SendInput(2, Inputs, sizeof(INPUT));
+
+							Sleep(25);
+
+							INPUT Inputs2[1] = { 0 };
+
+							// Set up a generic keyboard event.
+							Inputs2[0].type = INPUT_KEYBOARD;
+							Inputs2[0].ki.wScan = 0; // hardware scan code for key
+							Inputs2[0].ki.time = 0;
+							Inputs2[0].ki.dwExtraInfo = 0;
+
+							// Release the "Esc" key
+							Inputs2[0].ki.wVk = 27; // virtual-key code for the "Tab" key
+							Inputs2[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+
+							// Complete a generic keyboard event.
+							Inputs2[1].type = INPUT_KEYBOARD;
+							Inputs2[1].ki.wScan = 0; // hardware scan code for key
+							Inputs2[1].ki.time = 0;
+							Inputs2[1].ki.dwExtraInfo = 0;
+
+							// Release the "Alt" key
+							Inputs2[1].ki.wVk = 18; // virtual-key code for the "Alt" key
+							Inputs2[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+							SendInput(2, Inputs2, sizeof(INPUT));
+
+							Sleep(BUTTONDELAY);
+
+							continue;
+						}
+						INPUT Inputs[1] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Alt" key
+						Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						SendInput(1, Inputs, sizeof(INPUT));
+
+						releasedAlt = FALSE;
+					}
+					else
+					{
+						if (releasedAlt == FALSE)
+						{
+							INPUT Inputs[1] = { 0 };
+
+							// Complete a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
+
+							// Release the "Alt" key
+							Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
+							Inputs[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+
+							SendInput(1, Inputs, sizeof(INPUT));
+
+							Sleep(BUTTONDELAY); // Need a release delay here
+
+							releasedAlt = TRUE;
+							if (holdAlt == TRUE)
+							{
+								holdAlt = FALSE;
+							}
+						}
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "O" key
+						Inputs[0].ki.wVk = 79; // virtual-key code for the "O" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "O" key
+						Inputs[1].ki.wVk = 79; // virtual-key code for the "O" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_Y && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "W" key
+						Inputs[0].ki.wVk = 87; // virtual-key code for the "W" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "W" key
+						Inputs[1].ki.wVk = 87; // virtual-key code for the "W" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if ((Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && holdAlt == FALSE)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "P" key
+						Inputs[0].ki.wVk = 80; // virtual-key code for the "P" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "P" key
+						Inputs[1].ki.wVk = 80; // virtual-key code for the "P" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+
+					//Buttons
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START)
+					{
+						//New configuration for arrows to speed up input
+						if ((!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbY > 16383) && holdAlt == FALSE)
+						{
+							INPUT Inputs[2] = { 0 };
+							// Set up a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
+
+							// Press the "Up Arrow" key
+							Inputs[0].ki.wVk = 38; // virtual-key code for the "Up Arrow" key
+							Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+							Sleep(3);
+
+							// Complete a generic keyboard event.
+							Inputs[1].type = INPUT_KEYBOARD;
+							Inputs[1].ki.wScan = 0; // hardware scan code for key
+							Inputs[1].ki.time = 0;
+							Inputs[1].ki.dwExtraInfo = 0;
+
+							// Release the "Up Arrow" key
+							Inputs[1].ki.wVk = 38; // virtual-key code for the "Up Arrow" key
+							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+							SendInput(2, Inputs, sizeof(INPUT));
+
+							Sleep(3);
+
+							continue;
+						}
+						if ((!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbY < -16384) && holdAlt == FALSE)
+						{
+							INPUT Inputs[2] = { 0 };
+
+							// Set up a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
+
+							// Press the "Down Arrow" key
+							Inputs[0].ki.wVk = 40; // virtual-key code for the "Down Arrow" key
+							Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+							Sleep(3);
+
+							// Complete a generic keyboard event.
+							Inputs[1].type = INPUT_KEYBOARD;
+							Inputs[1].ki.wScan = 0; // hardware scan code for key
+							Inputs[1].ki.time = 0;
+							Inputs[1].ki.dwExtraInfo = 0;
+
+							// Release the "Down Arrow" key
+							Inputs[1].ki.wVk = 40; // virtual-key code for the "Down Arrow" key
+							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+							SendInput(2, Inputs, sizeof(INPUT));
+
+							Sleep(3);
+
+							continue;
+						}
+						if (holdAlt == FALSE)
+						{
+							INPUT Inputs[1] = { 0 };
+
+							// Set up a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
+
+							// Press the "Alt" key
+							Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
+							Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+							SendInput(1, Inputs, sizeof(INPUT));
+
+							holdAlt = TRUE;
+
+							Sleep(BUTTONDELAY);
+						}
+						else if (holdAlt == TRUE)
 						{
 							INPUT Inputs[1] = { 0 };
 
@@ -427,1726 +1244,184 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 							releasedAlt = TRUE;
 							holdAlt = FALSE;
-							unholdAlt = FALSE;
 
 							Sleep(BUTTONDELAY);
-						}
-
-						//Combo Buttons
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_A)
-						{
-						}
-						else
-						{
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_X)
-						{
-						}
-						else
-						{
-						}
-
-						/* Old skill buttons
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_B)
-						{
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_Y)
-						{
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						*/
-
-						// Number keys / Belt
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX < -16384)
-						{
-							/*
-							//5
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "5" key
-							Inputs[0].ki.wVk = 53; // virtual-key code for the "5" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "5" key
-							Inputs[1].ki.wVk = 53; // virtual-key code for the "5" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-							*/
-							Print(0, 2, "Sending command to use portal to wilderness.");
-							Say("1");
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX > 16383)
-						{
-							/*
-							//6
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "6" key
-							Inputs[0].ki.wVk = 54; // virtual-key code for the "6" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "6" key
-							Inputs[1].ki.wVk = 54; // virtual-key code for the "6" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-							*/
-							Print(0, 2, "Sending command to use portal to town.");
-							Say("2");
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY < -16384)
-						{
-							/*
-							//7
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "7" key
-							Inputs[0].ki.wVk = 55; // virtual-key code for the "7" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "7" key
-							Inputs[1].ki.wVk = 55; // virtual-key code for the "7" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-							*/
-							Print(0, 2, "Sending command to heal at NPC.");
-							Say("3");
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY > 16383)
-						{
-							/*
-							//8
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "8" key
-							Inputs[0].ki.wVk = 56; // virtual-key code for the "8" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "8" key
-							Inputs[1].ki.wVk = 56; // virtual-key code for the "8" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-							*/
-							Print(0, 2, "Sending command to stop/start.");
-							Say("s");
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX < -16384)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "G" key
-							Inputs[0].ki.wVk = 71; // virtual-key code for the "G" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "G" key
-							Inputs[1].ki.wVk = 71; // virtual-key code for the "G" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbX > 16383)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "U" key
-							Inputs[0].ki.wVk = 85; // virtual-key code for the "U" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "U" key
-							Inputs[1].ki.wVk = 85; // virtual-key code for the "U" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY < -16384)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "X" key
-							Inputs[0].ki.wVk = 88; // virtual-key code for the "X" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "X" key
-							Inputs[1].ki.wVk = 88; // virtual-key code for the "X" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && rightThumbY > 16383)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "Space" key
-							Inputs[0].ki.wVk = 32; // virtual-key code for the "Space" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "Space" key
-							Inputs[1].ki.wVk = 32; // virtual-key code for the "Space" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-
-						// Number keys / Belt
-						if (rightThumbX < -16384)
-						{
-							//1
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "1" key
-							Inputs[0].ki.wVk = 49; // virtual-key code for the "1" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "1" key
-							Inputs[1].ki.wVk = 49; // virtual-key code for the "1" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							/*
-							if (V_UIClock)
-							{
-								V_Block0x30 = !V_Block0x30;
-
-								if (V_Block0x30)
-								{
-									Print(0, 0, "ÿc2Blocking Packet 0x30");
-								}
-								else
-								{
-									Print(0, 0, "ÿc2Unblocking Packet 0x30");
-								}
-							}
-							*/
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (rightThumbX > 16383)
-						{
-							//2
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "2" key
-							Inputs[0].ki.wVk = 50; // virtual-key code for the "2" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "2" key
-							Inputs[1].ki.wVk = 50; // virtual-key code for the "2" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							/*
-							if (V_UIClock)
-							{
-								DupeOpenGate();
-							}
-							*/
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (rightThumbY < -16384)
-						{
-							//3
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "3" key
-							Inputs[0].ki.wVk = 51; // virtual-key code for the "3" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "3" key
-							Inputs[1].ki.wVk = 51; // virtual-key code for the "3" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							/*
-							if (V_UIClock)
-							{
-								DupeCloseTrade();
-							}
-							*/
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (rightThumbY > 16383)
-						{
-							//4
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "4" key
-							Inputs[0].ki.wVk = 52; // virtual-key code for the "4" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "4" key
-							Inputs[1].ki.wVk = 52; // virtual-key code for the "4" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if ((Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER) && (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER))
-						{
-							/*
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "9" key
-							Inputs[0].ki.wVk = 57; // virtual-key code for the "9" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "9" key
-							Inputs[1].ki.wVk = 57; // virtual-key code for the "9" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-							*/
-							Print(0, 2, "Sending command to reload script!");
-							Say("reload");
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						/* Don't really need this in expansion
-						if ((Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_X && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER) && !(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER))
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "`" key
-							Inputs[0].ki.wVk = 192; // virtual-key code for the "`" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "`" key
-							Inputs[1].ki.wVk = 192; // virtual-key code for the "`" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						*/
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER)
-						{
-							if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_BACK)
-							{
-								INPUT Inputs[2] = { 0 };
-
-								// Set up a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Press the "Alt" key
-								Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
-								Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-								Sleep(25);
-
-								// Complete a generic keyboard event.
-								Inputs[1].type = INPUT_KEYBOARD;
-								Inputs[1].ki.wScan = 0; // hardware scan code for key
-								Inputs[1].ki.time = 0;
-								Inputs[1].ki.dwExtraInfo = 0;
-
-								// Press the "Esc" key
-								Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
-								Inputs[1].ki.dwFlags = 0; // 0 for key press
-
-								SendInput(2, Inputs, sizeof(INPUT));
-
-								Sleep(25);
-
-								INPUT Inputs2[1] = { 0 };
-
-								// Set up a generic keyboard event.
-								Inputs2[0].type = INPUT_KEYBOARD;
-								Inputs2[0].ki.wScan = 0; // hardware scan code for key
-								Inputs2[0].ki.time = 0;
-								Inputs2[0].ki.dwExtraInfo = 0;
-
-								// Release the "Esc" key
-								Inputs2[0].ki.wVk = 27; // virtual-key code for the "Tab" key
-								Inputs2[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-
-								// Complete a generic keyboard event.
-								Inputs2[1].type = INPUT_KEYBOARD;
-								Inputs2[1].ki.wScan = 0; // hardware scan code for key
-								Inputs2[1].ki.time = 0;
-								Inputs2[1].ki.dwExtraInfo = 0;
-
-								// Release the "Alt" key
-								Inputs2[1].ki.wVk = 18; // virtual-key code for the "Alt" key
-								Inputs2[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-								SendInput(2, Inputs2, sizeof(INPUT));
-
-								Sleep(BUTTONDELAY);
-
-								continue;
-							}
-							INPUT Inputs[1] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "Alt" key
-							Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							SendInput(1, Inputs, sizeof(INPUT));
-
-							releasedAlt = FALSE;
-						}
-						else
-						{
-							if (releasedAlt == FALSE)
-							{
-								INPUT Inputs[1] = { 0 };
-
-								// Complete a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Release the "Alt" key
-								Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
-								Inputs[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-
-								SendInput(1, Inputs, sizeof(INPUT));
-
-								Sleep(BUTTONDELAY); // Need a release delay here
-
-								releasedAlt = TRUE;
-								if (holdAlt == TRUE)
-								{
-									holdAlt = FALSE;
-								}
-							}
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "O" key
-							Inputs[0].ki.wVk = 79; // virtual-key code for the "O" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "O" key
-							Inputs[1].ki.wVk = 79; // virtual-key code for the "O" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_Y && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "W" key
-							Inputs[0].ki.wVk = 87; // virtual-key code for the "W" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "W" key
-							Inputs[1].ki.wVk = 87; // virtual-key code for the "W" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if ((Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && holdAlt == FALSE)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "P" key
-							Inputs[0].ki.wVk = 80; // virtual-key code for the "P" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "P" key
-							Inputs[1].ki.wVk = 80; // virtual-key code for the "P" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-
-						//Buttons
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START)
-						{
-							//New configuration for arrows to speed up input
-							if ((!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbY > 16383) && holdAlt == FALSE)
-							{
-								INPUT Inputs[2] = { 0 };
-								// Set up a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Press the "Up Arrow" key
-								Inputs[0].ki.wVk = 38; // virtual-key code for the "Up Arrow" key
-								Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-								Sleep(3);
-
-								// Complete a generic keyboard event.
-								Inputs[1].type = INPUT_KEYBOARD;
-								Inputs[1].ki.wScan = 0; // hardware scan code for key
-								Inputs[1].ki.time = 0;
-								Inputs[1].ki.dwExtraInfo = 0;
-
-								// Release the "Up Arrow" key
-								Inputs[1].ki.wVk = 38; // virtual-key code for the "Up Arrow" key
-								Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-								SendInput(2, Inputs, sizeof(INPUT));
-
-								Sleep(3);
-
-								continue;
-							}
-							if ((!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbY < -16384) && holdAlt == FALSE)
-							{
-								INPUT Inputs[2] = { 0 };
-
-								// Set up a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Press the "Down Arrow" key
-								Inputs[0].ki.wVk = 40; // virtual-key code for the "Down Arrow" key
-								Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-								Sleep(3);
-
-								// Complete a generic keyboard event.
-								Inputs[1].type = INPUT_KEYBOARD;
-								Inputs[1].ki.wScan = 0; // hardware scan code for key
-								Inputs[1].ki.time = 0;
-								Inputs[1].ki.dwExtraInfo = 0;
-
-								// Release the "Down Arrow" key
-								Inputs[1].ki.wVk = 40; // virtual-key code for the "Down Arrow" key
-								Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-								SendInput(2, Inputs, sizeof(INPUT));
-
-								Sleep(3);
-
-								continue;
-							}
-							if (holdAlt == FALSE)
-							{
-								INPUT Inputs[1] = { 0 };
-
-								// Set up a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Press the "Alt" key
-								Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
-								Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-								SendInput(1, Inputs, sizeof(INPUT));
-
-								holdAlt = TRUE;
-
-								Sleep(BUTTONDELAY);
-							}
-							else if (holdAlt == TRUE)
-							{
-								INPUT Inputs[1] = { 0 };
-
-								// Complete a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Release the "Alt" key
-								Inputs[0].ki.wVk = 18; // virtual-key code for the "Alt" key
-								Inputs[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-
-								SendInput(1, Inputs, sizeof(INPUT));
-
-								releasedAlt = TRUE;
-								holdAlt = FALSE;
-
-								Sleep(BUTTONDELAY);
-							}
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_A)
-						{
-							INPUT Inputs[1] = { 0 };
-
-							Inputs[0].type = INPUT_MOUSE;
-							Inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
-
-							SendInput(1, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							releasedLClick = FALSE;
-						}
-						else
-						{
-							if (releasedLClick == FALSE)
-							{
-								INPUT Inputs[1] = { 0 };
-
-								Inputs[0].type = INPUT_MOUSE;
-								Inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTUP;
-
-								SendInput(1, Inputs, sizeof(INPUT));
-
-								releasedLClick = TRUE;
-							}
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_X)
-						{
-							INPUT Inputs[1] = { 0 };
-
-							Inputs[0].type = INPUT_MOUSE;
-							Inputs[0].mi.dwFlags = MOUSEEVENTF_RIGHTDOWN;
-
-							SendInput(1, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							releasedRClick = FALSE;
-						}
-						else
-						{
-							if (releasedRClick == FALSE)
-							{
-								INPUT Inputs[1] = { 0 };
-
-								Inputs[0].type = INPUT_MOUSE;
-								Inputs[0].mi.dwFlags = MOUSEEVENTF_RIGHTUP;
-
-								SendInput(1, Inputs, sizeof(INPUT));
-
-								releasedRClick = TRUE;
-							}
-						}
-
-						//Expansion configuration for Y Button
-						/*
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_Y)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "W" key
-							Inputs[0].ki.wVk = 87; // virtual-key code for the "W" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "W" key
-							Inputs[1].ki.wVk = 87; // virtual-key code for the "W" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-						}
-						*/
-						//New configuration for Y Button
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_Y)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "R" key
-							Inputs[0].ki.wVk = 82; // virtual-key code for the "R" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "R" key
-							Inputs[1].ki.wVk = 82; // virtual-key code for the "R" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_BACK && holdAlt == FALSE)
-						{
-							if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
-							{
-								continue;
-							}
-
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "Tab" key
-							Inputs[0].ki.wVk = 9; // virtual-key code for the "Tab" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "Tab" key
-							Inputs[1].ki.wVk = 9; // virtual-key code for the "Tab" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START)
-						{
-							Sleep(BUTTONDELAY);
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER)
-						{
-							if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
-							{
-								INPUT Inputs[1] = { 0 };
-
-								// Complete a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Release the "Shift" key
-								Inputs[0].ki.wVk = 16; // virtual-key code for the "Shift" key
-								Inputs[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-
-								SendInput(1, Inputs, sizeof(INPUT));
-							}
-							else
-							{
-								INPUT Inputs[1] = { 0 };
-
-								// Set up a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Press the "Shift" key
-								Inputs[0].ki.wVk = 16; // virtual-key code for the "Shift" key
-								Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-								SendInput(1, Inputs, sizeof(INPUT));
-
-								releasedShift = FALSE;
-							}
-						}
-						else
-						{
-							if (releasedShift == FALSE)
-							{
-								INPUT Inputs[1] = { 0 };
-
-								// Complete a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Release the "Shift" key
-								Inputs[0].ki.wVk = 16; // virtual-key code for the "Shift" key
-								Inputs[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-
-								SendInput(1, Inputs, sizeof(INPUT));
-
-								releasedShift = TRUE;
-							}
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_B)
-						{
-							if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER || holdAlt == TRUE)
-							{
-								unholdAlt = TRUE;
-
-								continue;
-							}
-							if (V_ToggleMenu || V_ToggleStatMenu || V_ToggleInfoMenu || V_ToggleMissionMenu || V_ToggleAbilityMenu || V_ToggleGuideMenu || V_ToggleSettingMenu)
-							{
-								if (V_ToggleMenu != FALSE)
-								{
-									CloseMenu = TRUE;
-
-									V_ToggleMenu = FALSE;
-								}
-
-								V_ToggleStatMenu = FALSE;
-								V_ToggleInfoMenu = FALSE;
-								V_ToggleMissionMenu = FALSE;
-								V_ToggleAbilityMenu = FALSE;
-								V_ToggleGuideMenu = FALSE;
-								V_ToggleSettingMenu = FALSE;
-
-								V_CharacterStats = FALSE;
-
-								if (V_MenuObject != 0)
-								{
-									CloseMenu = TRUE;
-
-									V_MenuObject = 0;
-								}
-
-								V_ClickIgnore = FALSE;
-
-								V_PlayerInfoGroup = -1;
-
-								ResetInfoMenu();
-
-								V_SelectedCounterPage = 1;
-								V_SelectedCounterPageText = 1;
-
-								V_PlayerInfoListPages = 1;
-
-								V_ClickIgnoreInfo2 = FALSE;
-
-								V_SideQuestExpansion = -1;
-
-								ResetQuestsMenu();
-								ResetQuestsText();
-
-								V_SelectedQuestPage = 1;
-								V_SelectedQuestPageText = 1;
-
-								V_SideQuestListPages = 1;
-
-								V_ClickIgnoreMission2 = FALSE;
-								V_ClickIgnoreAbility2 = FALSE;
-
-								V_ClickIgnoreStat2 = FALSE;
-								V_ClickIgnoreGuide2 = FALSE;
-
-								D2CLIENT_PlaySound(STAND_PASS);
-
-								/*
-								if (*p_D2CLIENT_ScreenSizeX == 640)
-								{
-									SetCursorPos(320, 240);
-								}
-								else
-								{
-									SetCursorPos(400, 300);
-								}
-								*/
-
-								continue;
-							}
-
-							/*
-							if (*p_D2CLIENT_ScreenSizeX == 640)
-							{
-								SetCursorPos(320, 240);
-							}
-							else
-							{
-								SetCursorPos(400, 300);
-							}
-							*/
-
-							INPUT Inputs[2] = { 0 };
-
-							if (CloseMenu == TRUE)
-							{
-								// Set up a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Press the "Backspace" key
-								Inputs[0].ki.wVk = 8; // virtual-key code for the "Esc" key
-								Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-								// Complete a generic keyboard event.
-								Inputs[1].type = INPUT_KEYBOARD;
-								Inputs[1].ki.wScan = 0; // hardware scan code for key
-								Inputs[1].ki.time = 0;
-								Inputs[1].ki.dwExtraInfo = 0;
-
-								// Release the "Backspace" key
-								Inputs[1].ki.wVk = 8; // virtual-key code for the "Esc" key
-								Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-								SendInput(2, Inputs, sizeof(INPUT));
-
-								Sleep(BUTTONDELAY);
-
-								CloseMenu = FALSE;
-							}
-							else
-							{
-								// Set up a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Press the "Esc" key
-								Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
-								Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-								// Complete a generic keyboard event.
-								Inputs[1].type = INPUT_KEYBOARD;
-								Inputs[1].ki.wScan = 0; // hardware scan code for key
-								Inputs[1].ki.time = 0;
-								Inputs[1].ki.dwExtraInfo = 0;
-
-								// Release the "Esc" key
-								Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
-								Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-								SendInput(2, Inputs, sizeof(INPUT));
-
-								Sleep(BUTTONDELAY);
-							}
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
-						{
-							PointerTravel = POINTERDIST;
-						}
-						else
-						{
-							PointerTravel = POINTERDISTADD;
-						}
-
-						if (leftThumbX < -16384 && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "T" key
-							Inputs[0].ki.wVk = 84; // virtual-key code for the "T" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "T" key
-							Inputs[1].ki.wVk = 84; // virtual-key code for the "T" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (leftThumbX > 16383 && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "I" key
-							Inputs[0].ki.wVk = 73; // virtual-key code for the "I" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "I" key
-							Inputs[1].ki.wVk = 73; // virtual-key code for the "I" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (leftThumbY < -16384 && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "C" key
-							Inputs[0].ki.wVk = 67; // virtual-key code for the "C" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "C" key
-							Inputs[1].ki.wVk = 67; // virtual-key code for the "C" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (leftThumbY > 16383 && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "Q" key
-							Inputs[0].ki.wVk = 81; // virtual-key code for the "Q" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "Q" key
-							Inputs[1].ki.wVk = 81; // virtual-key code for the "Q" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbY > 16383)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "Up Arrow" key
-							Inputs[0].ki.wVk = 38; // virtual-key code for the "Up Arrow" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							Sleep(50);
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "Up Arrow" key
-							Inputs[1].ki.wVk = 38; // virtual-key code for the "Up Arrow" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(50);
-
-							continue;
-						}
-						if (!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbY < -16384)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "Down Arrow" key
-							Inputs[0].ki.wVk = 40; // virtual-key code for the "Down Arrow" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							Sleep(50);
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "Down Arrow" key
-							Inputs[1].ki.wVk = 40; // virtual-key code for the "Down Arrow" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(50);
-
-							continue;
-						}
-						if (!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbX < -16384)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "Left Arrow" key
-							Inputs[0].ki.wVk = 37; // virtual-key code for the "Left Arrow" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							Sleep(50);
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "Left Arrow" key
-							Inputs[1].ki.wVk = 37; // virtual-key code for the "Left Arrow" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(50);
-
-							continue;
-						}
-						if (!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbX > 16383)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "Right Arrow" key
-							Inputs[0].ki.wVk = 39; // virtual-key code for the "Right Arrow" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							Sleep(50);
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "Right Arrow" key
-							Inputs[1].ki.wVk = 39; // virtual-key code for the "Right Arrow" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(50);
-
-							continue;
-						}
-
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && (leftThumbX < -15000 && leftThumbY < -15001))
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "F6" key
-							Inputs[0].ki.wVk = 117; // virtual-key code for the "F6" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "F6" key
-							Inputs[1].ki.wVk = 117; // virtual-key code for the "F6" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && (leftThumbX > 15000 && leftThumbY > 15001))
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "F2" key
-							Inputs[0].ki.wVk = 113; // virtual-key code for the "F2" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "F2" key
-							Inputs[1].ki.wVk = 113; // virtual-key code for the "F2" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && (leftThumbX < -15000 && leftThumbY > 15001))
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "F8" key
-							Inputs[0].ki.wVk = 119; // virtual-key code for the "F8" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "F8" key
-							Inputs[1].ki.wVk = 119; // virtual-key code for the "F8" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && (leftThumbX > 15000 && leftThumbY < -15001))
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "F4" key
-							Inputs[0].ki.wVk = 115; // virtual-key code for the "F4" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "F4" key
-							Inputs[1].ki.wVk = 115; // virtual-key code for the "F4" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && leftThumbY < -30000)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "F5" key
-							Inputs[0].ki.wVk = 116; // virtual-key code for the "F5" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "F5" key
-							Inputs[1].ki.wVk = 116; // virtual-key code for the "F5" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && leftThumbY > 30001)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "F1" key
-							Inputs[0].ki.wVk = 112; // virtual-key code for the "F1" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "F1" key
-							Inputs[1].ki.wVk = 112; // virtual-key code for the "F1" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && leftThumbX < -30000)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "F7" key
-							Inputs[0].ki.wVk = 118; // virtual-key code for the "F7" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "F7" key
-							Inputs[1].ki.wVk = 118; // virtual-key code for the "F7" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && leftThumbX > 30001)
-						{
-							INPUT Inputs[2] = { 0 };
-
-							// Set up a generic keyboard event.
-							Inputs[0].type = INPUT_KEYBOARD;
-							Inputs[0].ki.wScan = 0; // hardware scan code for key
-							Inputs[0].ki.time = 0;
-							Inputs[0].ki.dwExtraInfo = 0;
-
-							// Press the "F3" key
-							Inputs[0].ki.wVk = 114; // virtual-key code for the "F3" key
-							Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
-
-							// Release the "F3" key
-							Inputs[1].ki.wVk = 114; // virtual-key code for the "F3" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
-
-							Sleep(BUTTONDELAY);
-
-							continue;
-						}
-
-						//Dpad
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT)
-						{
-							SetCursorPos(p.x - PointerTravel, p.y - PointerTravel);
-
-							SleepEx(POINTERSPEED, TRUE);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT)
-						{
-							SetCursorPos(p.x + PointerTravel, p.y - PointerTravel);
-
-							SleepEx(POINTERSPEED, TRUE);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT)
-						{
-							SetCursorPos(p.x - PointerTravel, p.y + PointerTravel);
-
-							SleepEx(POINTERSPEED, TRUE);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT)
-						{
-							SetCursorPos(p.x + PointerTravel, p.y + PointerTravel);
-
-							SleepEx(POINTERSPEED, TRUE);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP)
-						{
-							SetCursorPos(p.x, p.y - PointerTravel);
-
-							SleepEx(POINTERSPEED, TRUE);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN)
-						{
-							SetCursorPos(p.x, p.y + PointerTravel);
-
-							SleepEx(POINTERSPEED, TRUE);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT)
-						{
-							SetCursorPos(p.x - PointerTravel, p.y);
-
-							SleepEx(POINTERSPEED, TRUE);
-
-							continue;
-						}
-						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT)
-						{
-							SetCursorPos(p.x + PointerTravel, p.y);
-
-							SleepEx(POINTERSPEED, TRUE);
-
-							continue;
 						}
 					}
-					/*
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_A)
+					{
+						INPUT Inputs[1] = { 0 };
+
+						Inputs[0].type = INPUT_MOUSE;
+						Inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
+
+						SendInput(1, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						releasedLClick = FALSE;
+					}
 					else
 					{
-						XinputLoaded = FALSE;
-						if (!XinputNotice)
+						if (releasedLClick == FALSE)
 						{
-							Print(0, 1, "Error: Unable to locate XBOX One controller...");
+							INPUT Inputs[1] = { 0 };
 
-							XinputNotice = TRUE;
+							Inputs[0].type = INPUT_MOUSE;
+							Inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTUP;
 
-							INPUT Inputs[2] = { 0 };
+							SendInput(1, Inputs, sizeof(INPUT));
+
+							releasedLClick = TRUE;
+						}
+					}
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_X)
+					{
+						INPUT Inputs[1] = { 0 };
+
+						Inputs[0].type = INPUT_MOUSE;
+						Inputs[0].mi.dwFlags = MOUSEEVENTF_RIGHTDOWN;
+
+						SendInput(1, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						releasedRClick = FALSE;
+					}
+					else
+					{
+						if (releasedRClick == FALSE)
+						{
+							INPUT Inputs[1] = { 0 };
+
+							Inputs[0].type = INPUT_MOUSE;
+							Inputs[0].mi.dwFlags = MOUSEEVENTF_RIGHTUP;
+
+							SendInput(1, Inputs, sizeof(INPUT));
+
+							releasedRClick = TRUE;
+						}
+					}
+
+					//Expansion configuration for Y Button
+					/*
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_Y)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "W" key
+						Inputs[0].ki.wVk = 87; // virtual-key code for the "W" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "W" key
+						Inputs[1].ki.wVk = 87; // virtual-key code for the "W" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+					}
+					*/
+					//New configuration for Y Button
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_Y)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "R" key
+						Inputs[0].ki.wVk = 82; // virtual-key code for the "R" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "R" key
+						Inputs[1].ki.wVk = 82; // virtual-key code for the "R" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_BACK && holdAlt == FALSE)
+					{
+						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
+						{
+							continue;
+						}
+
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Tab" key
+						Inputs[0].ki.wVk = 9; // virtual-key code for the "Tab" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Tab" key
+						Inputs[1].ki.wVk = 9; // virtual-key code for the "Tab" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_START)
+					{
+						Sleep(BUTTONDELAY);
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER)
+					{
+						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
+						{
+							INPUT Inputs[1] = { 0 };
+
+							// Complete a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
+
+							// Release the "Shift" key
+							Inputs[0].ki.wVk = 16; // virtual-key code for the "Shift" key
+							Inputs[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+
+							SendInput(1, Inputs, sizeof(INPUT));
+						}
+						else
+						{
+							INPUT Inputs[1] = { 0 };
 
 							// Set up a generic keyboard event.
 							Inputs[0].type = INPUT_KEYBOARD;
@@ -2154,87 +1429,683 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[0].ki.time = 0;
 							Inputs[0].ki.dwExtraInfo = 0;
 
-							// Press the "Esc" key
-							Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
+							// Press the "Shift" key
+							Inputs[0].ki.wVk = 16; // virtual-key code for the "Shift" key
 							Inputs[0].ki.dwFlags = 0; // 0 for key press
 
-							// Complete a generic keyboard event.
-							Inputs[1].type = INPUT_KEYBOARD;
-							Inputs[1].ki.wScan = 0; // hardware scan code for key
-							Inputs[1].ki.time = 0;
-							Inputs[1].ki.dwExtraInfo = 0;
+							SendInput(1, Inputs, sizeof(INPUT));
 
-							// Release the "Esc" key
-							Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
-							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-							SendInput(2, Inputs, sizeof(INPUT));
+							releasedShift = FALSE;
 						}
 					}
-					SleepEx(25, TRUE);
+					else
+					{
+						if (releasedShift == FALSE)
+						{
+							INPUT Inputs[1] = { 0 };
+
+							// Complete a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
+
+							// Release the "Shift" key
+							Inputs[0].ki.wVk = 16; // virtual-key code for the "Shift" key
+							Inputs[0].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+
+							SendInput(1, Inputs, sizeof(INPUT));
+
+							releasedShift = TRUE;
+						}
+					}
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_B)
+					{
+						if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER || holdAlt == TRUE)
+						{
+							unholdAlt = TRUE;
+
+							continue;
+						}
+
+						/*
+						if (*p_D2CLIENT_ScreenSizeX == 640)
+						{
+							SetCursorPos(320, 240);
+						}
+						else
+						{
+							SetCursorPos(400, 300);
+						}
+						*/
+
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Esc" key
+						Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Esc" key
+						Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+					}
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
+					{
+						PointerTravel = POINTERDIST;
+					}
+					else
+					{
+						PointerTravel = POINTERDISTADD;
+					}
+
+					if (leftThumbX < -16384 && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "T" key
+						Inputs[0].ki.wVk = 84; // virtual-key code for the "T" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "T" key
+						Inputs[1].ki.wVk = 84; // virtual-key code for the "T" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (leftThumbX > 16383 && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "I" key
+						Inputs[0].ki.wVk = 73; // virtual-key code for the "I" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "I" key
+						Inputs[1].ki.wVk = 73; // virtual-key code for the "I" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (leftThumbY < -16384 && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "C" key
+						Inputs[0].ki.wVk = 67; // virtual-key code for the "C" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "C" key
+						Inputs[1].ki.wVk = 67; // virtual-key code for the "C" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (leftThumbY > 16383 && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Q" key
+						Inputs[0].ki.wVk = 81; // virtual-key code for the "Q" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Q" key
+						Inputs[1].ki.wVk = 81; // virtual-key code for the "Q" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbY > 16383)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Up Arrow" key
+						Inputs[0].ki.wVk = 38; // virtual-key code for the "Up Arrow" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						Sleep(50);
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Up Arrow" key
+						Inputs[1].ki.wVk = 38; // virtual-key code for the "Up Arrow" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(50);
+
+						continue;
+					}
+					if (!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbY < -16384)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Down Arrow" key
+						Inputs[0].ki.wVk = 40; // virtual-key code for the "Down Arrow" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						Sleep(50);
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Down Arrow" key
+						Inputs[1].ki.wVk = 40; // virtual-key code for the "Down Arrow" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(50);
+
+						continue;
+					}
+					if (!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbX < -16384)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Left Arrow" key
+						Inputs[0].ki.wVk = 37; // virtual-key code for the "Left Arrow" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						Sleep(50);
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Left Arrow" key
+						Inputs[1].ki.wVk = 37; // virtual-key code for the "Left Arrow" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(50);
+
+						continue;
+					}
+					if (!(Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) && leftThumbX > 16383)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Right Arrow" key
+						Inputs[0].ki.wVk = 39; // virtual-key code for the "Right Arrow" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						Sleep(50);
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Right Arrow" key
+						Inputs[1].ki.wVk = 39; // virtual-key code for the "Right Arrow" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(50);
+
+						continue;
+					}
+
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && (leftThumbX < -15000 && leftThumbY < -15001))
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "F6" key
+						Inputs[0].ki.wVk = 117; // virtual-key code for the "F6" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "F6" key
+						Inputs[1].ki.wVk = 117; // virtual-key code for the "F6" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && (leftThumbX > 15000 && leftThumbY > 15001))
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "F2" key
+						Inputs[0].ki.wVk = 113; // virtual-key code for the "F2" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "F2" key
+						Inputs[1].ki.wVk = 113; // virtual-key code for the "F2" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && (leftThumbX < -15000 && leftThumbY > 15001))
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "F8" key
+						Inputs[0].ki.wVk = 119; // virtual-key code for the "F8" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "F8" key
+						Inputs[1].ki.wVk = 119; // virtual-key code for the "F8" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && (leftThumbX > 15000 && leftThumbY < -15001))
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "F4" key
+						Inputs[0].ki.wVk = 115; // virtual-key code for the "F4" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "F4" key
+						Inputs[1].ki.wVk = 115; // virtual-key code for the "F4" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && leftThumbY < -30000)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "F5" key
+						Inputs[0].ki.wVk = 116; // virtual-key code for the "F5" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "F5" key
+						Inputs[1].ki.wVk = 116; // virtual-key code for the "F5" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && leftThumbY > 30001)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "F1" key
+						Inputs[0].ki.wVk = 112; // virtual-key code for the "F1" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "F1" key
+						Inputs[1].ki.wVk = 112; // virtual-key code for the "F1" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && leftThumbX < -30000)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "F7" key
+						Inputs[0].ki.wVk = 118; // virtual-key code for the "F7" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "F7" key
+						Inputs[1].ki.wVk = 118; // virtual-key code for the "F7" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER && leftThumbX > 30001)
+					{
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "F3" key
+						Inputs[0].ki.wVk = 114; // virtual-key code for the "F3" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "F3" key
+						Inputs[1].ki.wVk = 114; // virtual-key code for the "F3" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+
+						Sleep(BUTTONDELAY);
+
+						continue;
+					}
+
+					//Dpad
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT)
+					{
+						SetCursorPos(p.x - PointerTravel, p.y - PointerTravel);
+
+						SleepEx(POINTERSPEED, TRUE);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT)
+					{
+						SetCursorPos(p.x + PointerTravel, p.y - PointerTravel);
+
+						SleepEx(POINTERSPEED, TRUE);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT)
+					{
+						SetCursorPos(p.x - PointerTravel, p.y + PointerTravel);
+
+						SleepEx(POINTERSPEED, TRUE);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN && Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT)
+					{
+						SetCursorPos(p.x + PointerTravel, p.y + PointerTravel);
+
+						SleepEx(POINTERSPEED, TRUE);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP)
+					{
+						SetCursorPos(p.x, p.y - PointerTravel);
+
+						SleepEx(POINTERSPEED, TRUE);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN)
+					{
+						SetCursorPos(p.x, p.y + PointerTravel);
+
+						SleepEx(POINTERSPEED, TRUE);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT)
+					{
+						SetCursorPos(p.x - PointerTravel, p.y);
+
+						SleepEx(POINTERSPEED, TRUE);
+
+						continue;
+					}
+					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT)
+					{
+						SetCursorPos(p.x + PointerTravel, p.y);
+
+						SleepEx(POINTERSPEED, TRUE);
+
+						continue;
+					}
 				}
+				/*
 				else
 				{
 					XinputLoaded = FALSE;
-					if (ClientReady(FALSE))
+					if (!XinputNotice)
 					{
-						if (!XinputNotice)
+						Print(0, 1, "Error: Unable to locate XBOX One controller...");
+
+						XinputNotice = TRUE;
+
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Esc" key
+						Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Esc" key
+						Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
+					}
+				}
+				*/
+				SleepEx(25, TRUE);
+			}
+			/*
+			else
+			{
+				XinputLoaded = FALSE;
+				if (ClientReady(FALSE))
+				{
+					if (!XinputNotice)
+					{
+						Print(0, 8, "Debug: Unable to locate XBOX One controller...");
+
+						XinputNotice = TRUE;
+
+						if (GetUIVar(UI_CHAT))
 						{
-							Print(0, 8, "Debug: Unable to locate XBOX One controller...");
-
-							XinputNotice = TRUE;
-
-							if (GetUIVar(UI_CHAT))
-							{
-								INPUT Inputs[2] = { 0 };
-
-								// Set up a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Press the "Esc" key
-								Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
-								Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-								// Complete a generic keyboard event.
-								Inputs[1].type = INPUT_KEYBOARD;
-								Inputs[1].ki.wScan = 0; // hardware scan code for key
-								Inputs[1].ki.time = 0;
-								Inputs[1].ki.dwExtraInfo = 0;
-
-								// Release the "Esc" key
-								Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
-								Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-								SendInput(2, Inputs, sizeof(INPUT));
-							}
-							if (!V_Design->ClearScreen(3))
-							{
-								INPUT Inputs[2] = { 0 };
-
-								// Set up a generic keyboard event.
-								Inputs[0].type = INPUT_KEYBOARD;
-								Inputs[0].ki.wScan = 0; // hardware scan code for key
-								Inputs[0].ki.time = 0;
-								Inputs[0].ki.dwExtraInfo = 0;
-
-								// Press the "Esc" key
-								Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
-								Inputs[0].ki.dwFlags = 0; // 0 for key press
-
-								// Complete a generic keyboard event.
-								Inputs[1].type = INPUT_KEYBOARD;
-								Inputs[1].ki.wScan = 0; // hardware scan code for key
-								Inputs[1].ki.time = 0;
-								Inputs[1].ki.dwExtraInfo = 0;
-
-								// Release the "Esc" key
-								Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
-								Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-								SendInput(2, Inputs, sizeof(INPUT));
-
-								SleepEx(125, TRUE);
-							}
 							INPUT Inputs[2] = { 0 };
 
 							// Set up a generic keyboard event.
@@ -2258,12 +2129,60 @@ BOOL STDCALL Threads(LPVOID Parameter)
 							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
 							SendInput(2, Inputs, sizeof(INPUT));
 						}
+						if (!V_Design->ClearScreen(3))
+						{
+							INPUT Inputs[2] = { 0 };
+
+							// Set up a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
+
+							// Press the "Esc" key
+							Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
+							Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+							// Complete a generic keyboard event.
+							Inputs[1].type = INPUT_KEYBOARD;
+							Inputs[1].ki.wScan = 0; // hardware scan code for key
+							Inputs[1].ki.time = 0;
+							Inputs[1].ki.dwExtraInfo = 0;
+
+							// Release the "Esc" key
+							Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
+							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+							SendInput(2, Inputs, sizeof(INPUT));
+
+							SleepEx(125, TRUE);
+						}
+						INPUT Inputs[2] = { 0 };
+
+						// Set up a generic keyboard event.
+						Inputs[0].type = INPUT_KEYBOARD;
+						Inputs[0].ki.wScan = 0; // hardware scan code for key
+						Inputs[0].ki.time = 0;
+						Inputs[0].ki.dwExtraInfo = 0;
+
+						// Press the "Esc" key
+						Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
+						Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+						// Complete a generic keyboard event.
+						Inputs[1].type = INPUT_KEYBOARD;
+						Inputs[1].ki.wScan = 0; // hardware scan code for key
+						Inputs[1].ki.time = 0;
+						Inputs[1].ki.dwExtraInfo = 0;
+
+						// Release the "Esc" key
+						Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
+						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+						SendInput(2, Inputs, sizeof(INPUT));
 					}
-					*/
 				}
 			}
+			*/
 		}
-
 #endif
 
 		break;
@@ -3687,10 +3606,13 @@ VOID CreateInGameThreads()
 	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)AUTOLOGOUT));
 	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)MOVEKEYS));
 	//V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)LOBBYDELAY));
-#ifdef XINPUT
-	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)VIBRATEPAD));
-	V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)VIBRATEPAD2));
-#endif
+
+	if (V_EnableVibrate)
+	{
+		V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)VIBRATEPAD));
+		V_Threads.Add(MakeThread((LPVOID)Threads, (LPVOID)VIBRATEPAD2));
+	}
+
 }
 
 VOID DestroyInGameThreads()

@@ -22,7 +22,7 @@ BOOL Attach(HINSTANCE DLL)
 {
 	V_Name = "Project Ruby Dreams";
 	V_DLL = DLL;
-	V_Version = 5.43f;
+	V_Version = 5.44f;
 
 	V_CDKey[0] = NULL;
 	V_Registered = FALSE;
@@ -31,6 +31,7 @@ BOOL Attach(HINSTANCE DLL)
 	V_StartingGold = NULL;
 
 	V_EnableXinput = FALSE;
+	V_EnableVibrate = FALSE;
 
 	//CreateRegistryEntry();
 

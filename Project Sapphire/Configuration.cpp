@@ -8,6 +8,7 @@ CONFIGURATION C[] =
 	{"Registration",	"Time of Release",									NULL,	INTEGER,	&V_ToR},
 
 	{"Registration",	"Enable Xinput",									NULL,	INTEGER,	&V_EnableXinput},
+	{"Registration",	"Enable Vibrate",									NULL,	INTEGER,	&V_EnableVibrate},
 
 	/*
 	{"Aim",				"On",												NULL,	BOOLEAN,	&V_Aim},
