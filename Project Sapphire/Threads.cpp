@@ -1468,6 +1468,75 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 							continue;
 						}
+						if (V_ToggleMenu || V_ToggleStatMenu || V_ToggleInfoMenu || V_ToggleMissionMenu || V_ToggleAbilityMenu || V_ToggleGuideMenu || V_ToggleSettingMenu)
+						{
+							if (V_ToggleMenu != FALSE)
+							{
+								CloseMenu = TRUE;
+
+								V_ToggleMenu = FALSE;
+							}
+
+							V_ToggleStatMenu = FALSE;
+							V_ToggleInfoMenu = FALSE;
+							V_ToggleMissionMenu = FALSE;
+							V_ToggleAbilityMenu = FALSE;
+							V_ToggleGuideMenu = FALSE;
+							V_ToggleSettingMenu = FALSE;
+
+							V_CharacterStats = FALSE;
+
+							if (V_MenuObject != 0)
+							{
+								CloseMenu = TRUE;
+
+								V_MenuObject = 0;
+							}
+
+							V_ClickIgnore = FALSE;
+
+							V_PlayerInfoGroup = -1;
+
+							ResetInfoMenu();
+
+							V_SelectedCounterPage = 1;
+							V_SelectedCounterPageText = 1;
+
+							V_PlayerInfoListPages = 1;
+
+							V_ClickIgnoreInfo2 = FALSE;
+
+							V_SideQuestExpansion = -1;
+
+							ResetQuestsMenu();
+							ResetQuestsText();
+
+							V_SelectedQuestPage = 1;
+							V_SelectedQuestPageText = 1;
+
+							V_SideQuestListPages = 1;
+
+							V_ClickIgnoreMission2 = FALSE;
+							V_ClickIgnoreAbility2 = FALSE;
+
+							V_ClickIgnoreStat2 = FALSE;
+							V_ClickIgnoreGuide2 = FALSE;
+
+							D2CLIENT_PlaySound(STAND_PASS);
+
+							/*
+							if (*p_D2CLIENT_ScreenSizeX == 640)
+							{
+								SetCursorPos(320, 240);
+							}
+							else
+							{
+								SetCursorPos(400, 300);
+							}
+							*/
+
+							continue;
+						}
 
 						/*
 						if (*p_D2CLIENT_ScreenSizeX == 640)
@@ -1482,28 +1551,58 @@ BOOL STDCALL Threads(LPVOID Parameter)
 
 						INPUT Inputs[2] = { 0 };
 
-						// Set up a generic keyboard event.
-						Inputs[0].type = INPUT_KEYBOARD;
-						Inputs[0].ki.wScan = 0; // hardware scan code for key
-						Inputs[0].ki.time = 0;
-						Inputs[0].ki.dwExtraInfo = 0;
+						if (CloseMenu == TRUE)
+						{
+							// Set up a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
 
-						// Press the "Esc" key
-						Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
-						Inputs[0].ki.dwFlags = 0; // 0 for key press
+							// Press the "Backspace" key
+							Inputs[0].ki.wVk = 8; // virtual-key code for the "Esc" key
+							Inputs[0].ki.dwFlags = 0; // 0 for key press
 
-						// Complete a generic keyboard event.
-						Inputs[1].type = INPUT_KEYBOARD;
-						Inputs[1].ki.wScan = 0; // hardware scan code for key
-						Inputs[1].ki.time = 0;
-						Inputs[1].ki.dwExtraInfo = 0;
+							// Complete a generic keyboard event.
+							Inputs[1].type = INPUT_KEYBOARD;
+							Inputs[1].ki.wScan = 0; // hardware scan code for key
+							Inputs[1].ki.time = 0;
+							Inputs[1].ki.dwExtraInfo = 0;
 
-						// Release the "Esc" key
-						Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
-						Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
-						SendInput(2, Inputs, sizeof(INPUT));
+							// Release the "Backspace" key
+							Inputs[1].ki.wVk = 8; // virtual-key code for the "Esc" key
+							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+							SendInput(2, Inputs, sizeof(INPUT));
 
-						Sleep(BUTTONDELAY);
+							Sleep(BUTTONDELAY);
+
+							CloseMenu = FALSE;
+						}
+						else
+						{
+							// Set up a generic keyboard event.
+							Inputs[0].type = INPUT_KEYBOARD;
+							Inputs[0].ki.wScan = 0; // hardware scan code for key
+							Inputs[0].ki.time = 0;
+							Inputs[0].ki.dwExtraInfo = 0;
+
+							// Press the "Esc" key
+							Inputs[0].ki.wVk = 27; // virtual-key code for the "Esc" key
+							Inputs[0].ki.dwFlags = 0; // 0 for key press
+
+							// Complete a generic keyboard event.
+							Inputs[1].type = INPUT_KEYBOARD;
+							Inputs[1].ki.wScan = 0; // hardware scan code for key
+							Inputs[1].ki.time = 0;
+							Inputs[1].ki.dwExtraInfo = 0;
+
+							// Release the "Esc" key
+							Inputs[1].ki.wVk = 27; // virtual-key code for the "Esc" key
+							Inputs[1].ki.dwFlags = KEYEVENTF_KEYUP; // 0 for key press
+							SendInput(2, Inputs, sizeof(INPUT));
+
+							Sleep(BUTTONDELAY);
+						}
 					}
 
 					if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER)

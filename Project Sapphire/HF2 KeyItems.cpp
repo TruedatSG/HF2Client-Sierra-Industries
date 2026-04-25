@@ -461,7 +461,7 @@ BOOL LookForKeyItems()
 				}
 				if (V_HaveKeyItemExp1[0] == KEYITEMCODEXP1NO1)
 				{
-					if (V_ToggleKeyItem[1][0] && V_HaveKeyItemExp1[2] != KEYITEMCODEXP1NO2 && GetUnitStat(Me, STAT_LEVEL) > 11)
+					if ((V_ToggleKeyItem[1][0] && V_HaveKeyItemExp1[2] != KEYITEMCODEXP1NO2 && GetUnitStat(Me, STAT_LEVEL) > 11) || WOWMOD)
 					{
 						Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp1[2]);
 
@@ -470,7 +470,7 @@ BOOL LookForKeyItems()
 						D2CLIENT_PlaySound(STAND_PICKUP);
 						SaveKeyItems();
 					}
-					if (V_ToggleKeyItem[1][0] && V_HaveKeyItemExp1[3] != KEYITEMCODEXP1NO3 && GetUnitStat(Me, STAT_LEVEL) >= 40)
+					if ((V_ToggleKeyItem[1][0] && V_HaveKeyItemExp1[3] != KEYITEMCODEXP1NO3 && GetUnitStat(Me, STAT_LEVEL) >= 40) || WOWMOD)
 					{
 						Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp1[3]);
 
@@ -479,7 +479,7 @@ BOOL LookForKeyItems()
 						D2CLIENT_PlaySound(STAND_PICKUP);
 						SaveKeyItems();
 					}
-					if (V_ToggleKeyItem[1][0] && V_HaveKeyItemExp1[4] != KEYITEMCODEXP1NO4 && GetUnitStat(Me, STAT_LEVEL) >= 50)
+					if ((V_ToggleKeyItem[1][0] && V_HaveKeyItemExp1[4] != KEYITEMCODEXP1NO4 && GetUnitStat(Me, STAT_LEVEL) >= 50) || WOWMOD)
 					{
 						Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp1[4]);
 
@@ -488,7 +488,7 @@ BOOL LookForKeyItems()
 						D2CLIENT_PlaySound(STAND_PICKUP);
 						SaveKeyItems();
 					}
-					if (V_ToggleKeyItem[1][0] && V_HaveKeyItemExp1[5] != KEYITEMCODEXP1NO5 && GetUnitStat(Me, STAT_LEVEL) >= 50)
+					if ((V_ToggleKeyItem[1][0] && V_HaveKeyItemExp1[5] != KEYITEMCODEXP1NO5 && GetUnitStat(Me, STAT_LEVEL) >= 50) || WOWMOD)
 					{
 						Print(0, 2, "You obtained the key item %s.", V_KeyItemStrExp1[5]);
 
